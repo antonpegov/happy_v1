@@ -1,0 +1,45 @@
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<div class="omb_login" ng-cloak>
+    <h3 class="omb_authTitle">Регистрация</h3>
+    <div class="row omb_row-sm-offset-3">
+        <div class="col-xs-12 col-sm-6">
+
+
+            <form name="register" ng-submit="submit()" novalidate>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input name="email" ng-model="email" type="email" class="form-control" placeholder="email address">
+                </div>
+                <span  class="help-block"></span>
+                <p class="help-block" ng-show="register.email.$invalid"><em>введите правильный адрес</em></p>
+
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input  name="password" ng-model="password" type="password"
+                            class="form-control" placeholder="Password" >
+                </div>
+
+                <span class="help-block"></span>
+
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input name="password_confirm" ng-model="password_confirm" type="password"
+                           class="form-control" placeholder="Password Check"
+                           ui-validate=" '$value==password' "  ui-validate-watch=" 'password' ">
+                </div>
+
+                <span class="help-block"></span>
+                <p class="help-block" ng-show="register.password_confirm.$invalid">Не совпадают пароли</p>
+
+                <button ng-disabled="register.$pristine || register.$invalid || register.email.$pristine
+                    || register.password.$pristine" class="btn btn-lg btn-success btn-block" type="submit">
+                              Зарегистрироваться
+                </button>
+            </form>
+
+
+        </div>
+    </div>
+
+</div>

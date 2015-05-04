@@ -1,0 +1,12 @@
+/admin/node_modules
+/public/node_modules
+/api/node_modules
+
+dist
+.tmp
+.sass-cache
+.idea
+
+/admin/app/bower_components
+/public/app/bower_components
+/api/app/bower_components

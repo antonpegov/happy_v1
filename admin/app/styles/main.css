@@ -1,0 +1,236 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding-top: 70px ;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  /*border-bottom: 1px solid #e5e5e5;*/
+  margin-bottom: 10px;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 30px;
+  padding-bottom: 25px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  /*border-top: 1px solid #e5e5e5;*/
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 19px;
+  padding: 12px 18px;
+  margin-top:10px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 930px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect
+  .jumbotron {
+    border-bottom: 0;
+  } */
+}
+
+/*
+    Note: It is best to use a less version of this file ( see http://css2less.cc
+    For the media queries use @screen-sm-min instead of 768px.
+    For .omb_spanOr use @body-bg instead of white.
+*/
+
+@media (min-width: 768px) {
+  .omb_row-sm-offset-3 div:first-child[class*="col-"] {
+    margin-left: 25%;
+  }
+}
+
+.omb_login .omb_authTitle {
+  text-align: center;
+  line-height: 300%;
+}
+
+.omb_login .omb_socialButtons a {
+  color: white; /* In yourUse @body-bg */
+  opacity:0.9;
+}
+.omb_login .omb_socialButtons a:hover {
+  color: white;
+  opacity:1;
+
+}
+.omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;font-size: 14px;}
+.omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced; font-size: 14px;}
+.omb_login .omb_socialButtons .omb_btn-google {background: #c32f10; font-size: 14px;}
+
+.omb_login .omb_loginOr {
+  position: relative;
+  font-size: 1.5em;
+  color: #aaa;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.omb_login .omb_loginOr .omb_hrOr {
+  background-color: #cdcdcd;
+  height: 1px;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.omb_login .omb_loginOr .omb_spanOr {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: -0.6em;
+  margin-left: -1.5em;
+  background-color: white;
+  width: 3em;
+  text-align: center;
+}
+
+.omb_login .omb_loginForm .input-group.i {
+  width: 2em;
+}
+.omb_login .omb_loginForm  .help-block {
+  color: red;
+}
+
+
+@media (min-width: 768px) {
+  .omb_login .omb_forgotPwd {
+    text-align: right;
+    margin-top:10px;
+  }
+}
+/*
+    Самодельный Alert
+*/
+.main-alert {
+  max-width: 400px;
+  margin:0 auto;
+}
+.alert-hidden {
+  visibility: hidden;
+}
+.ng-invalid .ng-dirty {
+  border-color:#fa787e;
+}
+.ng-valid .ng-dirty {
+  border-color:#78fa89;
+}
+
+/*
+    Анимация с использованием angular-animate
+*/
+.ui-view-container {
+    position:relative;
+}
+[ui-view].ng-enter,
+[ui-view].ng-leave {
+    position:absolute;
+    left: 0;
+    right: 0;
+    transition: all .15s ease-out;
+    -webkit-transition: all .15s ease-out;
+    -moz-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+}
+[ui-view].ng-enter {
+  opacity: 1;
+  transform: scale3d(0.96,0.96,0.96);
+  -webkit-transform: scale3d(0.96,0.96,0.96);
+  -moz-transform: scale3d(0.96,0.96,0.96);
+}
+
+[ui-view].ng-enter-active {
+    opacity: 1;
+    transform: scale3d(1,1,1);
+    -webkit-transform: scale3d(1,1,1);
+    -moz-transform: scale3d(1,1,1);
+}
+
+[ui-view].ng-leave {
+    opacity: 0;
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+}
+[ui-view].ng-leave-active {
+  opacity: 0;
+}
+
+/* -------------------------------------
+      Стили для формы загрузки слов
+---------------------------------------*/
+.contact-form{ margin-top:15px;}
+.contact-form .textarea{ min-height:220px; resize:none;}
+.form-control{ box-shadow:none; border-color:#eee; height:49px;}
+.form-control:focus{ box-shadow:none; border-color:#00b09c;}
+.form-control-feedback{ line-height:50px;}
+.main-btn{ background:#00b09c; border-color:#00b09c; color:#fff;}
+.main-btn:hover{ background:#00a491;color:#fff;}
+.refresh-btn{ background: #ddaf3c; border-color: #ddaf3c; color:#fff;}
+.refresh-btn:hover{ background: #daac3c;color:#fff;}
+.form-control-feedback {
+  line-height: 50px;
+  top: 0px;
+}
+
+/* ------------------------------------------------------------
+      Стили для рецепции админки - симпотные кнопочки
+---------------------------------------------------------------*/
+
+.ds-btn li{ list-style:none; float:left; padding:10px; }
+.ds-btn li a span{padding-left:15px;padding-right:5px;width:100%;display:inline-block; text-align:left;}
+.ds-btn li a span small{width:100%; display:inline-block; text-align:left;}
