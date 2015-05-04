@@ -32,6 +32,6 @@ UserSchema.pre('save',function(next){
         })
     })
 });
-//ntcnlkj;lkjkljjkhgjhgkjhgkjhg
+
 module.exports = mongoose.model('User', UserSchema);
 
