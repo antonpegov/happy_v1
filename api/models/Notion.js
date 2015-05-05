@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose');
-var NotionSchema = mongoose.Schema({
+var NotionSchema = new mongoose.Schema({
     theme: String,
     rus: String,
     eng: String,

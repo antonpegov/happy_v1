@@ -6,7 +6,9 @@ dist
 .tmp
 .sass-cache
 .idea
+db-test
 
 /admin/app/bower_components
 /public/app/bower_components
 /api/app/bower_components
+/api/data

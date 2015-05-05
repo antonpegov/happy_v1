@@ -8,9 +8,10 @@
  * Controller of the happyTurtlesAppAdmin
  */
 angular.module('happyTurtlesAppAdmin')
-  .controller('LanguageAdminCtrl',function ($scope,$http,API_URL,alert,$state,$timeout) {
+  .controller('LanguageAdminCtrl',function ($scope,$http,API_URL,API_URL_ADM,alert,$state,$timeout) {
 
-      var url = API_URL + 'lang';
+      var urlCli = API_URL + 'lang';
+      var urlAdm = API_URL_ADM + 'lang';
       $scope.names = {};
       $scope.langs = {};
       $scope.editLang = {};
@@ -31,39 +32,39 @@ angular.module('happyTurtlesAppAdmin')
 
       $scope.removeLanguage = function(id){
 
-        $http.delete(API_URL + 'lang' + '?id=' +id)
+        $http.delete(urlAdm + '?id=' +id)
           .success(function(err) {
-              console.log('Sended delete request with id= ', id);
-              //alert('Success', 'Язык удалён');
-
+              if (err) console.log(err);
+                console.log('Sended delete request with id= ', id);
           })
           .error(function(err){
               console.log(err);
           });
+          
         $timeout(reload, 1000);
         console.log('=removeLanguage= is Done');
       };
 
-    /*-----------------------------------------------------------
-     Функция сохраниения объекта Language
-     ------------------------------------------------------------*/
+      /*-----------------------------------------------------------
+      Функция сохраниения объекта Language
+      ------------------------------------------------------------*/
 
-    $scope.addLanguage = function(){
-      var lang = {
-        code: $scope.lang_add,
-        names: $scope.names
-      };
+      $scope.addLanguage = function(){
+          var lang = {  
+              code: $scope.lang_add,
+              names: $scope.names
+          };
 
-      $http.post(url, lang)
-        .success(function (err) {
-          //console.log(lang,$scope.names);
-          //alert('Success','Object sent');
+      $http.post(urlAdm, lang)
+          .success(function (err) {
+              if(err) console.log(err);
+              console.log(lang,$scope.names);
         })
         .error(function (err) {
           console.log(err);
         });
 
-      $timeout(reload, 1000);
+    $timeout(reload, 1000);
     };
 
 
@@ -79,10 +80,10 @@ angular.module('happyTurtlesAppAdmin')
         names: $scope.editLang.names
       };
 
-      $http.put(url, lang)
+      $http.put(urlAdm, lang)
         .success(function (err) {
-          //console.log('sending PUT request with ',lang);
-          //alert('Success','Object sent');
+            if (err) console.log(err);
+            console.log('sending PUT request with ', lang);
         })
         .error(function (err) {
           console.log(err);
@@ -96,33 +97,31 @@ angular.module('happyTurtlesAppAdmin')
         Получаем массив объектов Language
 -------------------------------------------------------------*/
 
-      $http.get(API_URL + 'lang')
-        .success(function (langs) {
-          $scope.langs = langs;
-          //console.log('langs: ', langs);
-          // Инициализация указателя
-          if(langs[0] === undefined) return;
-          $scope.pointer = langs[0].code;
-       })
-        .error(function (err) {
-          console.log(err);
-      });
+      $http.get(urlCli)
+          .success(function (langs) {
+              $scope.langs = langs;
+              //console.log('langs: ', langs);
+              // Инициализация указателя
+              if(langs[0] === undefined) return;
+              $scope.pointer = langs[0].code;
+          })
+          .error(function (err) {
+              console.log(err);
+          });
 
 /*----------------------------------------------------------
         Получаем массив ISO-кодов и на егл основе создаём
         объект names для последующего заполнения в форме
 -----------------------------------------------------------*/
 
-        $http.get(API_URL + 'codes')
+      $http.get(API_URL + 'codes')
           .success(function (codes) {
 
-            $scope.codes = codes;
-            codes.forEach(function(entry){
-              $scope.names[entry.code]='';
-            });
-
-            //console.log('names:', $scope.names);
-        })
+              $scope.codes = codes;
+              codes.forEach(function(entry){
+                  $scope.names[entry.code]='';
+              });
+          })
           .error(function (err) {
             console.log(err);
       });
@@ -133,22 +132,20 @@ angular.module('happyTurtlesAppAdmin')
      привязаны поля формы редактирования языка
      --------------------------------------------------------------*/
 
-    $scope.click = function(id){
-      $scope.pointer = id;
-      //console.log('id= ',id);
-      $scope.langs.forEach(function(item){
-        if (item.code === $scope.pointer){
+      $scope.click = function(id){
+          $scope.pointer = id;
+          //console.log('id= ',id);
+          $scope.langs.forEach(function(item){
+              if (item.code === $scope.pointer){
+  
+                  //console.log($scope.langs.indexOf(item));
+                  $scope.pointerId = $scope.langs.indexOf(item);
+                  $scope.editLang = item;
+              }
+          });
+      };
 
-          //console.log($scope.langs.indexOf(item));
-          $scope.pointerId = $scope.langs.indexOf(item);
-          $scope.editLang = item;
-
-        }
-      });
-    };
-
-
-  });
+});
 
 
 

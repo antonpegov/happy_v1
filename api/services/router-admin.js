@@ -32,12 +32,12 @@ function validate(pass){
 
 var validateAdminMiddlewareTmp = function(req, res, next) {
 
-    console.log(('validateAdminMiddleware is turned OFF ! --------------------------------------------------------- ').red);
+    //console.log(('validateAdminMiddleware is turned OFF ! --------------------------------------------------------- ').red);
     next();
 };
 var validateAdminMiddleware = function(req, res, next) {
     console.log("AUTH HEADER:", req.headers.authorization);
-    //Временный костыль
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     if(req.query && req.query.pass){
         console.log('pass = ',req.query.pass);
         if(validate(req.query.pass)) {
@@ -61,7 +61,7 @@ var validateAdminMiddleware = function(req, res, next) {
     //console.log(('Hello from staticMiddleware! ----------------------------------------------------------------------This = ').yellow);
     //next();
 };
-// Для отключения - поменять "validateAdminMiddleware" на "validateAdminMiddlewareTmp"
+// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ "validateAdminMiddleware" пїЅпїЅ "validateAdminMiddlewareTmp"
 router.use('/', validateAdminMiddlewareTmp, express.static('../admin/app'));
 
 
@@ -93,7 +93,7 @@ router.get('/',function(req,res,next){
 //----------------------------------------------------------------
 //----------------------------------------------------------------
 //
-//                               Пасспорт
+//                               пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 //
 //----------------------------------------------------------------
 //----------------------------------------------------------------
@@ -120,7 +120,7 @@ passport.serializeUser(function(user,done){
 
 var idField = {usernameField:'email'};
 
-//--------------------- Стратегия: Логин админа------------
+//--------------------- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ------------
 
 var loginStrategy = new LocalStrategy(idField, function(email, password, done){
 
@@ -146,7 +146,7 @@ var loginStrategy = new LocalStrategy(idField, function(email, password, done){
 
 passport.use('admin-login', loginStrategy);
 
-//----------------- Стратегия: Регистрация пользователя------------
+//----------------- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ------------
 
 var registerStrategy = new LocalStrategy(idField, function (email, password, done){
 
@@ -186,7 +186,7 @@ router.post('/login', passport.authenticate('admin-login'),function(req,res){
 
 //------------------------------------------------------------------
 //
-// Функция приёма и сохранения массива понятий
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 //
 // -----------------------------------------------------------------
 
@@ -199,7 +199,7 @@ router.post('/words', function(req,res){
         //return new Promise (function (resolve,reject){
             console.log(('(addNotes)------------------------------------------------------').yellow);
             words.forEach(function(item){
-                // Проверка не наличие данных в свойствах lang1 и lang2
+                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ lang1 пїЅ lang2
                 if (typeof(item[lang1]) == 'undefined' || typeof(item[lang2]) == 'undefined'){
                     console.log('Type of lang1:', item[lang1],'Type of lang2:', item[lang2] );
                     return;
@@ -208,11 +208,11 @@ router.post('/words', function(req,res){
                 notionData.langRequest(lang1,item, function(isLang1){
 
 
-                    if (!isLang1){  // Если lang1 отсутствует в базе:
+                    if (!isLang1){  // пїЅпїЅпїЅпїЅ lang1 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ:
 
                         notionData.langRequest(lang2, item, function(isLang2){
 
-                            if (!isLang2){  // lang1 and lang2 NOT FOUND, пишем новый элемент базы
+                            if (!isLang2){  // lang1 and lang2 NOT FOUND, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
                                 console.log(('lang1 and lang2 NOT FOUND, creating new element').blue);
                                 if (!(notionData.addNewNotion(theme,lang1,item[lang1],lang2,item[lang2]))) {
@@ -222,7 +222,7 @@ router.post('/words', function(req,res){
                                     console.log(('create Error!').red);
                                 }
 
-                            } else {        // Если lang2 есть, а lang1 отсутствует
+                            } else {        // пїЅпїЅпїЅпїЅ lang2 пїЅпїЅпїЅпїЅ, пїЅ lang1 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                                 console.log(('Only lang2 FOUND').yellow);
                                 if (!notionData.updateNotion(isLang2, lang1, item[lang1])){
                                     updCount++;
@@ -233,11 +233,11 @@ router.post('/words', function(req,res){
                             }
                         });
 
-                    } else {            // Если lang1 есть в базе
+                    } else {            // пїЅпїЅпїЅпїЅ lang1 пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ
 
                         notionData.langRequest(lang2,item, function(isLang2){
 
-                            if (!isLang2){  // Если lang1 есть, а lang2 отсутствует
+                            if (!isLang2){  // пїЅпїЅпїЅпїЅ lang1 пїЅпїЅпїЅпїЅ, пїЅ lang2 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                                 console.log(('Only lang1 FOUND').yellow);
                                 if (!notionData.updateNotion(isLang1, lang2, item[lang2])){
                                     updCount++;
@@ -245,7 +245,7 @@ router.post('/words', function(req,res){
                                 } else {
                                     console.log(('update Error!').red);
                                 }
-                            } else {        // Если оба языка уже есть в базе, то отказ
+                            } else {        // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
                                 rejected.push(item);
                                 console.log(('lang1 and lang2 BOTH FOUND').red);
@@ -265,7 +265,7 @@ router.post('/words', function(req,res){
 
                             if(!notion2){
                                 // lang1 and lang2 NOT FOUND
-                                //  Пишем новый элемент базы
+                                //  пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
                                 console.log(('lang1 and lang2 NOT FOUND, creating new element').blue);
 
                                 var newNotion = new Notion();
@@ -284,7 +284,7 @@ router.post('/words', function(req,res){
                             } else {
 
                                 // Only notion2 FOUND
-                                // Пишем lang1 к найденному notion2
+                                // пїЅпїЅпїЅпїЅпїЅ lang1 пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ notion2
                                 console.log(('Only lang2 FOUND').yellow);
                                 var upsertData = notion2.toObject();
                                 upsertData[lang1] = item[lang1];
@@ -312,7 +312,7 @@ router.post('/words', function(req,res){
                             if (!notion2) {
 
                                 // lang1 NOT FOUND
-                                // Пишем значение lang2 к найденному в базе notion1
+                                // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ lang2 пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ notion1
                                 console.log(('Only lang1 FOUND').yellow);
 
                                 var upsertData = notion1.toObject();
@@ -364,7 +364,7 @@ router.post('/words', function(req,res){
 
 //-------------------------------------------------------------------
 //
-//            Модуль приёма и сохранения тем
+//            пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
 //
 //-------------------------------------------------------------------
 
@@ -426,9 +426,7 @@ router.put('/theme', function(req,res){
 router.delete('/theme', function(req,res){
 
     //console.log('got request for DELETE, themeId: ',req.query.themeId);
-    console.log(('DELETING...  Theme: "'
-    + req.body.names.eng + '" ---------').green);
-
+    console.log('Theme module: DELETING...'.green);
     Theme.find({ _id:req.query.themeId}).remove().exec();
 
     res.status(200).send(req.query.themeId + ' is deleted');
@@ -437,7 +435,7 @@ router.delete('/theme', function(req,res){
 
 //-------------------------------------------------------------------
 //
-//            Модуль приёма и сохранения языков
+//            пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 //
 //-------------------------------------------------------------------
 
@@ -450,6 +448,7 @@ router.post('/lang', function(req,res){
     });
 
     newLanguage.save(function (err) {
+        if (err) console.log(err.red);
         //console.log('body: ' ,req.body);
         //console.log('saving',newLanguage);
     });
@@ -463,13 +462,15 @@ router.put('/lang', function(req,res){
     delete req.body._id;
 
     Lang.update({_id: _id}, req.body, {upsert: true}, function (err) {
+        var name = 'noname';
         if (err) {
             console.log(err.red);
-            res.status(401).send('Error');
+            res.status(400).send('Error');
             return;
         }
+        if(req.body.names.eng) name = req.body.names.eng;
         console.log(('UPDATING...  Language: "'
-        + req.body.names.eng + '" ---------').green);
+        + name + '" ---------').green);
         res.status(200).send('Done');
         console.log(('docId: ' +_id).yellow);
     });

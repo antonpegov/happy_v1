@@ -43,6 +43,6 @@ angular.module('happyTurtlesAppAdmin')
       });
 
   })
-  .constant('API_URL_ADM','http://localhost:3000/admin/')
-  .constant('API_URL','http://localhost:3000/')
+  .constant('API_URL_ADM','/admin/')
+  .constant('API_URL','/')
   .constant('SYS_LANG', 'rus');

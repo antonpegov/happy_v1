@@ -42,37 +42,7 @@ angular.module('happyTurtlesApp').config(function($stateProvider,$urlRouterProvi
         templateUrl:'../views/login.html',
         controller:'LoginCtrl'
 
-/*
+      });
 
-      }).state('admin', {
-        url:'/admin',
-        templateUrl:'../views/admin.html',
-        controller:'AdminCtrl'
-
-
-      }).state('words-adm', {
-        url:'/words-adm',
-        templateUrl:'../views/words-adm.html',
-        controller:'WordsAdminCtrl'
-
-
-
-      }).state('language-adm', {
-        url:'/language-adm',
-        templateUrl:'../views/language-adm.html',
-        controller:'LanguageAdminCtrl'
-
-
-      }).state('theme-adm', {
-        url:'/theme-adm',
-        templateUrl:'../views/theme-adm.html',
-        controller:'ThemeAdminCtrl'
-*/
-
-      })
-
-
-      ;
-
-}).constant('API_URL','http://localhost:3000/')
+}).constant('API_URL','/')
   .constant('SYS_LANG', 'rus');

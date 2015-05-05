@@ -14,9 +14,9 @@ var jobs = ['Плотник','Столяр','Пекарь','Пахарь'];
 var userCodeWord = 'some words...';
 var app = express();
 var port = process.env.PORT;
-var db_address = "localhost/happy";
+var config = require('./config.js');
+var db_address = config.db;
 var db;
-var config = require('./config');
 
 app.use(bodyParser.json());
 
@@ -38,7 +38,7 @@ app.use('/', express.static('../public/app'));
 //----------------------------------------------------------------
 var validateUserMiddlewareTmp = function(req, res, next) {
 
-    console.log(('validateAdminMiddleware is turned OFF ! --------------------------------------------------------- ').red);
+    //console.log(('validateAdminMiddleware is turned OFF ! --------------------------------------------------------- ').red);
     next();
 };
 var validateUserMiddleware = function(req, res, next) {
@@ -270,9 +270,9 @@ mongoose.connection.on("error", function(err) {
 });
 
 try {
-    mongoose.connect("mongodb://" + db_address);
+    mongoose.connect(db_address);
     db = mongoose.connection;
-    console.log("Started connection on " + ("mongodb://" + db_address) + ", waiting for it to open...".grey);
+    console.log("Started connection on " + (db_address) + ", waiting for it to open...".grey);
 } catch (err) {
     console.log(("Setting up failed to connect to " + db_address).red, err.message);
 }

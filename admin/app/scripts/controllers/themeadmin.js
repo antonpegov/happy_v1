@@ -8,9 +8,10 @@
  * Controller of the happyTurtlesAppAdmin
  */
 angular.module('happyTurtlesAppAdmin')
-  .controller('ThemeAdminCtrl',function ($scope,$http,API_URL,$state,$timeout) {
+  .controller('ThemeAdminCtrl',function ($scope,$http,API_URL,API_URL_ADM, $state,$timeout) {
 
-    var url = API_URL + 'admin/theme';
+    var urlCli = API_URL + 'theme';
+    var urlAdm = API_URL_ADM + 'theme';
     $scope.names = {};
     $scope.modTheme = {};
     $scope.pointer = 0;
@@ -25,17 +26,19 @@ angular.module('happyTurtlesAppAdmin')
 
     $scope.removeTheme = function(){
 
-      $http.delete(url + '?themeId=' +$scope.themes[$scope.pointer]._id)
-        .success(function(err) {
-          //console.log('Sended delete request with id= ', themes[pointer]._id);
-          //alert('Success', 'Язык удалён');
-
+        $http.delete(urlAdm + '?themeId=' +$scope.themes[$scope.pointer]._id)
+            .success(function(err) {
+                if(err) console.log(err);
+            
+                console.log('Sended delete request with id= '
+                              , $scope.themes[$scope.pointer]._id);
         })
         .error(function(err){
           console.log(err);
         });
-      $timeout(reload, 2000);
-      console.log('=removeTheme= is Done');
+        
+        $timeout(reload, 2000);
+        console.log('=removeTheme= is Done');
     };
 
     /*-----------------------------------------------------------
@@ -43,18 +46,18 @@ angular.module('happyTurtlesAppAdmin')
      ------------------------------------------------------------*/
 
     $scope.addTheme = function(){
-      var theme = {
-        names: $scope.names
-      };
+        var theme = {
+            names: $scope.names
+        };
 
-      $http.post(url, theme)
-        .success(function (err) {
-          //console.log(theme,$scope.names);
-          //alert('Success','Object sent');
-        })
-        .error(function (err) {
-          console.log(err);
-        });
+        $http.post(urlAdm, theme)
+          .success(function (err) {
+              if(err) console.log(err);
+              console.log('AddTheme POST request sended...');
+          })
+          .error(function (err) {
+              console.log(err);
+          });
 
       $timeout(reload, 2000);
     };
@@ -67,32 +70,32 @@ angular.module('happyTurtlesAppAdmin')
 
     $scope.editTheme = function(){
 
-      $http.put(url, $scope.modTheme)
-        .success(function (err) {
-          //console.log('sending PUT request with ', $scope.modTheme);
-        })
-        .error(function (err) {
-          console.log(err);
-        });
+        $http.put(urlAdm, $scope.modTheme)
+          .success(function (err) {
+              if(err) console.log(err);
+              console.log('EditTheme PUT request sended...');//, $scope.modTheme);
+          })
+          .error(function (err) {
+              console.log(err);
+          });
 
-      $timeout(reload, 2000);
-      //console.log('=editTheme= is Done');
+        $timeout(reload, 2000);
     };
 
     /*------------------------------------------------------------
      Получаем массив объектов Theme
      -------------------------------------------------------------*/
 
-    $http.get(API_URL + 'theme')
+    $http.get(urlCli)
       .success(function (themes) {
-        $scope.themes = themes;
-        //console.log('themes: ', themes);
-        // Инициализация указателя
-        if(themes[0] === undefined) return;
-        $scope.pointer = 0;
+          $scope.themes = themes;
+          //console.log('themes: ', themes);
+          // Инициализация указателя
+          if(themes[0] === undefined) return;
+            $scope.pointer = 0;
       })
       .error(function (err) {
-        console.log(err);
+          console.log(err);
       });
 
     /*----------------------------------------------------------
@@ -102,16 +105,14 @@ angular.module('happyTurtlesAppAdmin')
 
     $http.get(API_URL + 'codes')
       .success(function (codes) {
-
-        $scope.codes = codes;
-        codes.forEach(function(entry){
-          $scope.names[entry.code]='';
-        });
-
-        //console.log('names:', $scope.names);
+          if(!codes) console.log('CAN"T GET LANGUAGE CODES!');
+          $scope.codes = codes;
+          codes.forEach(function(entry){
+              $scope.names[entry.code]='';
+          });
       })
       .error(function (err) {
-        console.log(err);
+          console.log(err);
       });
 
     /*--------------------------------------------------------------
@@ -121,11 +122,11 @@ angular.module('happyTurtlesAppAdmin')
 
     $scope.click = function(id){
 
-      $scope.pointer = id;
-      $scope.modTheme = $scope.themes[id];
+        $scope.pointer = id;
+        $scope.modTheme = $scope.themes[id];
             //console.log($scope.pointer);
             //console.log($scope.modTheme);
     };
-  });
+});
 
 
