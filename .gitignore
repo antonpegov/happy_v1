@@ -8,8 +8,10 @@ dist
 .idea
 db-test
 deploy
+mongod
 
 /admin/app/bower_components
 /public/app/bower_components
 /api/app/bower_components
 /api/data
+/api/config.js
