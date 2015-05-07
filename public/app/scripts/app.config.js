@@ -44,5 +44,9 @@ angular.module('happyTurtlesApp').config(function($stateProvider,$urlRouterProvi
 
       });
 
-}).constant('API_URL','/')
+  })
+  .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+      cfpLoadingBarProvider.includeSpinner = false;
+  }])
+  .constant('API_URL','/')
   .constant('SYS_LANG', 'rus');

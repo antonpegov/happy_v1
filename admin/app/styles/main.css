@@ -234,3 +234,20 @@ body {
 .ds-btn li{ list-style:none; float:left; padding:10px; }
 .ds-btn li a span{padding-left:15px;padding-right:5px;width:100%;display:inline-block; text-align:left;}
 .ds-btn li a span small{width:100%; display:inline-block; text-align:left;}
+
+/* ------------------------------------------------------------
+      Стили для админки - ДропБокс
+---------------------------------------------------------------*/
+
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    width: 400px;
+    height: 65px;
+    text-align: center;
+    padding-top: 25px;
+    margin: 10px;
+}
+.dragover {
+    border: 5px dashed blue;
+}

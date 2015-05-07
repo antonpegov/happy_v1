@@ -1,9 +1,24 @@
 var Notion = require('../models/Notion.js');
 
+exports.getWordsByTheme = function(theme, lang1, lang2, callback){
+    
+    var searchReq = { theme: theme };
+    var template = lang1 +' '+lang2;
+    Notion.find(searchReq,template, function(err, docs){
+        console.log('Message from *getWordsByTheme*:'
+                        +'sending db request with lang1 = ' + lang1 
+                        +',lang2 = ' + lang2 + ', theme = ' + theme);
+        callback(err,docs);
+        
+    });
+          
+};
+
 exports.langRequest = function (lang, notion, callback){
-     var searchReq = {};
-     searchReq[lang] = notion[lang];
-     console.log('searchReq = ', searchReq);
+    
+    var searchReq = {};
+    searchReq[lang] = notion[lang];
+    console.log('searchReq = ', searchReq);
 
     Notion.findOne(searchReq).exec(function(err,notionFound){
         if (err) return err;
@@ -35,7 +50,7 @@ exports.addNewNotion = function(theme,lang1,value1,lang2,value2){
             console.log('(addNewNotion) Item saved: ', newNotion);
             return true;
         }
-    })
+    });
 };
 
 exports.updateNotion = function(notionExist,lang,value){

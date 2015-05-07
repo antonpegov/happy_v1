@@ -5,6 +5,7 @@ var User = require('./models/User.js');
 var Lang = require('./models/Lang.js');
 var Theme = require('./models/Theme.js');
 var LangCode = require('./models/LangCode.js');
+var Notion = require('./models/Notion.js');
 var admin = require('./services/router-admin.js');
 var jwt = require('jwt-simple');
 var passport = require('passport');
@@ -15,6 +16,7 @@ var userCodeWord = 'some words...';
 var app = express();
 var port = process.env.PORT;
 var config = require('./config.js');
+var notionData = require('./services/notion-data.js');
 var db_address = config.db;
 var db;
 
@@ -30,6 +32,30 @@ app.use(function(req,res,next){
 app.use('/admin', admin);
 //app.use(express.logger('dev'));
 app.use('/', express.static('../public/app'));
+
+var connectSetTimeoutMiddleware = function(cb, duration, options){
+    
+    options = options || {};
+    options.timeoutName = options.timeoutName ||'timeoutCheck';
+    var timeoutName = options.timeoutName;
+    
+    return function (req, res, next) {
+    
+        res.connectSetTimeouts = res.connectSetTimeouts || {};
+        res.connectSetTimeouts[timeoutName] = setTimeout(function(){
+            return cb(req,res);
+        }, duration);
+        res.on('finish',function(evt){
+            clearTimeout(res.connectSetTimeouts[timeoutName]);
+        });
+        next();
+    };
+};
+app.use(connectSetTimeoutMiddleware(function(req,res){
+    console.error('Response too slow at', req.method, req.url);
+}, 10000));
+
+
 
 //----------------------------------------------------------------
 //
@@ -253,6 +279,22 @@ app.get('/codes', function(req,res){
     });
 });
 
+//=====
+
+app.get('/words', function(req, res) {
+    
+    if(!req.query.theme || !req.query.lang1 || !req.query.lang2) {
+        res.status(400).end();
+        console.log('got bad request at', req.method, req.url);
+        return;
+    }
+    notionData.getWordsByTheme(req.query.theme, req.query.lang1, req.query.lang2, function(err, words){
+        if (err) console.log(err);
+        console.log(words);
+        res.send(words);
+    });
+    
+});
 
 //-------------------------------------------------------------------
 //
@@ -276,6 +318,14 @@ try {
 } catch (err) {
     console.log(("Setting up failed to connect to " + db_address).red, err.message);
 }
+
+
+//=================================
+
+//=================================
+
+//=================================
+
 
 var server = app.listen(port,function(){
     console.log('listening on port '+ port +'...');

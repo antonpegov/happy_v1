@@ -10,15 +10,16 @@
  */
 var app = angular
   .module('happyTurtlesAppAdmin', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-    'ui.router',
-    'ui.utils',
-    'ui.select'
+    'ngAnimate'
+    ,'ngCookies'
+    ,'ngResource'
+    ,'ngRoute'
+    ,'ngSanitize'
+    ,'ngTouch'
+    ,'ui.router'
+    ,'ui.utils'
+    ,'ui.select'
+    ,'angular-loading-bar'
   ]);
 
 /**
@@ -56,4 +57,30 @@ app.filter('propsFilter', function() {
 
     return out;
   }
+});
+
+// Загрузка файла в модуле загрузки слов
+app.directive('fileReader', function() {
+  return {
+    /*scope: {
+      fileReader:"="
+    },*/
+    link: function(scope, element) {
+      $(element).on('change', function(changeEvent) {
+        var files = changeEvent.target.files;
+        if (files.length) {
+          var r = new FileReader();
+          r.onload = function(e) {
+              var contents = e.target.result;
+              scope.$apply(function () {
+                scope.fileReader = contents;
+                scope.myWords = contents;
+              });
+          };
+           
+          r.readAsText(files[0]);
+        }
+      });
+    }
+  };
 });

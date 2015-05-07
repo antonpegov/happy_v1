@@ -42,6 +42,7 @@ angular.module('happyTurtlesAppAdmin')
       return theme;
 
     }
+    
 
     /*----------------------------------------------------------
        Функция преобразования строки. Сначала разбиваем текст на массив строк,
@@ -53,7 +54,7 @@ angular.module('happyTurtlesAppAdmin')
     function transform(input, lang1, lang2, themeId){
 
         var finalArray = [];
-        var re = /\n/m;
+        var re = /\r\n/m;
         var array = input.split(re); // Разбиение на строки
         // Очистка от неформата (проверка наличия в строке символа ';')
         array.forEach(function(item){

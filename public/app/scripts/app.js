@@ -10,15 +10,18 @@
  */
 var app = angular
   .module('happyTurtlesApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
-    'ui.router',
-    'ui.utils',
-    'ui.select'
+    'ngAnimate'
+    ,'ngCookies'
+    ,'ngResource'
+    ,'ngRoute'
+    ,'ngSanitize'
+    ,'ngTouch'
+    ,'ui.router'
+    ,'ui.utils'
+    ,'ui.select'
+    ,'ui.bootstrap'
+    ,'angular-loading-bar'
+    
   ]);
  /* .config(function ($routeProvider) {
     $routeProvider

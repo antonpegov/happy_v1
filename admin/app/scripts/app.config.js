@@ -43,6 +43,9 @@ angular.module('happyTurtlesAppAdmin')
       });
 
   })
+  .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+      cfpLoadingBarProvider.includeSpinner = false;
+  }])
   .constant('API_URL_ADM','/admin/')
   .constant('API_URL','/')
   .constant('SYS_LANG', 'rus');

@@ -197,6 +197,8 @@ router.post('/words', function(req,res){
 
     function addNotions(words, theme, lang1, lang2, callback){
         //return new Promise (function (resolve,reject){
+            
+            console.log(words);
             console.log(('(addNotes)------------------------------------------------------').yellow);
             words.forEach(function(item){
                 // �������� �� ������� ������ � ��������� lang1 � lang2
@@ -204,7 +206,6 @@ router.post('/words', function(req,res){
                     console.log('Type of lang1:', item[lang1],'Type of lang2:', item[lang2] );
                     return;
                 }
-
                 notionData.langRequest(lang1,item, function(isLang1){
 
 

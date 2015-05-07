@@ -1,7 +1,7 @@
 
 var mongoose = require('mongoose');
 var NotionSchema = new mongoose.Schema({
-    theme: String,
+    theme: String,//mongoose.Schema.ObjectId,
     rus: String,
     eng: String,
     spa: String,
