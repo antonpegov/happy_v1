@@ -1,0 +1,125 @@
+﻿Французские слова на тему «Эмоции»
+1;bonheur;счастье
+2;heureux;счастливый
+3;béatitude;блаженство
+4;jubilation;ликование
+5;exulter;ликовать
+6;joie;радость
+7;avec joie;с радостью
+8;se réjouir;радоваться
+9;délice;восторг
+10;plaisir;удовольствие
+11;plaisir;наслаждение
+12;heureux;довольный
+13;joyeux;веселый
+14;sans soucis;беззаботный
+15;tranquillité d'esprit;спокойствие
+16;la paix;покой
+17;au calme;тихий
+18;calmer;успокоить
+19;calmer;успокоиться
+20;tranquille;безмятежный
+21;intérêt;интерес
+22;susciter l'intérêt;вызывать интерес
+23;intéressant;интересный
+24;attrayant;привлекательный
+25;intéressées;заинтересованный
+26;excitation;возбуждение
+27;l'excitation;волнение
+28;excitant;возбуждающий
+29;palpitante;захватывающий
+30;imperturbable;невозмутимый
+31;la compassion;сострадание
+32;sympathie;сочувствие
+33;sympathique;сочувствующий
+34;sympathiser;сочувствовать
+35;Désolé;жалеть
+36;indifférence;безразличие
+37;indifférent;безразличный
+38;apathie;апатия
+39;apathique;апатичный
+40;ennui;скука
+41;ennuyeux;скучный
+42;colère;гнев
+43;en colère;в гневе
+44;fureur;ярость
+45;furieux;яростный
+46;indignation;негодование
+47;indigné;негодующий
+48;en colère;сердитый
+49;colère;злить
+50;infraction;обида
+51;offenser;обидеть
+52;ennui;досада
+53;plein de ressentiment;обиженный
+54;anxiété;тревога
+55;Difficulté;тревожить
+56;s'inquiéter;беспокоить
+57;tendu;встревоженный
+58;préoccupation;беспокойство
+59;perturbé;очень взволнованный
+60;nerveux;нервный
+61;irriter;раздражать
+62;irrité;раздраженный
+63;agacé;раздосадоыванный
+64;concerné;озабоченный
+65;tendue;напряженный
+66;satisfaction;удовлетворение
+67;satisfaire;удовлетворить
+68;S'il vous plaît;угождать
+69;costume;устраивать
+70;insatisfaction;неудовлетворенность
+71;insatisfait;неудовлетворенный
+72;mécontentement;недовольство
+73;mécontents;недовольный
+74;déception;разочарование
+75;déçu;разочарованный
+76;profondément déçu;глубоко разочарованный
+77;peur;страх
+78;terrible;страшный
+79;terrible;ужасный
+80;frayeur;испуг
+81;effrayer;испугать
+82;peur;испуганный
+83;horreur;ужас
+84;terrifier;ужасать
+85;peur;бояться
+86;jalousie;ревность
+87;jaloux;ревнивый
+88;envie;зависть
+89;envieux;завистливый
+90;être envieux;завидовать
+91;tristesse;грусть
+92;triste;грустный
+93;triste;грустить
+94;manquer;скучать
+95;tristesse;печаль
+96;triste;печальный
+97;morosité;уныние
+98;dépression;депрессия
+99;Sombre;унылый
+100;triste;невеселый
+101;déprimé;невеселый
+102;le malheur;несчастье
+103;misérable;несчастный
+104;malheureux;несчастливый
+105;chagrin;горе
+106;le cœur brisé;убитый горем
+107;inquiéter;переживать
+108;désespoir;отчаяние
+109;en désespoir de cause;в отчаянии
+110;pathétique;жалкий
+111;bouleversé;расстроенный
+112;surprise;удивление
+113;surprenant;удивательный
+114;merveilleux;чудесный
+115;incroyable;изумительный
+116;frappant;поразительный
+117;superbe;потрясающий
+118;être surpris;удивляться
+119;frapper;поразить
+120;être étonné;поразиться
+121;étonner;изумлять
+122;étourdir;ошеломлять
+123;superbe;ошеломляющий
+Подготовлено сервисом http://french.studyfun.ru/

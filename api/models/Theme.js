@@ -7,6 +7,7 @@ var ThemeSchema = new mongoose.Schema({
         spa: String,
         fra: String,
         deu: String,
+        ita: String,
         chn: String
     }
 });

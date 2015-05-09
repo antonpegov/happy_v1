@@ -1,0 +1,165 @@
+﻿Французские слова на тему «Образование»
+1;éducation;образование
+2;instruits;образованный
+3;éducation;воспитание
+4;adopter;усыновлять
+5;mettre en place;воспитывать
+6;enseignant;учитель
+7;élève;ученик
+8;étudiant;студент
+9;bien élevé;воспитанный
+10;malappris;невоспитанный
+11;tuteur;опекун
+12;développement;развитие
+13;Crêche-Garderie;ясли
+14;jardin d'enfants;детский сад
+15;compétente;компетентный
+16;incompétent;некомпетентный
+17;alphabétisés;грамотный
+18;analphabètes;неграмотный
+19;école;школа
+20;Gymnase;гимназия
+21;Lycée;лицей
+22;internat;интернат
+23;Collège;колледж
+24;Institut;институт
+25;Université;университет
+26;Académie;академия
+27;Conservatoire;консерватория
+28;Faculté;факультет
+29;Département;кафедра
+30;tête;заведующий кафедрой
+31;études de troisième cycle;аспирантура
+32;troisième cycle;аспирант
+33;classe;класс
+34;cours;курс
+35;Apprendre;учиться
+36;Apprendre;изучать
+37;enseigner;учить
+38;frais de scolarité;плата за обучение
+39;études;учеба
+40;préparation;подготовка
+41;programme de formation;программа обучения
+42;Plan de cours;план лекций
+43;cours pratique;практический курс
+44;pratique;практика
+45;enseignement;преподавание
+46;Professeur;преподаватель в институте
+47;sujet;предмет обучения
+48;répétition;повторение
+49;exercice;упражнение
+50;leçon;урок
+51;Conférence;лекция
+52;Séminaire;семинар
+53;pause;перерыв
+54;examens;экзамены
+55;vacances;каникулы
+56;vacances;праздники
+57;tutoriel;учебник
+58;Apprêt;букварь
+59;livre de référence;справочник
+60;Dictionnaire;словарь
+61;Glossaire;глоссарий
+62;Atlas;атлас
+63;carte;карта
+64;calendrier;расписание
+65;histoire;история
+66;littérature;литература
+67;langue;язык
+68;botanique;ботаника
+69;zoologie;зоология
+70;Biologie;биология
+71;Anatomie;анатомия
+72;Géographie;география
+73;Astronomie;астрономия
+74;Mathématiques;математика
+75;algèbre;алгебра
+76;géométrie;геометрия
+77;trigonométrie;тригонометрия
+78;Physique;физика
+79;Chimie;химия
+80;musique;музыка
+81;dessin;рисование
+82;dessin technique;черчение
+83;éducation physique;физкультура
+84;travail à domicile;домашнее задание
+85;somme;пример (математический)
+86;question;вопрос
+87;réponse;ответ
+88;finales;выпускные экзамены
+89;compensation;зачет
+90;examiner;экзаменовать
+91;examinateur;экзаминатор
+92;texte;текст
+93;demander;спрашивать урок
+94;corriger;исправлять
+95;radier;списывать
+96;invite;подсказать
+97;lit de bébé;шпаргалка
+98;évaluation;оценка
+99;marque;отметка
+100;excellent;отлично
+101;Bien;хорошо
+102;satisfaisante;удовлетворительно
+103;insatisfaisant;неудовлетворительно
+104;Diplômé;выпускник
+105;expulser;отчислить
+106;journal;дневник
+107;s'inscrire;журнал
+108;certificat;аттестат
+109;certificat;свидетельство
+110;Diplôme;диплом
+111;maître d'école;педагог
+112;Professeur agrégé;доцент
+113;écolier;школьник
+114;écolière;школьница
+115;élève de la première classe;первоклассник
+116;lve de la classe supérieur;старшеклассник
+117;camarade de classe;одноклассник
+118;étudiant de première année;первокурсник
+119;étudiant de cycle supérieur;старшекурсник
+120;Stagiaire;стажер
+121;baccalauréat;бакалавр
+122;maître;магистр
+123;proviseur;директор школы
+124;Bureau du doyen;деканат
+125;doyen;декан
+126;Recteur;ректор
+127;Bureau du directeur;ректорат
+128;vice-recteur;проректор
+129;public;аудитория
+130;Bureau privé;кабинет
+131;laboratoire;лаборатория
+132;bureau;парта
+133;tableau noir;доска
+134;Mel;мел
+135;sac;сумка
+136;stylo;ручка
+137;crayon;карандаш
+138;Plumier;пенал
+139;feutre;фломастер
+140;règle;линейка
+141;Compas;циркуль
+142;cahier;тетрадь
+143;Bloc-notes;блокнот
+144;papier;бумага
+145;page;страница
+146;marge;поля
+147;écrire;писать
+148;effacer;стереть
+149;dactylographie;набирать текст
+150;ordinateur;компьютер
+151;écran;экран
+152;clavier;клавиатура
+153;Affichage;дисплей
+154;imprimante;принтер
+155;impressions;распечатка
+156;souris;мышь компьютерная
+157;curseur;курсор
+158;disquette;дискета
+159;lecteur de disque;дисковод
+160;programme;программа
+161;logiciel;программа компьютера
+162;virus informatique;компьютерный вирус
+163;portefeuille;портфель
+Подготовлено сервисом http://french.studyfun.ru/

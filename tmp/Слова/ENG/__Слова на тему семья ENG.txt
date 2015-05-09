@@ -1,0 +1,61 @@
+﻿Английские слова на тему «Семья»
+1;mother;мать
+2;father;отец
+3;daughter;дочь
+4;son;сын
+5;sister;сестра
+6;brother;брат
+7;grandfather;дедушка
+8;grandmother;бабушка
+9;aunt;тетя
+10;uncle;дядя
+11;niece;племянница
+12;nephew;племянник
+13;parents;родители
+14;children;дети
+15;grandparents;дедушка и бабушка
+16;grandson;внук
+17;granddaughter;внучка
+18;great-grandchild;правнук
+19;twins;близнецы
+20;twin-brother;брат-близнец
+21;twin-sister;сестра-близнец
+22;cousin;двоюродный брат
+23;step-father;отчим
+24;step-mother;мачеха
+25;step-son;приемный сын
+26;step-daughter;падчерица
+27;wife;жена
+28;husband;муж
+29;widow;вдова
+30;widower;вдовец
+31;father-in-law;свекор
+32;mother-in-law;свекровь
+33;son-in-law;зять
+34;daughter-in-law;сноха
+35;brother-in-law;шурин
+36;sister-in-law;свояченица
+37;family;семья
+38;marriage;брак
+39;marry;жениться
+40;be married;состоять в браке
+41;proposal;предложение
+42;engagement;помолвка
+43;fiance;жених
+44;bride;невеста
+45;wedding;свадьба
+46;spouse;супруг
+47;married;женатый
+48;single;холостой
+49;get divorced;развестись
+50;divorce;развод
+51;relative;родственник
+52;daddy;папа
+53;mummy;мама
+54;grandniece;внучатая племянница
+55;orphan;сирота
+56;ancestor;предок
+57;descendant;потомок
+58;offspring;отпрыск
+59;parental;родительский
+Подготовлено сервисом http://studyfun.ru/

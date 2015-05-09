@@ -1,0 +1,61 @@
+﻿Итальянские слова на тему «Семья»
+1;madre;мать
+2;padre;отец
+3;figlia;дочь
+4;figlio;сын
+5;sorella;сестра
+6;fratello;брат
+7;Nonno;дедушка
+8;Nonna;бабушка
+9;zia;тетя
+10;Zio;дядя
+11;nipote;племянница
+12;il nipote;племянник
+13;genitori;родители
+14;Bambini;дети
+15;nonni;дедушка и бабушка
+16;nipote;внук
+17;nipote;внучка
+18;pronipote;правнук
+19;Gemelli;близнецы
+20;fratello gemello;брат-близнец
+21;sorella gemella;сестра-близнец
+22;cugino;двоюродный брат
+23;patrigno;отчим
+24;matrigna;мачеха
+25;il figlio adottivo;приемный сын
+26;figliastra;падчерица
+27;moglie;жена
+28;marito;муж
+29;vedova;вдова
+30;vedovo;вдовец
+31;suocero;свекор
+32;suocera;свекровь
+33;genero;зять
+34;nuora;сноха
+35;cognato;шурин
+36;cognata;свояченица
+37;famiglia;семья
+38;matrimonio;брак
+39;sposare;жениться
+40;essere sposati;состоять в браке
+41;proposta;предложение
+42;fidanzamento;помолвка
+43;lo sposo;жених
+44;sposa;невеста
+45;matrimonio;свадьба
+46;coniuge;супруг
+47;sposato;женатый
+48;singolo;холостой
+49;divorziare;развестись
+50;divorzio;развод
+51;relativo;родственник
+52;Papà;папа
+53;MAMMA;мама
+54;pronipote;внучатая племянница
+55;orfano;сирота
+56;l'antenato;предок
+57;discendente;потомок
+58;prole;отпрыск
+59;padre;родительский
+Подготовлено сервисом http://italian.studyfun.ru/

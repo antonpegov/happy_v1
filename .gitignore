@@ -3,12 +3,14 @@
 /api/node_modules
 
 dist
+.c9
 .tmp
 .sass-cache
 .idea
 db-test
 deploy
 mongod
+mongo-express
 
 /admin/app/bower_components
 /public/app/bower_components

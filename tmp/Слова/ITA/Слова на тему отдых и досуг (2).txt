@@ -1,0 +1,60 @@
+﻿Итальянские слова на тему «Отдых и досуг»
+1;resto;отдых
+2;vacanze;каникулы
+3;tempo libero;досуг
+4;riposo;отдыхать
+5;vacanze;отпуск
+6;giorno di riposo;отгул
+7;week-end;выходные
+8;località;курорт
+9;terme;курорт с минеральными водами
+10;sanatorio;санаторий
+11;pensione;пансионат
+12;Campeggio;кэмпинг
+13;Agenzia di viaggi;туристическое агентство
+14;centro turistico;турбаза
+15;tenda;палатка
+16;buono vacanza;путевка
+17;escursione;экскурсия
+18;Guida turistica;экскурсовод
+19;Guida;путеводитель
+20;escursioni a piedi;прогулка пешком
+21;viaggio;поездка
+22;ciclismo;катание на велосипеде
+23;a piedi;гулять
+24;Pic-nic;пикник
+25;viaggio turistico;туристическая поездка
+26;tour a piedi;поход
+27;Turismo;туризм
+28;visita;посетить
+29;viaggi;путешествовать
+30;Spiaggia;пляж
+31;barca;лодка
+32;prendere il sole;загорать
+33;Dacia;дача
+34;Hotel;гостиница
+35;camera;номер
+36;bagagli;багаж
+37;cassetta di sicurezza;сейф
+38;valigia;чемодан
+39;borsa;сумка
+40;Zaino;рюкзак
+41;partenza;отъезд
+42;arrivo;прибытие
+43;sveglia;будильник
+44;compresse;таблетки
+45;binocolo;бинокль
+46;Dizionario;словарь
+47;fotocamera;фотокамера
+48;kit di pronto soccorso;аптечка
+49;mappa;карта
+50;cintura di denaro;сумка на поясе
+51;taccuino;записная книжка
+52;SAPONE;мыло
+53;souvenir;сувениры
+54;cappello da sole;шляпа от солнца
+55;Guida di viaggio;путеводитель
+56;ombrello;зонт
+57;scarpe da trekking;походные ботинки
+58;Abbigliamento impermeabile;водонепроницаемая одежда
+Подготовлено сервисом http://italian.studyfun.ru/

@@ -1,0 +1,166 @@
+﻿Немецкие слова на тему «Образование»
+1;bildung;образование
+2;gebildet;образованный
+3;erziehung;воспитание
+4;erlassen;усыновлять
+5;bringen;воспитывать
+6;lehrer;учитель
+7;schüler;ученик
+8;student;студент
+9;wohlerzogene;воспитанный
+10;schlecht erzogen;невоспитанный
+11;wächter;опекун
+12;entwicklung;развитие
+13;kinderhort;ясли
+14;kindergarten;детский сад
+15;kompetent;компетентный
+16;inkompetent;некомпетентный
+17;kompetenz;грамотный
+18;analphabeten;неграмотный
+19;schule;школа
+20;gymnasium;гимназия
+21;lyzeum;лицей
+22;internat;интернат
+23;college;колледж
+24;institut;институт
+25;universität;университет
+26;akademie;академия
+27;konservatorium;консерватория
+28;fakultät;факультет
+29;abteilung;кафедра
+30;kopf;заведующий кафедрой
+31;aufbaustudium;аспирантура
+32;doktorand;аспирант
+33;klasse;класс
+34;kurs;курс
+35;lernen;учиться
+36;lernen;изучать
+37;lehren;учить
+38;studiengebühren;плата за обучение
+39;studien;учеба
+40;vorbereitung;подготовка
+41;lehrplan;программа обучения
+42;lehrplan;план лекций
+43;ausbildung;практический курс
+44;praxis;практика
+45;lehre;преподавание
+46;professor;преподаватель в институте
+47;thema;предмет обучения
+48;wiederholung;повторение
+49;übung;упражнение
+50;lektion;урок
+51;vortrag;лекция
+52;seminar;семинар
+53;pause;перерыв
+54;prüfungen;экзамены
+55;urlaub;каникулы
+56;urlaub;праздники
+57;lehrbuch;учебник
+58;grundierung;букварь
+59;nachschlagewerk;справочник
+60;wörterbuch;словарь
+61;glossar;глоссарий
+62;atlas;атлас
+63;karte;карта
+64;zeitplan;расписание
+65;geschichte;история
+66;literatur;литература
+67;sprache;язык
+68;botanik;ботаника
+69;zoologie;зоология
+70;biologie;биология
+71;anatomie;анатомия
+72;geographie;география
+73;astronomie;астрономия
+74;mathematik;математика
+75;algebra;алгебра
+76;geometrie;геометрия
+77;trigonometrie;тригонометрия
+78;physik;физика
+79;chemie;химия
+80;musik;музыка
+81;zeichnung;рисование
+82;technische zeichnung;черчение
+83;sportunterricht;физкультура
+84;hausaufgaben;домашнее задание
+85;summe;пример (математический)
+86;frage;вопрос
+87;antwort;ответ
+88;finale;выпускные экзамены
+89;test;зачет
+90;prüfen;экзаменовать
+91;prüfer;экзаминатор
+92;text;текст
+93;fragen;спрашивать урок
+94;korrigieren;исправлять
+95;abschreiben;списывать
+96;unterstützung;подсказать
+97;krippe;шпаргалка
+98;mark;оценка
+99;markierung;отметка
+100;ausgezeichnet;отлично
+101;gut;хорошо
+102;satisfactiry;удовлетворительно
+103;unbefriedigend;неудовлетворительно
+104;absolvent;выпускник
+105;vertreiben;отчислить
+106;tagebuch;дневник
+107;registrieren;журнал
+108;zertifikat;аттестат
+109;zertifikat;свидетельство
+110;diplom;диплом
+111;schulmeister;педагог
+112;außerordentlicher professor;доцент
+113;schüler;школьник
+114;schulmädchen;школьница
+115;schüler der ersten klasse;первоклассник
+116;senior-schüler;старшеклассник
+117;mitschüler;одноклассник
+118;neuling;первокурсник
+119;senior student;старшекурсник
+120;absolvent;дипломник
+121;praktikant;стажер
+122;bachelor;бакалавр
+123;master;магистр
+124;schulleiter;директор школы
+125;dekanat;деканат
+126;dekan;декан
+127;rektor;ректор
+128;rektorat;ректорат
+129;vize-rektor;проректор
+130;publikum;аудитория
+131;kabinett;кабинет
+132;labor;лаборатория
+133;schreibtisch;парта
+134;tafel;доска
+135;kreide;мел
+136;tasche;сумка
+137;stift;ручка
+138;bleistift;карандаш
+139;federmäppchen;пенал
+140;filzstift;фломастер
+141;lineal;линейка
+142;zirkel;циркуль
+143;heft;тетрадь
+144;notebook;блокнот
+145;papier;бумага
+146;seite;страница
+147;marge;поля
+148;schreiben;писать
+149;löschen;стереть
+150;typisierung;набирать текст
+151;computer;компьютер
+152;bildschirm;экран
+153;tastatur;клавиатура
+154;display;дисплей
+155;drucker;принтер
+156;ausdruck;распечатка
+157;computer-maus;мышь компьютерная
+158;cursor;курсор
+159;diskette;дискета
+160;laufwerk;дисковод
+161;programm;программа
+162;software;программа компьютера
+163;computer-virus;компьютерный вирус
+164;portfolio;портфель
+Подготовлено сервисом http://german.studyfun.ru/

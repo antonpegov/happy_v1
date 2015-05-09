@@ -1,0 +1,61 @@
+﻿Французские слова на тему «Семья»
+1;mère;мать
+2;père;отец
+3;fille;дочь
+4;fils;сын
+5;soeur;сестра
+6;frère;брат
+7;grand-père;дедушка
+8;grand-mère;бабушка
+9;tante;тетя
+10;Oncle;дядя
+11;la nièce;племянница
+12;neveu;племянник
+13;les parents;родители
+14;Enfants;дети
+15;grands-parents;дедушка и бабушка
+16;petit-fils;внук
+17;petite-fille;внучка
+18;arrière-petit-fils;правнук
+19;Gemini;близнецы
+20;frère jumeau;брат-близнец
+21;soeur jumelle;сестра-близнец
+22;cousin;двоюродный брат
+23;beau-père;отчим
+24;belle-mère;мачеха
+25;beau-fils;приемный сын
+26;belle-fille;падчерица
+27;femme;жена
+28;mari;муж
+29;veuve;вдова
+30;veuf;вдовец
+31;beau-père;свекор
+32;belle-mère;свекровь
+33;gendre;зять
+34;belle-fille;сноха
+35;beau-frère;шурин
+36;sa belle-sœur;свояченица
+37;famille;семья
+38;mariage;брак
+39;se marier;жениться
+40;se marier;состоять в браке
+41;proposition;предложение
+42;engagement;помолвка
+43;fiancé;жених
+44;mariée;невеста
+45;mariage;свадьба
+46;conjoint;супруг
+47;marié;женатый
+48;unique;холостой
+49;divorcer;развестись
+50;le divorce;развод
+51;relatif;родственник
+52;Papa;папа
+53;MAMAN;мама
+54;nièce;внучатая племянница
+55;orphelin;сирота
+56;ancêtre;предок
+57;descendant;потомок
+58;Scion;отпрыск
+59;parent;родительский
+Подготовлено сервисом http://french.studyfun.ru/

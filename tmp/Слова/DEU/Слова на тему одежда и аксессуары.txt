@@ -1,0 +1,94 @@
+﻿Немецкие слова на тему «Одежда и аксессуары»
+1;kleidung;одежда
+2;mode;мода
+3;modisch;модный
+4;putz;нарядный
+5;elegant gekleidet;нарядно одетый
+6;mantel;пальто
+7;regenmantel;плащ
+8;pelzmantel;шуба
+9;sleepskin mantel;дубленка
+10;jacke;куртка
+11;lederjacke;кожаная куртка
+12;anzug;костюм
+13;blazer;клубный пиджак
+14;smoking;смокинг
+15;frack;фрак
+16;hose;брюки
+17;jeans;джинсы
+18;shorts;шорты
+19;kleid;платье
+20;sommerkleid;сарафан
+21;bluse;блузка
+22;rock;юбка
+23;shirt;рубашка
+24;nachthemd;ночная рубашка
+25;pullover;свитер
+26;jumper;джемпер
+27;badehose;плавки
+28;badeanzug;купальник
+29;unterwäsche;белье
+30;unterwäsche;нижнее белье
+31;mike;майка
+32;t-shirt;футболка
+33;unterhose;трусы мужские
+34;höschen;трусы женские
+35;pyjama;пижама
+36;bademantel;халат банный
+37;bh;бюстгалтер
+38;kragen;воротник
+39;hülse;рукав
+40;manschette;манжеты
+41;gürtel;ремень
+42;tasche;карман
+43;handschuhe;перчатки
+44;fäustlinge;варежки
+45;schal;шарф
+46;regenschirm;зонт
+47;hut;шляпа
+48;nimmt;берет
+49;gap;кепка
+50;kopftuch;платок головной
+51;taschentuch;носовой платок
+52;schal;шаль
+53;strümpfe;чулки
+54;strumpfhosen;колготки
+55;socken;носки
+56;kniestrümpfe;гольфы
+57;verschluss;застежка
+58;taste;руговица
+59;knopfloch;петля
+60;nadel;иголка
+61;thread;нитка
+62;manschettenknöpfe;запонки
+63;verschluss;пряжка
+64;zip;молния
+65;krawatte;галстук
+66;fliege;галстук-бабочка
+67;band;лента
+68;gurt;ремень сумки
+69;tasche;сумка
+70;schmuck;ювелирное украшение
+71;ring;кольцо
+72;kette;цепочка
+73;anhänger;кулон
+74;halskette;колье
+75;perlen;бусы
+76;armband;браслет
+77;ohrringe;серьги
+78;größe;размер
+79;zu groß;велик
+80;zu klein;мал
+81;tragen;носить одежду
+82;zieh dich an;одеться
+83;tragen;надеть
+84;ausziehen;раздеть
+85;entkleiden;раздеться
+86;nackt;голый
+87;barfuß;босой
+88;aufknöpfen;расстегнуть пуговицу
+89;waschen;стирать
+90;reinigen;чистить
+91;trocken;сушить
+92;eisen;гладить белье
+Подготовлено сервисом http://german.studyfun.ru/

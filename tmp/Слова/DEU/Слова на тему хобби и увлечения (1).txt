@@ -1,0 +1,62 @@
+﻿Немецкие слова на тему «Хобби и увлечения»
+1;hobby;хобби
+2;leidenschaft;увлечение
+3;sammeln;коллекционирование
+4;sammeln;коллекционировать
+5;sammlung;коллекция
+6;sammler;коллекционер
+7;philatelie;филателия
+8;philatelist;филателист
+9;stempel;марка
+10;rarität;раритет
+11;numismatik;нумизматика
+12;numismatiker;нумизмат
+13;münze;монета
+14;abzeichen;значок
+15;postkarte;открытка
+16;buch-liebhaber;книголюб
+17;angeln;рыбная ловля
+18;angler;рыболов
+19;angel;удочка
+20;spinner;спиннинг
+21;haken;крючок
+22;jagd;охота
+23;jäger;охотник
+24;jagd;охотиться
+25;pistole;ружье
+26;gewehr;винтовка
+27;spiel;дичь
+28;netzwerk;сеть
+29;falle;ловушка
+30;stricken;вязание
+31;stricken;вязать
+32;garn;пряжа
+33;spitze;кружево
+34;sticken;вышивать
+35;nähen;шитье
+36;patchwork;лоскутное шитье
+37;nähen;шить
+38;nähmaschine;швейная машинка
+39;aquarium;аквариум
+40;blumenzucht;цветоводство
+41;blumen;цветы
+42;blumentopf;цветочный горшок
+43;dünger;удобрение
+44;boden;земля для цветов
+45;landung;посадка
+46;wasser;поливать
+47;zeichnung;рисование
+48;malerei;рисование красками
+49;rahmen;рамка
+50;keramik;керамика
+51;fotografie;фотография
+52;kamera;фотоаппарат
+53;schnappschuss;снимок
+54;player;плеер
+55;camcorder;видеокамера
+56;videorecorder;видеомагнитофон
+57;videokassette;видеокассета
+58;video-spiel;видеоигра
+59;kochen;кулинария
+60;yoga;йога
+Подготовлено сервисом http://german.studyfun.ru/

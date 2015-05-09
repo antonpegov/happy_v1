@@ -1,0 +1,73 @@
+﻿Немецкие слова на тему «Город и деревня»
+1;großstadt;большой город
+2;kleinstadt;небольшой город
+3;urban;городской
+4;stadt dweller;городской житель
+5;stadtbevölkerung;городское население
+6;die städtischen behörden;городские власти
+7;hauptstadt;столица
+8;provinzial;провинциальный
+9;landkreis;район
+10;gemeinderat;районный совет
+11;mikro-bezirk;микрорайон
+12;quartal;квартал
+13;stadtzentrum;центр города
+14;einkaufszentrum;торговый центр
+15;zentrale;центральный
+16;stadtrand;окраины
+17;vorort;пригород
+18;suburban;пригородный
+19;s-bahn;пригородный поезд
+20;land;загородный
+21;landhaus;загородный дом
+22;dorf;деревня
+23;landsmann;деревенский житель
+24;entwicklung des ländlichen;сельский
+25;datscha;дача
+26;straße;улица
+27;avenue;проспект
+28;boulevard;бульвар
+29;meer;приморский бульвар
+30;kai;набережная
+31;lane;переулок
+32;taub-gasse;глухой переулок
+33;cobbed straße;булыжная мостовая
+34;kreuzung;перекресток
+35;platz;площадь
+36;park;парк
+37;parkplatz;автостоянка
+38;laterne;фонарь
+39;pol;столб
+40;brücke;мост
+41;zimmer;помещение
+42;gebäude;здание
+43;wolkenkratzer;небоскреб
+44;haus;дом
+45;wohnhaus;жилой дом
+46;herrenhaus;особняк
+47;wohn-ferienhaus;коттердж
+48;villa;вилла
+49;hütte;изба
+50;scheune;сарай
+51;scheune;амбар
+52;lager;склад
+53;hof;двор
+54;tor;ворота
+55;unterkunft;жилье
+56;einwohner;местный житель
+57;resident;житель
+58;bevölkerung;население
+59;städter;городское население
+60;die ländliche bevölkerung;сельское население
+61;sehenswürdigkeit;достопримечательности
+62;denkmal;памятник
+63;kirche;церковь
+64;kloster;монастырь
+65;kathedrale;собор
+66;palast;дворец
+67;bildergalerie;картинная галерея
+68;bibliothek;библиотека
+69;brunnen;фонтан
+70;museum;музей
+71;zoo;зоопарк
+Подготовлено сервисом http://german.studyfun.ru/

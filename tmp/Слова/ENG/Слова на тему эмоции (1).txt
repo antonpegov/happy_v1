@@ -1,0 +1,126 @@
+﻿Английские слова на тему «Эмоции»
+1;счастье;happiness
+2;счастливый;happy
+3;блаженство;bliss
+4;ликование;exultation
+5;ликовать;exult
+6;радость;joy
+7;с радостью;gladly
+8;радоваться;rejoice
+9;восторг;delight
+10;удовольствие;pleasure
+11;наслаждение;enjoyment
+12;довольный;pleased
+13;веселый;cheerful
+14;беззаботный;carefree
+15;спокойствие;calmness
+16;покой;peace
+17;тихий;quiet
+18;успокоить;calm down
+19;успокоиться;relax
+20;безмятежный;tranquil
+21;интерес;interest
+22;вызывать интерес;arouse interest
+23;интересный;interesting
+24;привлекательный;attractive
+25;заинтересованный;interested
+26;возбуждение;excitement
+27;волнение;agitation
+28;возбуждающий;exciting
+29;захватывающий;thrilling
+30;невозмутимый;placid
+31;сострадание;compassion
+32;сочувствие;sympathy
+33;сочувствующий;sympathetic
+34;сочувствовать;sympatize
+35;жалеть;pity
+36;безразличие;indifference
+37;безразличный;indifferent
+38;апатия;apathy
+39;апатичный;apathetic
+40;скука;boredom
+41;скучный;boring
+42;гнев;anger
+43;в гневе;in anger
+44;ярость;fury
+45;яростный;furious
+46;негодование;indignation
+47;негодующий;indignant
+48;сердитый;angry
+49;злить;infuriate
+50;обида;insult
+51;обидеть;offend
+52;досада;annoyance
+53;обиженный;resentful
+54;тревога;anxiety
+55;тревожить;trouble
+56;беспокоить;worry
+57;встревоженный;troubled
+58;беспокойство;concern
+59;очень взволнованный;disturbed
+60;нервный;nervous
+61;раздражать;irritate
+62;раздраженный;irritated
+63;раздосадоыванный;annoyed
+64;озабоченный;concerned
+65;напряженный;tense
+66;удовлетворение;satisfaction
+67;удовлетворить;satisfy
+68;довольный;contented
+69;угождать;please
+70;устраивать;suit
+71;неудовлетворенность;dissatisfation
+72;неудовлетворенный;dissatisfied
+73;недовольство;discintent
+74;недовольный;discontented
+75;разочарование;dissapointment
+76;разочарованный;dissapointed
+77;глубоко разочарованный;frustrated
+78;страх;fear
+79;страшный;fearful
+80;ужасный;terrible
+81;испуг;fright
+82;испугать;scare
+83;испуганный;scared
+84;ужас;horror
+85;ужасать;terrify
+86;бояться;afraid
+87;ревность;jealousy
+88;ревнивый;jealous
+89;зависть;envy
+90;завистливый;envious
+91;завидовать;be envious
+92;грусть;sadness
+93;грустный;sad
+94;грустить;feel sad
+95;скучать;miss
+96;печаль;sorrow
+97;печальный;heavy-harted
+98;уныние;gloom
+99;депрессия;depression
+100;унылый;gloomy
+101;невеселый;cheerless
+102;невеселый;depressed
+103;несчастье;misery
+104;несчастный;miserable
+105;несчастливый;unhappy
+106;горе;grief
+107;убитый горем;heartbroken
+108;переживать;grieve
+109;отчаяние;despair
+110;в отчаянии;in despair
+111;жалкий;pathetic
+112;расстроенный;upset
+113;удивление;surprise
+114;удивательный;surprising
+115;чудесный;wonderful
+116;изумительный;amazing
+117;поразительный;striking
+118;потрясающий;great
+119;удивляться;be surprised
+120;поразить;astonish
+121;поразиться;be astonished
+122;изумлять;amaze
+123;ошеломлять;stun
+124;ошеломляющий;stunning
+Подготовлено сервисом http://studyfun.ru/

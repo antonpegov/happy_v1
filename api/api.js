@@ -243,7 +243,7 @@ app.get('/lang', function(req,res){
 
 //-------------------------------------------------------------------
 //
-//            Модули выдачи списка тем и языковых кодов
+//            Модули выдачи списков: тем и языковых кодов
 //
 //------------------------------------------------------------------
 
@@ -282,7 +282,7 @@ app.get('/codes', function(req,res){
 //=====
 
 app.get('/words', function(req, res) {
-    
+    console.log(("Got requesr: ",req.method,req.url).green);
     if(!req.query.theme || !req.query.lang1 || !req.query.lang2) {
         res.status(400).end();
         console.log('got bad request at', req.method, req.url);
@@ -293,6 +293,28 @@ app.get('/words', function(req, res) {
         console.log(words);
         res.send(words);
     });
+    
+});
+
+// ----- Получение списка тем для демо, 
+
+app.get('/demothemes',function(req,res){
+    
+    // список берём из конфига
+    Theme.where('_id').in(config.demothemes).exec(function(err,themes){
+        if(err){
+            console.log(err, req.method, req.url);
+            res.status(500).end();
+            return err;
+        } else {
+            //console.log("Got Request ", req.method, req.url);
+            //console.log("Sending Themes: ", themes);
+            res.status(200).send(themes);
+        }
+        
+    })
+    
+    
     
 });
 

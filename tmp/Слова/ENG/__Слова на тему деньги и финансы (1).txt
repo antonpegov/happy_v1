@@ -1,0 +1,119 @@
+﻿Английские слова на тему «Деньги и финансы»
+1;инвестировать;invest
+2;инвестиции;investment
+3;снабжать;provide
+4;поставлять;supply
+5;поставляемый товар;supplied goods
+6;закупка;purchase
+7;заказчик;customer
+8;поставщик;supplier
+9;продавец;vendor
+10;покупатель;buyer
+11;залог;pledge
+12;гарантия;guarantee
+13;зарабатывать;earn
+14;переводить (деньги);transfer
+15;платить;pay
+16;выплачивать;pay off
+17;платеж;payment
+18;долг;debt
+19;брать в долг;borrow
+20;возвращать;pay back
+21;выплачивать компенсацию;pay damages
+22;менять деньги;change money
+23;обменивать;exchange
+24;обменный курс;exchange rate
+25;бартер;barter
+26;терять;lose
+27;убытки;losses
+28;ущерб;damage
+29;страхование;insurance
+30;страховой полис;insurance policy
+31;дарение;donation
+32;благотворительность;charity
+33;спонсор;sponsor
+34;торговля;trade
+35;оптовая торговля;wholesale
+36;розничная торговля;retail sale
+37;торговая палата;chamber of commerce
+38;рынок;market
+39;экспорт;export
+40;импорт;import
+41;маркетинг;marketing
+42;магазин;shop
+43;супермаркет;supermarket
+44;торговый центр;trade centre
+45;молл;mall
+46;торговая сеть;trading network
+47;киоск;newsstand
+48;ярмарка;fair
+49;брокер;broker
+50;дилер;dealer
+51;сделка;transaction
+52;задаток;deposit
+53;приобрести;acquire
+54;приобретение;acquisition
+55;продавать;sell
+56;продажа;sales
+57;распродажа;sale
+58;продавец;seller
+59;спрос;demand
+60;денежный оборот;turnover
+61;аренда;rent
+62;арендатор;lesee
+63;арендодатель;landlord
+64;стоимость;cost
+65;себестоимость;prime cost
+66;цена;price
+67;скидка;discount
+68;доплата;extra pay
+69;наценка;extra change
+70;счет;account
+71;подпись;signature
+72;квитанция;receipt
+73;дорогой;expensive
+74;дешевый;cheap
+75;подняться;rise
+76;снизиться;reduce
+77;деньги;money
+78;валюта;currency
+79;кредитная карта;credit card
+80;рубль;rouble
+81;копейка;kopeck
+82;доллар;dollar
+83;цент;cent
+84;фунт стерлингов;pound
+85;евро;euro
+86;фонд;fund
+87;кошелек;purse
+88;бумажник;wallet
+89;инфляция;inflation
+90;дефляция;deflation
+91;девальвация;devaluation
+92;банк;bank
+93;банкир;banker
+94;служащий банка;bakn officer
+95;кассир;cashier
+96;клиент;client
+97;вклад;fixed deposit
+98;остаток на счету;balance
+99;заем;loan
+100;кредит;credit
+101;банкомат;cash machine
+102;акция;share
+103;пакет акций;block of shares
+104;облигация;bond
+105;одолжить;lend
+106;быть должным;owe
+107;платежеспособность;solvency
+108;обанкротиться;go bankrupt
+109;банкротство;bankruptcy
+110;отнять;take away
+111;присвоить;appropriate
+112;воровство;theft
+113;украсть;steal
+114;вор;thief
+115;грабеж;robbery
+116;грабитель;robber
+117;грабить;rob
+Подготовлено сервисом http://studyfun.ru/

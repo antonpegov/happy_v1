@@ -1,0 +1,162 @@
+﻿Испанские слова на тему «Образование»
+1;Educación;образование
+2;educado;образованный
+3;adoptar;усыновлять
+4;subir;воспитывать
+5;Profesor;учитель
+6;alumno;ученик
+7;estudiante;студент
+8;criado;воспитанный
+9;mal criados;невоспитанный
+10;tutor;опекун
+11;desarrollo;развитие
+12;Guarderias infantiles;ясли
+13;jardín de la infancia;детский сад
+14;competente;компетентный
+15;incompetente;некомпетентный
+16;sabe leer y escribir;грамотный
+17;analfabeto;неграмотный
+18;escuela;школа
+19;gimnasio;гимназия
+20;Liceo;лицей
+21;internado;интернат
+22;Universidad;колледж
+23;Instituto;институт
+24;Universidad;университет
+25;Academia;академия
+26;Conservatorio;консерватория
+27;Facultad;факультет
+28;Departamento;кафедра
+29;cabeza;заведующий кафедрой
+30;estudios de postgrado;аспирантура
+31;Estudiante de doctorado;аспирант
+32;clase;класс
+33;curso;курс
+34;Aprender;учиться
+35;Aprender;изучать
+36;enseñar;учить
+37;matrícula;плата за обучение
+38;estudios;учеба
+39;preparación;подготовка
+40;plan de estudios;программа обучения
+41;plan de estudios;план лекций
+42;curso práctico;практический курс
+43;trabajo práctico;практика
+44;enseñanza;преподавание
+45;Profesor en el Instituto de;преподаватель в институте
+46;tema de instrucción;предмет обучения
+47;repetición;повторение
+48;ejercicio;упражнение
+49;lección;урок
+50;Conferencia;лекция
+51;Seminario;семинар
+52;descanso;перерыв
+53;exámenes;экзамены
+54;Apartamento;каникулы
+55;vacaciones;праздники
+56;Tutorial;учебник
+57;Cartilla;букварь
+58;libro de referencia;справочник
+59;Diccionario;словарь
+60;Glosario;глоссарий
+61;Atlas;атлас
+62;mapa;карта
+63;calendario;расписание
+64;historia;история
+65;literatura;литература
+66;idioma;язык
+67;botánica;ботаника
+68;Zoología;зоология
+69;Biología;биология
+70;Anatomía;анатомия
+71;Geografía;география
+72;Astronomía;астрономия
+73;Matemáticas;математика
+74;Álgebra;алгебра
+75;geometría;геометрия
+76;trigonometría;тригонометрия
+77;Física;физика
+78;Química;химия
+79;música;музыка
+80;dibujo;рисование
+81;dibujo técnico;черчение
+82;educación física;физкультура
+83;tarea;домашнее задание
+84;suma;пример (математический)
+85;pregunta;вопрос
+86;respuesta;ответ
+87;final;выпускные экзамены
+88;prueba;зачет
+89;examinar;экзаменовать
+90;examinador;экзаминатор
+91;texto;текст
+92;preguntar;спрашивать урок
+93;corregir;исправлять
+94;copiar;списывать
+95;símbolo del sistema;подсказать
+96;cuna;шпаргалка
+97;marca;оценка
+98;Excelente;отлично
+99;buena;хорошо
+100;satisfactoriamente;удовлетворительно
+101;insatisfactoria;неудовлетворительно
+102;Graduado;выпускник
+103;expulsar;отчислить
+104;Diario;дневник
+105;revista;журнал
+106;certificado;аттестат
+107;Diploma;диплом
+108;educador;педагог
+109;Profesor asociado;доцент
+110;colegial;школьник
+111;colegiala;школьница
+112;alumno de la primera clase;первоклассник
+113;alumno Senior;старшеклассник
+114;compañero de clase;одноклассник
+115;estudiante del primer año;первокурсник
+116;estudiante;старшекурсник
+117;estudiante participó en la tesis de grado;дипломник
+118;Pasante;стажер
+119;Licenciado en;бакалавр
+120;Máster;магистр
+121;el director de la escuela;директор школы
+122;Oficina del decano;деканат
+123;Decano;декан
+124;Rector;ректор
+125;Rectorado;ректорат
+126;Subdirector;проректор
+127;audiencia;аудитория
+128;Gabinete;кабинет
+129;laboratorio;лаборатория
+130;escritorio;парта
+131;pizarra;доска
+132;la tiza;мел
+133;bolsa;сумка
+134;pluma;ручка
+135;lápiz;карандаш
+136;caja de lápiz;пенал
+137;rotulador;фломастер
+138;regla;линейка
+139;Brújula;циркуль
+140;cuaderno;тетрадь
+141;papel;бумага
+142;Página;страница
+143;campos;поля
+144;escribir;писать
+145;borrar;стереть
+146;mecanografía;набирать текст
+147;computadora;компьютер
+148;Pantalla;экран
+149;teclado;клавиатура
+150;Pantalla;дисплей
+151;impresora;принтер
+152;impresiones;распечатка
+153;ratón;мышь компьютерная
+154;cursor;курсор
+155;disquete;дискета
+156;unidad de disco;дисковод
+157;programa;программа
+158;programa de ordenador;программа компьютера
+159;virus informático;компьютерный вирус
+160;maletín;портфель
+Подготовлено сервисом http://spanish.studyfun.ru/

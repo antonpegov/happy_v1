@@ -1,0 +1,108 @@
+﻿Немецкие слова на тему «Спорт»
+1;sport;спорт
+2;skifahren;лыжный спорт
+3;wassersport;водный спорт
+4;sportunterricht;физкультура
+5;trainingsanzug;спортивный костюм
+6;sportler;спортсмен
+7;sporthalle;спортивный зал
+8;fitness-studio;спортзал
+9;stadion;стадион
+10;laufband;беговая дорожка
+11;loipe;лыжня
+12;eisbahn;каток
+13;schwimmbad;бассейн
+14;feld;поле
+15;spielplatz;площадка
+16;ring;ринг
+17;tennisplatz;корт
+18;sprungbrett;трамплин
+19;sprungschanze;лыжный трамплин
+20;schießstand;тир
+21;ausbildung;тренировка
+22;zug;тренироваться
+23;trainer;тренер
+24;übung;упражнение
+25;gymnastik;гимнастика
+26;team;команда
+27;wettbewerb;соревнование
+28;wettbewerber;участник соревнования
+29;gewinner;победитель соревнования
+30;spiel;матч
+31;spiel;игра
+32;spieler;игрок
+33;meisterschaft;чемпионат
+34;meister;чемпион
+35;turnier;турнир
+36;pokal;кубок
+37;final;финал
+38;halbfinale;полуфинал
+39;viertelfinale;четвертьфинал
+40;rival;соперник
+41;richter;судья
+42;schiedsrichter;судить матч
+43;richter;судить соревнование
+44;sieg;победа
+45;gewinnen;одержать победу
+46;gewinner;победитель
+47;niederlage;поражение
+48;fan;болельщик
+49;verlieren;проиграть
+50;zeichnen;ничья
+51;partitur;счет
+52;punkt;очко
+53;ort;место
+54;rennen;забег
+55;start;старт
+56;fertig stellen;финиш
+57;lekoatlet;лекоатлет
+58;laufen;бегать
+59;läufer;бегун
+60;werfer;метатель
+61;diskuswerferin;метатель диска
+62;werfen;метать
+63;gymnastikball;гимнастический
+64;turner;гимнаст
+65;folie;рапира
+66;gewichtheber;тяжелоатлет
+67;gewicht;штанга
+68;ringen;борьба
+69;ringer;борец
+70;boxer;боксер
+71;runde;раунд
+72;skifahrer;лыжник
+73;skater;конькобежец
+74;skater;фигурист
+75;crawl;кроль
+76;brustschwimmen;брасс
+77;schmetterling;баттерфляй
+78;schwimmen;плавать
+79;schwimmer;пловец
+80;ruderer;гребец
+81;yacht;яхта
+82;yacht-club;яхтклуб
+83;segler;яхтсмен
+84;racing draver;гонщик
+85;schießen;стреять
+86;schütze;стрелок
+87;schach-großmeister;шахматист
+88;fußballer;футболист
+89;passieren;подача
+90;ziel;гол
+91;ein tor;забивать гол
+92;schuss auf das tor;удар по воротам
+93;raster;сетка
+94;torhüter;вратарь
+95;stürmer;нападающий
+96;verteidiger;защитник
+97;beachvolleyball-spieler;волейболист
+98;basketball-spieler;баскетболист
+99;korb;корзина
+100;tennis-spieler;теннисист
+101;schläger;ракетка
+102;top-spieler;лучший игрок
+103;eishockeyspieler;хоккеист
+104;waschmaschine;шайба
+105;hockeyschläger;клюшка
+106;club;клюшка в гольфе
+Подготовлено сервисом http://german.studyfun.ru/

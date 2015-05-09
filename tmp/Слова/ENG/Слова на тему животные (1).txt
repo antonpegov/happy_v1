@@ -1,0 +1,54 @@
+﻿Английские слова на тему «Животные»
+1;животное;animal
+2;зверь;beast
+3;фауна;fauna
+4;млекопитающие;mammals
+5;порода;breed
+6;разведение;breeding
+7;заповедник;nature reserve
+8;зоопарк;zoo
+9;волк;wolf
+10;лиса;fox
+11;заяц;hare
+12;кролик;rabbit
+13;белка;squirrel
+14;медведь;bear
+15;рысь;lynx
+16;енот;raccoon
+17;еж;hedgehog
+18;олень;deer
+19;лось;elk
+20;собака;dog
+21;щенок;puppy
+22;кошка;cat
+23;котенок;kitten
+24;лошадь;horse
+25;жеребенок;foal
+26;корова;cow
+27;бык;bull
+28;теленок;calf
+29;козел;goat
+30;козленок;kid
+31;овца;sheep
+32;баран;ram
+33;ягненок;lamb
+34;свинья;pig
+35;поросенок;piglet
+36;верблюд;camel
+37;мышь;mouse
+38;крыса;rat
+39;хомяк;hamster
+40;хорек;ferret
+41;лев;lion
+42;тигр;tiger
+43;леопард;leopard
+44;слон;elephant
+45;обезьяна;monkey
+46;жираф;giraffe
+47;носорог;rhinoceros
+48;зебра;zebra
+49;антилопа;antelope
+50;тюлень;seal
+51;морж;walrus
+52;животный мир;the animal world
+Подготовлено сервисом http://studyfun.ru/

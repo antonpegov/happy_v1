@@ -1,0 +1,114 @@
+﻿Немецкие слова на тему «Жилище, дом»
+1;haus;дом
+2;gebäude;здание
+3;zuhause;дома
+4;wohnblock;многоквартирный дом
+5;hotel;гостиница
+6;gästehaus;общежитие
+7;adresse;адрес
+8;unterkunft;жилье
+9;leben;жить
+10;einwohner;житель
+11;hausbesitzer;домовладелец
+12;nachbar;сосед
+13;eingang;подъезд
+14;dach;крыша
+15;rohr;труба
+16;gesims;карниз
+17;dachboden;чердак
+18;keller;подвал
+19;treppe;лестница
+20;leiter;приставная лестница
+21;landung;лестничная площадка
+22;balkon;балкон
+23;loggia;лоджия
+24;veranda;веранда
+25;aufzug;лифт
+26;boden;этаж
+27;tür;дверь
+28;türschloss;дверной замок
+29;die matte vor der tür;коврик у двери
+30;schwelle;порог
+31;tor;ворота
+32;veranda;крыльцо
+33;garage;гараж
+34;hof;двор
+35;abflussrohr;водосточная труба
+36;gosse;сточная канава
+37;bolzen;засов
+38;heck;щеколда
+39;die kette an der tür;цепочка на двери
+40;einbrecher aralm;сигнализация
+41;schließen;закрывать
+42;sperre;запирать
+43;vorhängeschloss;висячий замок
+44;schlüssel;ключ
+45;intercom;домофон
+46;wohnung;квартира
+47;wohnung;апартаменты
+48;flur;прихожая
+49;halle;холл
+50;wohnzimmer;гостиная
+51;esszimmer;комнада для обеда
+52;esszimmer;столовая
+53;schlafzimmer;спальня
+54;kindergarten;детская
+55;korridor;коридор
+56;küche;кухня
+57;bequemlichkeit;удобства
+58;gas;газ
+59;gasherd;газовая плита
+60;ofen;духовка
+61;mikrowelle;микроволновка
+62;wasserversorgung;водопровод
+63;badezimmer;ванная
+64;bad;ванна
+65;kran;кран
+66;waschbecken;раковина
+67;dusche;душ
+68;wc;туалет
+69;schüssel;унитаз
+70;wc-papier;туалетная бумага
+71;abstellraum;кладовая
+72;speisekammer;чулан
+73;wand;стена
+74;wallpaper;обои
+75;decke;потолок
+76;parkett;паркет
+77;linoleum;линолеум
+78;beschichtung;покрытие
+79;fenster;окно
+80;fensterbank;подоконник
+81;glas;стекло
+82;klappfenster;форточка
+83;verschluss;ставень
+84;strom;электричество
+85;beleuchtung;освещение
+86;licht;свет
+87;zähler;счетчик
+88;lampe;лампа
+89;glühbirne;лампочка
+90;kronleuchter;люстра
+91;stehleuchte;торшер
+92;wandleuchte;бра
+93;kühlschrank;холодильник
+94;gefrierschrank;морозильник
+95;staubsauger;пылесос
+96;waschmaschine;стиральная машина
+97;waschen;стирать
+98;klimaanlage;кондиционер
+99;lüfter;вентилятор
+100;draht;провод
+101;socket;розетка
+102;stecker;штепсель
+103;stecker;штекер
+104;elektrische verdrahtung;электрическая проводка
+105;heizung;отопление
+106;wärme;обогревать
+107;heizkörper;батарея отопления
+108;heather;электрокамин
+109;herd;печь
+110;kamin;камин
+111;brennholz;дрова
+112;kohle;уголь
+Подготовлено сервисом http://german.studyfun.ru/

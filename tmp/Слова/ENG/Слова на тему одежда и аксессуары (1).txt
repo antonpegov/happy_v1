@@ -1,0 +1,94 @@
+﻿Английские слова на тему «Одежда и аксессуары»
+1;одежда;clothes
+2;мода;fashion
+3;модный;fashionable
+4;нарядный;smart
+5;нарядно одетый;well-dressed
+6;пальто;coat
+7;плащ;raincoat
+8;шуба;fur coat
+9;дубленка;sheepskin coat
+10;куртка;jacket
+11;кожаная куртка;leather jacket
+12;костюм;suit
+13;клубный пиджак;blazer
+14;смокинг;smoking jacket
+15;фрак;tail coat
+16;брюки;trousers
+17;джинсы;jeans
+18;шорты;shorts
+19;платье;dress
+20;сарафан;summer dress
+21;блузка;blouse
+22;юбка;skirt
+23;рубашка;shirt
+24;ночная рубашка;nightshirt
+25;свитер;sweater
+26;джемпер;jumper
+27;плавки;swimming trunks
+28;купальник;swimming suit
+29;белье;linen
+30;нижнее белье;underwear
+31;майка;vest
+32;футболка;t-shirt
+33;трусы мужские;underpants
+34;трусы женские;panties
+35;пижама;pyjamas
+36;халат банный;bathrobe
+37;бюстгалтер;bra
+38;воротник;collar
+39;рукав;sleeve
+40;манжеты;cuffs
+41;ремень;belt
+42;карман;pocket
+43;перчатки;gloves
+44;варежки;mittens
+45;шарф;scarf
+46;зонт;umbrella
+47;шляпа;hat
+48;берет;beret
+49;кепка;cap
+50;платок головной;headscarf
+51;носовой платок;handkerchief
+52;шаль;shawl
+53;чулки;stockings
+54;колготки;tights
+55;носки;socks
+56;гольфы;knee socks
+57;застежка;fastener
+58;руговица;button
+59;петля;buttonhole
+60;иголка;needle
+61;нитка;thread
+62;запонки;cuff links
+63;пряжка;clasp
+64;молния;zip
+65;галстук;tie
+66;галстук-бабочка;bow-tie
+67;лента;ribbon
+68;ремень сумки;strap
+69;сумка;bag
+70;ювелирное украшение;jewellery
+71;кольцо;ring
+72;цепочка;chain
+73;кулон;pendant
+74;колье;necklace
+75;бусы;beads
+76;браслет;bracelet
+77;серьги;earrings
+78;размер;size
+79;велик;too big
+80;мал;too small
+81;носить одежду;wear
+82;одеться;get dressed
+83;надеть;put on
+84;раздеть;undress
+85;раздеться;get undressed
+86;голый;naled
+87;босой;barefoot
+88;расстегнуть пуговицу;unbutton
+89;стирать;wash
+90;чистить;clean
+91;сушить;dry
+92;гладить белье;iron
+Подготовлено сервисом http://studyfun.ru/

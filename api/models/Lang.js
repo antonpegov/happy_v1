@@ -7,6 +7,7 @@ var LanguageSchema = new mongoose.Schema({
         rus: String,
         spa: String,
         fra: String,
+        ita: String,
         deu: String,
         chn: String
     }

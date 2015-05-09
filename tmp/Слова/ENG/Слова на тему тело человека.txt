@@ -1,0 +1,96 @@
+﻿Английские слова на тему «Тело человека»
+1;body;тело
+2;organ;орган
+3;head;голова
+4;back of the head;затылок
+5;temple;висок
+6;face;лицо
+7;forehead;лоб
+8;eye;глаз
+9;nose;нос
+10;mouth;рот
+11;tongue;язык
+12;lip;губа
+13;tooth;зуб
+14;false teeth;искусственные зубы
+15;chin;подбородок
+16;cheek;щека
+17;ear;ухо
+18;throat;горло
+19;cheekbones;скулы
+20;jaw;челюсть
+21;hair;волосы
+22;plait;коса
+23;beard;борода
+24;moustaches;усы
+25;sidewhiskers;бакенбарды
+26;brow;бровь
+27;lashes;ресницы
+28;chest;грудная клетка
+29;breast;женская грудь
+30;back;спина
+31;stomach;живот
+32;small of the back;поясница
+33;side;бок
+34;shoulder;плечо
+35;armpit;подмышка
+36;elbow;локоть
+37;arm;кисть
+38;hand;рука
+39;palm;ладонь
+40;finger;палец на руке
+41;toe;палец на ноге
+42;little finger;мизинец на руке
+43;little toe;мизинец на ноге
+44;fingerprint;отпечаток пальца
+45;fist;кулак
+46;thumb;большой палец руки
+47;big toe;большой палец ноги
+48;forefinger;указательный палец
+49;leg;нога
+50;foot;ступня
+51;footprint;след
+52;knee;колено
+53;heel;пятка
+54;toe;носок ноги
+55;nail;ноготь
+56;skeleton;скелет
+57;bone;кость
+58;skull;череп
+59;spine;позвоночник
+60;collar-bone;ключица
+61;shoulder blade;лопатка
+62;rib;ребро
+63;joint;сустав
+64;skin;кожа
+65;muscles;мускулы
+66;tendon;сухожилие
+67;heel tendon;ахиллово сухожилие
+68;ligament;связка
+69;brain;мозг
+70;nerves;нервы
+71;nervous system;нервная система
+72;excite;возбуждать
+73;stimulate;стимулировать
+74;heart;сердце
+75;blood vessels;кровеносные сосуды
+76;artery;артерия
+77;vein;вена
+78;blood;кровь
+79;blood pressure;кровяное давление
+80;blood circulation;кровообращение
+81;pulse;пульс
+82;lung;легкое
+83;bronchial tube;бронхи
+84;breath;дыхание
+85;inhale;выдыхать
+86;sigh;вздох
+87;choke;задыхаться
+88;saliva;слюна
+89;liver;печень
+90;kidney;почка
+91;bladder;мочевой пузырь
+92;bowels;кишечник
+93;gut;кишка
+94;genitals;половые органы
+Подготовлено сервисом http://studyfun.ru/

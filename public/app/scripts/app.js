@@ -21,6 +21,7 @@ var app = angular
     ,'ui.select'
     ,'ui.bootstrap'
     ,'angular-loading-bar'
+    ,'ngMaterial'
     
   ]);
  /* .config(function ($routeProvider) {

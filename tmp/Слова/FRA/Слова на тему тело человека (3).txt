@@ -1,0 +1,96 @@
+﻿Французские слова на тему «Тело человека»
+1;corps;тело
+2;orgue;орган
+3;tête;голова
+4;l'arrière de la tête;затылок
+5;Temple;висок
+6;visage;лицо
+7;Front;лоб
+8;oeil;глаз
+9;nez;нос
+10;bouche;рот
+11;langue;язык
+12;lèvre;губа
+13;dent;зуб
+14;dents artificielles;искусственные зубы
+15;Menton;подбородок
+16;joue;щека
+17;oreille;ухо
+18;Gorge;горло
+19;pommettes;скулы
+20;mâchoire;челюсть
+21;cheveux;волосы
+22;tresse;коса
+23;Barbe;борода
+24;moustache;усы
+25;moustaches;бакенбарды
+26;sourcils;бровь
+27;Cils;ресницы
+28;poitrine;грудная клетка
+29;seins;женская грудь
+30;arrière;спина
+31;Ventre;живот
+32;Longe;поясница
+33;côté;бок
+34;épaule;плечо
+35;aisselle;подмышка
+36;coude;локоть
+37;bras;кисть
+38;main;рука
+39;paume;ладонь
+40;doigt;палец на руке
+41;orteil;палец на ноге
+42;petit doigt;мизинец на руке
+43;petit orteil;мизинец на ноге
+44;empreintes digitales;отпечаток пальца
+45;poing;кулак
+46;pouce;большой палец руки
+47;gros orteil;большой палец ноги
+48;l'index;указательный палец
+49;jambe;нога
+50;pied;ступня
+51;empreinte;след
+52;genou;колено
+53;le talon;пятка
+54;orteil;носок ноги
+55;ongles;ноготь
+56;squelette;скелет
+57;OS;кость
+58;crâne;череп
+59;la colonne vertébrale;позвоночник
+60;la clavicule;ключица
+61;l'omoplate;лопатка
+62;côtes;ребро
+63;Articulation;сустав
+64;cuir;кожа
+65;les muscles;мускулы
+66;tendon;сухожилие
+67;le tendon d'Achille;ахиллово сухожилие
+68;bouquet;связка
+69;cerveau;мозг
+70;nerfs;нервы
+71;système nerveux;нервная система
+72;exciter;возбуждать
+73;stimuler;стимулировать
+74;coeur;сердце
+75;vaisseaux sanguins;кровеносные сосуды
+76;artère;артерия
+77;Vienne;вена
+78;sang;кровь
+79;pression artérielle;кровяное давление
+80;circulation sanguine;кровообращение
+81;Impulsion;пульс
+82;facile;легкое
+83;les bronches;бронхи
+84;souffle;дыхание
+85;Inspirez;выдыхать
+86;soupir;вздох
+87;Starter;задыхаться
+88;salive;слюна
+89;foie;печень
+90;Rein;почка
+91;vessie;мочевой пузырь
+92;les intestins;кишечник
+93;tube digestif;кишка
+94;les organes génitaux;половые органы
+Подготовлено сервисом http://french.studyfun.ru/
