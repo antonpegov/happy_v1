@@ -162,6 +162,10 @@ article {
     Самодельный Alert
 */
 .main-alert {
+  position:absolute;
+  top:130px;
+  left:10px;
+  right:10px;
   max-width: 400px;
   margin:0 auto;
 }

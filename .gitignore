@@ -11,9 +11,10 @@ db-test
 deploy
 mongod
 mongo-express
+.gitignore
 
 /admin/app/bower_components
 /public/app/bower_components
 /api/app/bower_components
-/api/data
+/api/data/
 /api/config.js

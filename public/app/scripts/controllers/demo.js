@@ -8,11 +8,12 @@
  * Controller of the publicApp
  */
 angular.module('happyTurtlesApp')
-  .controller('DemoCtrl', function ($scope,$q,langsSrv,$mdDialog,$state) {
+  .controller('DemoCtrl', function ($scope,$q,langsSrv,$mdDialog,$state,alert) {
     
     var LIFES_NUM = 100;
     var VERSIONS_NUM = 5; // кол-во неправильных вариантов
-    var PROGR = 20;
+    var PROGR = 5; // прогресса за каждый правильный ответ
+    var ERR_PRICE = 20;
 
     function setup() {
         $scope.Progress = {
@@ -28,7 +29,7 @@ angular.module('happyTurtlesApp')
         $scope.Life = {
             value: LIFES_NUM,
             minus: function() {
-                this.value-=35;
+                this.value-=ERR_PRICE;
                 return this.value;
             },
             reset: function() {
@@ -91,11 +92,11 @@ angular.module('happyTurtlesApp')
                   return;
               }
               init(null); // запуск главного модуля после получения массива слов
-        })
+        });
         $scope.hide_themes = true;
         $scope.hide_header = true;
         //$scope.show_main = true;
-    }
+    };
     
     /*-----------------------------------------------------------   
     
@@ -131,13 +132,15 @@ angular.module('happyTurtlesApp')
         var word = res || ''; // слово приходит из пред.функции 
         var num = VERSIONS_NUM; // число вариантов - из настроек
         var array_tmp = $scope.words; // временный масив для вырезания слов
-        var array = [] // массив для выбранных слов
+        var array = []; // массив для выбранных слов
+        
+        array_tmp = _.without(array_tmp, word); // вырезаем загаданное слово
         
         for (var i=0;i<num;i++) {
+            console.log('i=',i);// проверка последовательности выполнения
             var rand = Math.floor(Math.random() * array_tmp.length);
             array.push(array_tmp[rand]); // добавляем вариан в массив
             array_tmp = _.without(array_tmp,array_tmp[rand]); // и вырезаем его из времянки
-            console.log(i); // проверка последовательности выполнения
             
         }
         if (array.length !== num) {
@@ -184,9 +187,11 @@ angular.module('happyTurtlesApp')
                 $scope.words_used.push(word); // добавляем в хранилище ответов
                 $scope.words = _.without($scope.words,word); // удаляем из основного массива
                 $scope.Progress.plus(); // увеличиваем прогресс
+                alert('success','Верно!');
                 deferred.resolve(isTrue);
             } else {
                 $scope.Life.minus(); // уменьшаем жизнь
+                alert('warning','Ошибка, жизнь уменьшается на '+ERR_PRICE+'%');
                 deferred.resolve(isTrue);
             }
             
@@ -209,7 +214,7 @@ angular.module('happyTurtlesApp')
     // функция инициализации - запускается первый раз из $scope.run
     // и продолжает вызываться при каждом пересчёте
     function  init(req){
-        console.log('Init() starting... req =',req);
+        console.log('----------------- Init() starting... req =',req);
         console.log('WORDS_ARRAY: ',$scope.words);
         console.log('WORDS_USED_ARRAY: ',$scope.words_used);
         if(req === true) Finish.win();
@@ -230,7 +235,7 @@ angular.module('happyTurtlesApp')
             }
         );
         
-        console.log('Случайный элемент:', $scope.word);
+        console.log('Конец функции INIT() -----------------');
         return deferred.promise;
     }
     
