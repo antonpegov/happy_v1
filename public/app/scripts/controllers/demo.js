@@ -8,7 +8,7 @@
  * Controller of the publicApp
  */
 angular.module('happyTurtlesApp')
-  .controller('DemoCtrl', function ($scope,$q,langsSrv,$mdDialog,$state,alert) {
+  .controller('DemoCtrl', function ($scope,$q,langsSrv,$mdDialog,$state,alert,$timeout) {
     
     var LIFES_NUM = 100;
     var VERSIONS_NUM = 5; // кол-во неправильных вариантов
@@ -88,7 +88,8 @@ angular.module('happyTurtlesApp')
               $scope.words = data;
               console.log('(Run) data: ',data);
               if($scope.words.length < 1) {
-                  alert("Этот язык ещё не загружен, попробуйте другой!");
+                  alert("warning","Этот язык ещё не загружен, попробуйте другой!");
+                  setTimeout(function(){$state.go('main')}, 2000);
                   return;
               }
               init(null); // запуск главного модуля после получения массива слов
@@ -266,7 +267,7 @@ angular.module('happyTurtlesApp')
             console.log('Loose() starting...');
             setup();
             $scope.hide_header = true;
-            showConfirmLooser("Ти не говорить по "
+            showConfirmLooser("Ти не гофорить по "
                 + $scope.target_lang_name);
             
         }
