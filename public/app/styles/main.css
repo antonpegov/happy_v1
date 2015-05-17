@@ -16,6 +16,7 @@ article {
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
+.text-justify,
 .footer {
   padding-left: 15px;
   padding-right: 15px;
@@ -65,6 +66,8 @@ article {
   margin-top: 28px;
 }
 
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -98,6 +101,12 @@ article {
   .omb_row-sm-offset-3 div:first-child[class*="col-"] {
     margin-left: 25%;
   }
+  
+  .omb_login .omb_forgotPwd {
+    text-align: right;
+    margin-top:10px;
+  }
+  
 }
 
 .omb_login .omb_authTitle {
@@ -152,12 +161,6 @@ article {
 }
 
 
-@media (min-width: 768px) {
-  .omb_login .omb_forgotPwd {
-    text-align: right;
-    margin-top:10px;
-  }
-}
 /*
     Самодельный Alert
 */
@@ -201,14 +204,12 @@ article {
   -webkit-transform: scale3d(0.96,0.96,0.96);
   -moz-transform: scale3d(0.96,0.96,0.96);
 }
-
 [ui-view].ng-enter-active {
     opacity: 1;
     transform: scale3d(1,1,1);
     -webkit-transform: scale3d(1,1,1);
     -moz-transform: scale3d(1,1,1);
 }
-
 [ui-view].ng-leave {
     opacity: 0;
     transform: translate3d(0,0,0);
@@ -385,4 +386,62 @@ article {
 .progress .my-reverse-class {
     display: block;
     float: right;
+}
+
+/* ------------------------------------------------------------
+      Переопределение стилей для смартфонов
+---------------------------------------------------------------*/
+@media screen and (max-width:480px){
+  body {
+    padding-top: 50px;
+  }
+  article {
+    padding-top: 10px;
+  }
+  .progress {
+    height: 10px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+  }
+  #main_word {
+    line-height: 450%;
+    border-top-width: 25px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .hover-card {
+    padding:5px;
+  }
+  .hover-card h3 {
+    font-size: 14px;
+  }
+  .hover-card .icon-number {
+    top: 8px;
+    left: 14px;
+    font-size: 18px;
+    line-height: 36px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    border: 2px solid #ECEFF1;
+    border-radius: 200px;
+    padding: 0;
+  }
+  h1, .h1, h2, .h2, h3, .h3, .hover-card h3, .hover-card p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 16px;
+  }
+  .main-alert {
+    position: absolute;
+    top: 97px;
+    left: 10px;
+    right: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding:5px;
+  }
 }
