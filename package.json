@@ -4,6 +4,12 @@
   "description": "Happy Turtles",
   "main": "server.js",
   "dependencies": {
+    "express": "~3.4.4",
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+  "private": true,
+  "main": "server.js"
   },
   "devDependencies": {},
   "scripts": {
