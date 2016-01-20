@@ -1,8 +1,8 @@
 {
-  "name": "api",
+  "name": "server",
   "version": "1.0.0",
   "description": "Happy Turtles",
-  "main": "api/api.js",
+  "main": "server.js",
   "dependencies": {
   },
   "devDependencies": {},
