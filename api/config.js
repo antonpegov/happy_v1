@@ -5,5 +5,5 @@ module.exports = {
 
     userSecret : 'some words...',
     adminSecret: 'Putin - Huilo, la-la-la-la-la-la-la-la!',
-    db: 'mongodb://localhost/happy'
+    db: 'mongodb://test:test@ds061611.mongolab.com:61611/jobfinder'
 };
