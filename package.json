@@ -1,7 +1,7 @@
 {
-  "name": "OpenShift-Sample-App",
-  "version": "1.0.0",
-  "description": "OpenShift Sample Application",
+  "name": "Happy Turtles",
+  "version": "0.0.1",
+  "description": "Learn foreign words with fun!",
   "keywords": [
     "OpenShift",
     "Node.js",
@@ -9,25 +9,23 @@
     "openshift"
   ],
   "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url": "http://www.openshift.com/"
+    "name": "Anton Pegov",
+    "email": "antonpegov@gmail.com",
+    "url": "http://www.happyturtles.com/"
   },
-  "homepage": "http://www.openshift.com/",
+  "homepage": "http://www.happyturtles.eu/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/openshift/origin-server"
+    "url": ""
   },
   "engines": {
     "node": ">= 0.6.0",
     "npm": ">= 1.0.0"
   },
   "dependencies": {
-    "express": "~3.4.4",
-    "mongoose": "^4.3.6"
   },
   "devDependencies": {},
   "bundleDependencies": [],
   "private": true,
-  "main": "server.js"
+  "main": "api/api.js"
 }

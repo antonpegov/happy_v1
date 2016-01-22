@@ -1,24 +1,29 @@
-var express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
+// Модели для Мангуста
 var User = require('./models/User.js');
 var Lang = require('./models/Lang.js');
 var Theme = require('./models/Theme.js');
 var LangCode = require('./models/LangCode.js');
 var Notion = require('./models/Notion.js');
+// Сервисы
+var notionData = require('./services/notion-data.js');
 var admin = require('./services/router-admin.js');
+// Необходимые модули
+var express = require('express');
+var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
 var jwt = require('jwt-simple');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var colors = require('colors');
-var jobs = ['Плотник','Столяр','Пекарь','Пахарь'];
-var userCodeWord = 'some words...';
-var app = express();
+// Загрузка настроек
 var config = require('./config.js');
 var port = config.port;
-var notionData = require('./services/notion-data.js');
+var ip = config.ipaddress;
 var db_address = config.db;
-var db;
+// Секретное слово для шифрования
+var userCodeWord = 'some words...';
+
+var app = express();
 
 app.use(bodyParser.json());
 
@@ -31,7 +36,7 @@ app.use(function(req,res,next){
 
 app.use('/admin', admin);
 //app.use(express.logger('dev'));
-app.use('/', express.static('../public/app'));
+app.use('/', express.static('public/app'));
 
 var connectSetTimeoutMiddleware = function(cb, duration, options){
     
@@ -335,7 +340,7 @@ mongoose.connection.on("error", function(err) {
 
 try {
     mongoose.connect(db_address);
-    db = mongoose.connection;
+    var db = mongoose.connection;
     console.log("Started connection on " + (db_address) + ", waiting for it to open...".grey);
 } catch (err) {
     console.log(("Setting up failed to connect to " + db_address).red, err.message);
@@ -349,6 +354,6 @@ try {
 //=================================
 
 
-var server = app.listen(port,function(){
-    console.log('listening on port '+ port +'...');
+var server = app.listen(port, ip, function(){
+    console.log('listening on '+ip+':'+port+'...');
 });
