@@ -237,13 +237,13 @@ app.get('/words', function(req, res) {
         } else if (!words) {  // undefined
             res.status(404).end();
             console.log('Got undefined!'.red);
-        } else if (themes.length === 0){  // пустой массив
+        } else if (words.length === 0){  // пустой массив
             res.status(200).send(words);
             console.log('Sending empty array');
         } else {
             res.status(200).send(words);
             console.log('Sending words');
-            //console.log('Codes: ', codes);
+            //console.log('Words: ', words);
         }
     });
 });
