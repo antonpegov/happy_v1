@@ -8,125 +8,116 @@
  * Controller of the happyTurtlesAppAdmin
  */
 angular.module('happyTurtlesAppAdmin')
-  .controller('ThemeAdminCtrl',function ($scope,$http,API_URL,API_URL_ADM, $state,$timeout) {
+    .controller('ThemeAdminCtrl',function ($scope,$http,API_URL,API_URL_ADM,$state,$timeout,_) {
+        var urlLangs = API_URL + 'langs';
+        var urlThemes = API_URL + 'themes';
+        var urlAdm = API_URL_ADM + 'themes';
+        $scope.langs = [];  // массив из всех имеющихся в базе языков
+        $scope.themes = [];  // все имеющиеся темы
+        $scope.modTheme = {};  // редактируемая тема
+        $scope.newTheme = {};  // новая тема
+        function reload(){
+            $state.reload();
+        }
 
-    var urlCli = API_URL + 'theme';
-    var urlAdm = API_URL_ADM + 'theme';
-    $scope.names = {};
-    $scope.modTheme = {};
-    $scope.pointer = 0;
+        /*--------------------------------------------------------------
+                    Функция удаления Темы
+        --------------------------------------------------------------*/
 
-    function reload(){
-      $state.reload();
-    }
-
-    /*--------------------------------------------------------------
-     Функция удаления Темы
-     --------------------------------------------------------------*/
-
-    $scope.removeTheme = function(){
-
-        $http.delete(urlAdm + '?themeId=' +$scope.themes[$scope.pointer]._id)
-            .success(function(err) {
-                if(err) console.log(err);
-            
-                console.log('Sended delete request with id= '
-                              , $scope.themes[$scope.pointer]._id);
-        })
-        .error(function(err){
-          console.log(err);
-        });
+        $scope.removeTheme = function(){
+            $http.delete(urlAdm + '?_id=' + $scope.modTheme._id)
+                .success(function(err) {
+                    if(err) console.log(err);
+                    console.log('Sending delete request with id= '
+                        , $scope.modTheme._id);
+                })
+                .error(function(err){
+                    console.log(err);
+                });
         
-        $timeout(reload, 2000);
-        console.log('=removeTheme= is Done');
-    };
+            $timeout(reload, 2000);
+            ///console.log('=removeTheme= is Done');
 
-    /*-----------------------------------------------------------
-     Функция сохраниения объекта Theme
-     ------------------------------------------------------------*/
 
-    $scope.addTheme = function(){
-        var theme = {
-            names: $scope.names
         };
 
-        $http.post(urlAdm, theme)
-          .success(function (err) {
-              if(err) console.log(err);
-              console.log('AddTheme POST request sended...');
-          })
-          .error(function (err) {
-              console.log(err);
-          });
+        /*-----------------------------------------------------------
+                Функция сохраниения объекта Theme
+         ------------------------------------------------------------*/
 
-      $timeout(reload, 2000);
-    };
+        $scope.addTheme = function(){
+            var theme = {
+                names: $scope.newTheme.names
+            };
+            $http.post(urlAdm, theme)
+                .success(function (err) {
+                    if(err) console.log(err);
+                    console.log('Saving new Theme: ', theme);
+                })
+                .error(function (err) {
+                    console.log(err);
+                });
+            $timeout(reload, 2000);
+        };
 
+        /*-----------------------------------------------------------
+         Функция отправки изменённого объекта Theme
+         ------------------------------------------------------------*/
 
+        $scope.editTheme = function(){
+            var theme = {
+                _id: $scope.modTheme._id,
+                names: $scope.modTheme.names
+            };
+            $http.put(urlAdm, theme)
+              .success(function (err) {
+                  if(err) console.log(err);
+                  console.log('Sending PUT request with ', theme);
+              })
+              .error(function (err) {
+                  console.log(err);
+              });
 
-    /*-----------------------------------------------------------
-     Функция отправки изменённого объекта Theme
-     ------------------------------------------------------------*/
+            $timeout(reload, 2000);
+        };
 
-    $scope.editTheme = function(){
+        /*--------------------------------------------------------------
+         Функция обновления значения указателя, к которому
+         привязаны поля формы редактирования темы
+         --------------------------------------------------------------*/
 
-        $http.put(urlAdm, $scope.modTheme)
-          .success(function (err) {
-              if(err) console.log(err);
-              console.log('EditTheme PUT request sended...');//, $scope.modTheme);
-          })
-          .error(function (err) {
-              console.log(err);
-          });
+        $scope.click = function(item_index){
+            //item_index - индекс выбранной темы в массиве themes
+            $scope.modTheme = $scope.themes[item_index];
+            console.log('modTheme:',$scope.modTheme);
+            console.log("Underscore test:", _.max([1,2,3,4]));
+        };
 
-        $timeout(reload, 2000);
-    };
+        /*------------------------------------------------------------
+         Получаем массивы Тем и Языков
+         -------------------------------------------------------------*/
 
-    /*------------------------------------------------------------
-     Получаем массив объектов Theme
-     -------------------------------------------------------------*/
+        $http.get(urlThemes)
+            .success(function (themes) {
+                $scope.themes = themes;
+                //console.log('themes: ', themes);
+                if(themes[0] === undefined)
+                    console.log("--- didn't got themes array!!! ---");
+            })
+            .error(function (err) {
+                console.log(err);
+            });
 
-    $http.get(urlCli)
-      .success(function (themes) {
-          $scope.themes = themes;
-          //console.log('themes: ', themes);
-          // Инициализация указателя
-          if(themes[0] === undefined) return;
-            $scope.pointer = 0;
-      })
-      .error(function (err) {
-          console.log(err);
-      });
-
-    /*----------------------------------------------------------
-     Получаем массив ISO-кодов и на егл основе создаём
-     объект names для последующего заполнения в форме
-     -----------------------------------------------------------*/
-
-    $http.get(API_URL + 'codes')
-      .success(function (codes) {
-          if(!codes) console.log('CAN"T GET LANGUAGE CODES!');
-          $scope.codes = codes;
-          codes.forEach(function(entry){
-              $scope.names[entry.code]='';
-          });
-      })
-      .error(function (err) {
-          console.log(err);
-      });
-
-    /*--------------------------------------------------------------
-     Функция обновления значения указателя, к которому
-     привязаны поля формы редактирования темы
-     --------------------------------------------------------------*/
-
-    $scope.click = function(id){
-
-        $scope.pointer = id;
-        $scope.modTheme = $scope.themes[id];
-            //console.log($scope.pointer);
-            //console.log($scope.modTheme);
-    };
-});
+        $http.get(urlLangs)
+            .success(function (langs) {
+                $scope.langs = langs;
+                //console.log('langs: ', langs);
+                if(langs[0] === undefined)
+                    console.log("--- didn't got langs array!!! ---");
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+    });
 
 

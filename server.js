@@ -157,7 +157,7 @@ app.get('/reception',function(req,res){
 //            Блок выдачи печенек
 //------------------------------------------------------------------
 // === Выдача массива тем ===
-app.get('/theme', function(req,res){
+app.get('/themes', function(req,res){
     console.log("Got request: ".blue + req.method +' '+ req.url);
     Theme.find(function(err,themes){
         if(err){  //  ошибка
@@ -189,20 +189,21 @@ app.get('/langs', function(req, res){
             res.status(404).end();
             console.log('Got undefined!'.red);
         } else if (langs.length === 0){  // пустой массив
-            res.status(200).send(codes);
+            res.status(200).send(langs);
             console.log('Sending empty array');
         } else {
             res.status(200).send(langs);
             console.log('Sending languages');
-            //console.log('Codes: ', langs);
+            //console.log('Langs: ', langs);
         }
     });
 });
-//=== Выдача массива кодов ===
+
+/*=== Выдача массива кодов ===
 app.get('/codes', function(req, res){
     console.log("Got request: ".blue + req.method +' '+ req.url);
     LangCode.find(function(err,codes){
-        if(err){ // ошибка
+        if(err){ // если ошибка
             console.log(err.red, req.method, req.url);
             res.status(500).end();
             return err;
@@ -212,13 +213,14 @@ app.get('/codes', function(req, res){
         } else if (codes.length === 0){  // пустой массив
             res.status(200).send(codes);
             console.log('Sending empty array');
-        } else {
+        } else { // всё в порядке
             res.status(200).send(codes);
             console.log('Sending codes');
             //console.log('Codes: ', codes);
         }
     });
 });
+*/
 //=== Выдача массива слов по запросу 'Тема:Язык1:Язык2' ===
 app.get('/words', function(req, res) {
     console.log("Got request: ".blue + req.method +' '+ req.url);
@@ -267,9 +269,10 @@ app.get('/demothemes',function(req,res){
     })    
 });
 
-//-------------------------------------------------------------------
+//------------------------------------------------------------------
 //            Блок воспитания Мангуста
 //------------------------------------------------------------------
+
 mongoose.connection.on("open", function(ref) {
     return console.log("Connected to mongo server!".green);
 }).on("error", function(err) {
@@ -277,12 +280,13 @@ mongoose.connection.on("open", function(ref) {
     return console.log(err.message.red);
 });
 try {
-    mongoose.connect(config.db);
+    mongoose.connect(config.db_test);
     var db = mongoose.connection;
     //console.log("Started connection on " + (config.db) + ", waiting for it to open...".grey);
 } catch (err) {
-    console.log(("Setting up failed to connect to " + config.db).red, err.message);
+    console.log(("Setting up failed to connect to " + config.db_test).red, err.message);
 }
+
 //=== S T A R T ! ===
 var server = app.listen(config.port, config.ipaddress, function(){
     console.log(('Listening on '+config.ipaddress+':'+config.port+'...').green);

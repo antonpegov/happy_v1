@@ -13,7 +13,7 @@
 angular.module('happyTurtlesApp')
   .controller('ReceptionCtrl', function ($scope,API_URL,SYS_LANG,$http) {
     $scope.sysLang = SYS_LANG;
-    $http.get(API_URL + 'theme')
+    $http.get(API_URL + 'themes')
       .success(function(themes){
         $scope.themes = themes;
       })

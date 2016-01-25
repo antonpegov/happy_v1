@@ -19,22 +19,22 @@
   <div class="row">
 
  <!--
-    Панель добавления языка
+    Панель добавления темы
 -->
     <div class="col-sm-6 col-md-6">
-      <h2>Добавить:</h2>
+      <h2>Добавить: </h2>
       <span class="help-block"></span>
 
 
       <form name="language_add" ng-submit="addTheme()" novalidate>
 
-        <div ng-repeat="item in codes" class="input-group">
+        <div ng-repeat="item in langs" class="input-group">
 
           <div class="">
             {{item.code}}:
           </div>
           <div class="">
-              <input type="text" ng-model="names[item.code]"
+              <input type="text" ng-model="newTheme.names[item.code]"
                    name="{{item.code}}">
               <span class="help-block"></span>
           </div>
@@ -63,7 +63,7 @@
 
       <form name="language_edit" ng-submit="" novalidate>
 
-          <div ng-repeat="item in codes" class="input-group">
+          <div ng-repeat="item in langs" class="input-group">
               <div class="">
                 {{item.code}}:
               </div>

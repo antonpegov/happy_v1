@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('happyTurtlesAppAdmin')
-  .config(function($stateProvider,$urlRouterProvider,$httpProvider){
+    .config(function($stateProvider,$urlRouterProvider,$httpProvider){
 
     $urlRouterProvider.otherwise('/');
     $httpProvider.interceptors.push('authInterceptor');
@@ -43,9 +43,9 @@ angular.module('happyTurtlesAppAdmin')
       });
 
   })
-  .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
-      cfpLoadingBarProvider.includeSpinner = false;
-  }])
-  .constant('API_URL_ADM','/admin/')
-  .constant('API_URL','/')
-  .constant('SYS_LANG', 'rus');
+    .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.includeSpinner = false;
+    }])
+    .constant('API_URL_ADM','/admin/')
+    .constant('API_URL','/')
+    .constant('SYS_LANG', 'rus');

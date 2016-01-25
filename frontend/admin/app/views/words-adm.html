@@ -1,22 +1,19 @@
 <!--link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/-->
-
 <!--script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script-->
 <div class="container-fluid">
   <div class="row">
-
-  <div class="col-md-6 col-sm-6">
-    <form id="contact-form" class="contact-form" novalidate>
-
-      <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="row">
         <div class="col-md-1 col-sm-1"></div>
 
         <div class="col-md-3 col-sm-3">
           <div class="row">
             <span class="label label-success">Тема</span><br/>
             <select ng-model="myThemeId"
-                    ng-options="item._id as item.names.{{sysLang}} for item in themes"></select>
+                    ng-options="theme._id as theme.names.{{sysLang}} for theme in themes"></select>
           </div>
-        </div>
+        </div><!--выбор темы-->
 
         <div class="col-md-1 col-sm-1"></div>
 
@@ -24,9 +21,9 @@
           <div class="row center-block">
             <span class="label label-info">Язык 1</span><br/>
             <select ng-model="myLang1"
-                    ng-options="item.code as item.names.{{sysLang}} for item in langs"></select>
+                    ng-options="lang.code as lang.names.{{sysLang}} for lang in langs"></select>
           </div>
-        </div>
+        </div><!--выбор первого языка-->
 
         <div class="col-md-1 col-sm-1"></div>
 
@@ -34,17 +31,14 @@
           <div class="row ">
             <span class="label label-info">Язык 2</span><br/>
             <select ng-model="myLang2" class=""
-                    ng-options="item.code as item.names.{{sysLang}} for item in langs"></select>
+                    ng-options="lang.code as lang.names.{{sysLang}} for lang in langs"></select>
           </div>
-        </div>
+        </div><!--выбор второго языка-->
 
-
-      </div>
-
-      <span class="help-block"></span>
-
-      <div class="row">
-        <div class="col-md-12">
+      </div><!--панель выбора настроек-->
+        <span class="help-block"></span>
+        <div class="row">
+          <div class="col-md-12">
           <div class="form-group">
             <textarea ng-model="myWords" class="form-control textarea"
                       rows="20">
@@ -52,35 +46,27 @@
             </textarea>
           </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-        
-          <input type="file" file-reader="fileContent" class="drop-box"/>
-
-          <button type="submit" class="btn main-btn pull-right"
-                  ng-click="transformWords()">
+        </div><!--область со словами-->
+        <div class="row">
+          <div class="col-md-12">
+            <input type="file" file-reader="fileContent" class="drop-box"/><!--область для DRAG-AND-DROP-->
+            <button type="submit" class="btn main-btn pull-right" ng-click="transformWords()">
             <span class="glyphicon glyphicon-ok"></span>
-          </button>
-          <button type="submit" class="btn refresh-btn pull-right"
+          </button><!--кнопка очистки-->
+            <button type="submit" class="btn refresh-btn pull-right"
                   ng-click="isShown = false; myWords = ''; myWordsInJSON = [] ">
             <span class="glyphicon glyphicon-remove"></span>
-          </button>
-
-        </div>
-      </div>
-
-      <span class="help-block"></span>
-
-    </form>
-<!--    isShown = {{isShown}}<br>
-    myLang1 = {{myLang1}}<br>
-    myLang2 = {{myLang2}}<br>
-    myThemeId = {{myThemeId}}<br>
-    myWordsInJSON = {{myWordsInJSON}}<br>-->
-  </div>
-
+          </button><!--кнопка подтверждения-->
+          </div>
+        </div><!--область выбора или загрузки файла и кнопки-->
+        <span class="help-block"></span>
+      </form>
+      isShown = {{isShown}}<br>
+      myLang1 = {{myLang1}}<br>
+      myLang2 = {{myLang2}}<br>
+      myThemeId = {{myThemeId}}<br>
+      myWordsInJSON = {{myWordsInJSON}}<br>
+    </div><!--форма предварительной загрузки  слов-->
     <div class="col-md-6 col-sm-6" ng-show="isShown" >
       <div class="panel panel-success" >
         <div class="panel-heading text-center">
@@ -93,7 +79,6 @@
               <th>#</th>
               <th>{{Params.lang1}}</th>
               <th>{{Params.lang2}}</th>
-
             </tr>
             </thead>
             <tbody>
@@ -107,21 +92,14 @@
             </tr>
             </tbody>
             </table>
-
-
-
-
         </div>
-      </div>
-
+      </div><!--таблица с подготовленным массивом-->
       <div class="row">
         <div class="col-md-12">
           <button type="submit" class="btn main-btn pull-right"
                   ng-click="sendWords()">Отправить</button>
-
         </div>
-      </div>
-    </div>
-
+      </div><!--кнопка отпарвки массива-->
+    </div><!--форма отправки подготовленного массива-->
   </div>
 </div>

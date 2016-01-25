@@ -8,19 +8,19 @@
  *
  * Main module of the application.
  */
-var app = angular
-  .module('happyTurtlesAppAdmin', [
-    'ngAnimate'
-    ,'ngCookies'
-    ,'ngResource'
-    ,'ngRoute'
-    ,'ngSanitize'
-    ,'ngTouch'
-    ,'ui.router'
-    ,'ui.utils'
-    ,'ui.select'
-    ,'angular-loading-bar'
-  ]);
+var app = angular.module('happyTurtlesAppAdmin',[
+  'ngAnimate'
+  ,'ngCookies'
+  ,'ngResource'
+  ,'ngRoute'
+  ,'ngSanitize'
+  ,'ngTouch'
+  ,'ui.router'
+  ,'ui.utils'
+  ,'ui.select'
+  ,'angular-loading-bar'
+  ,'underscore'
+]);
 
 /**
  * AngularJS default filter with the following expression:
@@ -84,3 +84,9 @@ app.directive('fileReader', function() {
     }
   };
 });
+
+// Подключение библиотеки Underscore
+var underscore = angular.module('underscore', []);
+underscore.factory('_', ['$window', function($window) {
+    return $window._;
+}]);
