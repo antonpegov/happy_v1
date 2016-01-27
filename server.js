@@ -5,7 +5,7 @@ var Theme = require('./models/Theme.js');
 var LangCode = require('./models/LangCode.js');
 var Notion = require('./models/Notion.js');
 // Сервисы
-var notionData = require('./services/notion-data.js');
+var Notions = require('./services/notion-data.js');
 // Необходимые модули
 var express = require('express');
 var mongoose = require('mongoose');
@@ -231,7 +231,7 @@ app.get('/words', function(req, res) {
         return;
     }
     // Если всё ок, перенаправляем запрос сервису и отдаём его результат
-    notionData.getWordsByTheme(req.query.theme, req.query.lang1, req.query.lang2, function(err, words){
+    Notions.getWordsByTheme(req.query.theme, req.query.lang1, req.query.lang2, function(err, words){
         if (err) {
             console.log(err.red, req.method, req.url);
             res.status(500).end();
@@ -251,6 +251,7 @@ app.get('/words', function(req, res) {
 });
 // === Получение списка тем для демо из файла конфигурации === Пока там пусто!
 app.get('/demothemes',function(req,res){
+    console.log("Got request: ".blue + req.method +' '+ req.url);
     if (config.demothemes === undefined) {
         console.log('Демо-темы не заданы!'.red);
         res.status(400).end();
@@ -262,8 +263,7 @@ app.get('/demothemes',function(req,res){
             res.status(500).end();
             return err;
         } else {
-            console.log("Got Request ", req.method, req.url);
-            console.log("Sending Themes: ", themes);
+            console.log("Sending Themes... ");
             res.status(200).send(themes);
         }        
     })    
