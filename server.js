@@ -280,11 +280,11 @@ mongoose.connection.on("open", function(ref) {
     return console.log(err.message.red);
 });
 try {
-    mongoose.connect(config.db_test);
+    mongoose.connect(config.db);
     var db = mongoose.connection;
     //console.log("Started connection on " + (config.db) + ", waiting for it to open...".grey);
 } catch (err) {
-    console.log(("Setting up failed to connect to " + config.db_test).red, err.message);
+    console.log(("Setting up failed to connect to " + config.db).red, err.message);
 }
 
 //=== S T A R T ! ===

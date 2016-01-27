@@ -10,6 +10,9 @@ module.exports = {
     demothemes: [
         '553e9d954248ab20110c3408',
         '553e7b8fdbb11540045ca7ef',
-        '553ecb2a1d08908c160edf6e'
+        '553ecb0a1d08908c160edf6d',
+        '553e9ec904753b101312de78',
+        '553ecb3e1d08908c160edf6f',
+        '5545d44a199898c41d3eac32'
     ]
 };
