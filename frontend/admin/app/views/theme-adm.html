@@ -1,26 +1,5 @@
 <div class="container">
-  <div class="row ">
-
-
-        <ul class="ds-btn">
-            <li ng-repeat="item in themes">
-                <a class="btn btn-lg btn-primary"
-                        ng-click="click(themes.indexOf(item))" href="">
-                    <i class="glyphicon glyphicon-ok pull-left"></i>
-                    <span>{{item.names.rus}}</span>
-                </a>
-            </li>
-        </ul>
-
-  </div>
-</div>
-
-<div class="container">
   <div class="row">
-
- <!--
-    Панель добавления темы
--->
     <div class="col-sm-6 col-md-6">
       <h2>Добавить: </h2>
       <span class="help-block"></span>
@@ -51,31 +30,20 @@
 
       </form>
 
-    </div>
-
-<!--
-    Панель редактирования языка
- -->
+    </div><!--Панель добавления темы-->
     <div class="col-sm-6 col-md-6">
       <h2>Изменить:</h2>
       <span class="help-block"></span>
       <span class="help-block"></span>
-
       <form name="language_edit" ng-submit="" novalidate>
-
-          <div ng-repeat="item in langs" class="input-group">
+        <div ng-repeat="item in langs" class="input-group">
+              <div class="">{{item.code}}:</div>
               <div class="">
-                {{item.code}}:
+                    <input type="text" ng-model="modTheme.names[item.code]" name="{{item.code}}">
+                    <span class="help-block"></span>
               </div>
-          <div class="">
-                <input type="text" ng-model="modTheme.names[item.code]" name="{{item.code}}">
-                <span class="help-block"></span>
-          </div>
-
-        </div>
-
+         </div><!--поля ввода-->
         <span class="help-block"></span>
-
         <div class="row">
         <div class="col-md-6 col-sm-6">
           <button ng-disabled=""
@@ -84,21 +52,38 @@
                       Сохранить
           </button>
         </div>
-        </div>
-
-          <span class="help-block"></span>
+        </div><!--кнопка сохранения-->
+        <span class="help-block"></span>
         <div class="row">
-        <div class="col-md-6 col-sm-6">
-          <button ng-disabled=""
-                  class="btn btn-lg btn-danger btn-block"
-                  ng-click="removeTheme()" type="submit">
-                      Удалить
-          </button>
-        </div>
-        </div>
+            <div class="col-md-6 col-sm-6">
+              <button ng-disabled=""
+                      class="btn btn-lg btn-danger btn-block"
+                      ng-click="removeTheme()" type="submit">
+                          Удалить
+              </button>
+            </div>
+        </div><!--кнопка удаления-->
       </form>
-
+    </div><!--Панель изменения темы-->
+  </div>
+</div><!--области редактирования-->
+<div class="container">
+    <div class="row btn-group role='group'">
+        <ul class="ds-btn" >
+            <li ng-repeat="item in themes">
+                <a class="btn btn-lg" ng-model="btn[themes.indexOf(item)]"
+                   ng-click="click(themes.indexOf(item))" href=""
+                   ng-class="{'btn-primary':btn[themes.indexOf(item)].state=='On',
+                   'btn-info':btn[themes.indexOf(item)].state=='Off'}">
+                    <!--Нужно поправить на SYS_LANG-->
+                    <span>{{item.names[SYS_LANG]}}</span>
+                </a>
+            </li>
+        </ul>
     </div>
 
-  </div>
-</div>
+</div><!--кнопочки с темами-->
+<div class="container">
+    <nice-table></nice-table>
+</div><!--таблица со словами-->
+{{SYS_LANG}}
