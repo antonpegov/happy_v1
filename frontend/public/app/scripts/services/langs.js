@@ -44,11 +44,11 @@ angular.module('happyTurtlesApp')
           ,getWordsByThemeId: function(_id,lang1,lang2){
             
               console.log(_id,lang1,lang2);
-              var query = API_URL+"words?theme="+_id+"&lang1="+lang1+"&lang2="+lang2;
+              var query = wordsUrl+"?theme="+_id+"&lang1="+lang1+"&lang2="+lang2;
               var promise = $http.get(query).then(function(response){
               
-                //console.log('Response:', response.data);
-                return response.data;
+                //response.data - тело ответа, в него положил массив 'words' и идентификатор 'theme'
+                return response.data.words;
               });
               return promise;
           }

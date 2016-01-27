@@ -2,7 +2,6 @@
 var User = require('./models/User.js');
 var Lang = require('./models/Lang.js');
 var Theme = require('./models/Theme.js');
-var LangCode = require('./models/LangCode.js');
 var Notion = require('./models/Notion.js');
 // Сервисы
 var Notions = require('./services/notion-data.js');
@@ -224,32 +223,32 @@ app.get('/codes', function(req, res){
 //=== Выдача массива слов по запросу 'Тема:Язык1:Язык2' ===
 app.get('/words', function(req, res) {
     console.log("Got request: ".blue + req.method +' '+ req.url);
-    // Проверка наличия всех трёх параметров в запросе
-    if(!req.query.theme || !req.query.lang1 || !req.query.lang2) {
+    if(req.query.theme) {
+        // Если в запросе есть тема перенаправляем запрос сервису и отдаём его результат
+        Notions.getWordsByThemeAndLangs(req.query.theme, req.query.lang1, req.query.lang2, function (err, words) {
+            if (err) {
+                console.log(err.red, req.method, req.url);
+                res.status(500).end();
+                return err;
+            } else if (!words) {  // undefined
+                res.status(404).end();
+                console.log('Got undefined!'.red);
+            } else if (words.length === 0) {  // пустой массив
+                res.status(200).send({words:words,theme:req.query.theme});
+                console.log('Sending empty array');
+            } else {
+                res.status(200).send({words:words,theme:req.query.theme});
+                console.log('Sending words');
+                //console.log('Words: ', words);
+            }
+        });
+    } else {
         res.status(400).end();
         console.log('Got bad request '.red, req.method, req.url);
-        return;
+        console.log('No theme in request: ',req.query);
     }
-    // Если всё ок, перенаправляем запрос сервису и отдаём его результат
-    Notions.getWordsByTheme(req.query.theme, req.query.lang1, req.query.lang2, function(err, words){
-        if (err) {
-            console.log(err.red, req.method, req.url);
-            res.status(500).end();
-            return err;
-        } else if (!words) {  // undefined
-            res.status(404).end();
-            console.log('Got undefined!'.red);
-        } else if (words.length === 0){  // пустой массив
-            res.status(200).send(words);
-            console.log('Sending empty array');
-        } else {
-            res.status(200).send(words);
-            console.log('Sending words');
-            //console.log('Words: ', words);
-        }
-    });
 });
-// === Получение списка тем для демо из файла конфигурации === Пока там пусто!
+// === Получение списка тем для демо из файла конфигурации ===
 app.get('/demothemes',function(req,res){
     console.log("Got request: ".blue + req.method +' '+ req.url);
     if (config.demothemes === undefined) {
@@ -257,6 +256,7 @@ app.get('/demothemes',function(req,res){
         res.status(400).end();
         return;
     }
+    // Запрашиваем документы, у которых _id совпадает с элементами массива демо-тем
     Theme.where('_id').in(config.demothemes).exec(function(err,themes){
         if(err){
             console.log(err, req.method, req.url);

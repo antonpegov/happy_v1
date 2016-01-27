@@ -35,7 +35,7 @@ angular.module('happyTurtlesApp')
             reset: function() {
                 this.value = LIFES_NUM;
             }
-        }
+        };
         $scope.word = ''; // Загадываемое слово
         $scope.hide_themes = true;
         $scope.hide_header = false;
@@ -103,8 +103,7 @@ angular.module('happyTurtlesApp')
     
                     Главный модуль
     
-    -----------------------------------------------------------*/   
-    
+    -----------------------------------------------------------*/
      
     // функция выбора случайного слова, которое вырезается из
     // массива и сохраняется в переменной $scope.word
