@@ -48,15 +48,16 @@
         </div>
         </div><!--область со словами-->
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" >
             <input type="file" file-reader="fileContent" class="drop-box"/><!--область для DRAG-AND-DROP-->
-            <button type="submit" class="btn main-btn pull-right" ng-click="transformWords()">
-            <span class="glyphicon glyphicon-ok"></span>
-          </button><!--кнопка очистки-->
+            <button type="submit" class="btn main-btn pull-right" ng-click="transformWords()"
+                    ng-show="(myLang1.length>0)&&(myLang2.length>0)&&(myThemeId.length>0)&&(myLang1!==myLang2)">
+              <span class="glyphicon glyphicon-ok"></span>
+            </button><!--кнопка подтверждения-->
             <button type="submit" class="btn refresh-btn pull-right"
-                  ng-click="isShown = false; myWords = ''; myWordsInJSON = [] ">
-            <span class="glyphicon glyphicon-remove"></span>
-          </button><!--кнопка подтверждения-->
+                  ng-click="isShown = false; myWords = ''; myWordsInJSON = []">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button><!--кнопка очистки-->
           </div>
         </div><!--область выбора или загрузки файла и кнопки-->
         <span class="help-block"></span>

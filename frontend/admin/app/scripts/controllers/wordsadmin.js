@@ -12,19 +12,21 @@ angular.module('happyTurtlesAppAdmin')
         var urlLangs = API_URL + 'langs';
         var urlThemes = API_URL + 'themes';
         var urlAdm = API_URL_ADM + 'words';
-        $scope.langs = []; // список полученных с сервера языков
-        $scope.themes = []; // список полученных с сервера тем
-        $scope.myWordsInJSON = []; //преобразованный массив
-        $scope.myWords = ''; // данные в 'textarea'
-        $scope.myThemeId = ''; // идентификатор выбранной в селекте темы
-        $scope.myLang1 = ''; // код выбранного в селекторе языка
-        $scope.myLang2 = ''; // код выбранного в селекторе языка
+        //_.mixin(s.exports());
+        console.log(s.capitalize("anton"));
+        $scope.langs = [];  // список полученных с сервера языков
+        $scope.themes = [];  // список полученных с сервера тем
+        $scope.myWordsInJSON = [];  //преобразованный массив
+        $scope.myWords = '';  // данные в 'textarea'
+        $scope.myThemeId = '';  // идентификатор выбранной в селекте темы
+        $scope.myLang1 = '';  // код выбранного в селекторе языка
+        $scope.myLang2 = '';  // код выбранного в селекторе языка
         $scope.sysLang = SYS_LANG;
         // Объект для хранения параметров преобразования
         $scope.Params = {
             theme: '',
-            lang1:'___',
-            lang2:'___'
+            lang1:'',
+            lang2:''
         };
         $scope.isShown = false; // выключатель показа панели с подготовленными словами
         // вырезает из массива myWordsInJSON один символ, начиная с указанного индекса
@@ -45,13 +47,12 @@ angular.module('happyTurtlesAppAdmin')
             return theme;
         }
 
-        /*----------------------------------------------------------
+        /*------------------------------------------------------------------------
            Функция преобразования строки. Сначала разбиваем текст на массив строк,
            затем отрезаем цифровую приставку, снова разбиваем уже на две части по
            разделителю ';', присваиваем полученные значения свойствам нового объекта,
            взяв названия свойств из lang1 и lang2, и, наконец, пушим объект в массив
-         -----------------------------------------------------------*/
-
+         -------------------------------------------------------------------------*/
         $scope.transformWords = function () {
             //$scope.myWordsInJSON = transform(
             //    $scope.myWords, $scope.myLang1,$scope.myLang2, $scope.myThemeId);
@@ -62,17 +63,18 @@ angular.module('happyTurtlesAppAdmin')
             $scope.Params.lang1 = $scope.myLang1;
             $scope.Params.lang2 = $scope.myLang2;
             $scope.Params.theme = getThemeById($scope.myThemeId);
-            // нафига???
             $scope.myWordsInJSON =[];
-            var re = /\r\n/m;
+            var re = /\r?\n|\r/gm;// '\r'- символ перевода страоки,'/n' - возврат каретки
             var array = $scope.myWords.split(re); // Разбиение на строки
+
             // Очистка от неформата (проверка наличия в строке символа ';')
             array.forEach(function(item){
                 var index = array.indexOf(item);
+                //s.trim(item,'\r');
                 if (!(item.indexOf(';') + 1)){
                     console.log('Removing El with Index = ', index);
                     array.splice(index,1);
-                    console.log('Array:', array);
+                    //console.log('Array:', array);
                 }
             });
             // Перебор массива строкх
@@ -83,9 +85,9 @@ angular.module('happyTurtlesAppAdmin')
                 obj[$scope.myLang1] = entry[0];
                 obj[$scope.myLang2] = entry[1];
                 $scope.myWordsInJSON.push(obj);
-                console.log('obj = ', obj);
-                console.log('entry = ', entry);
-                console.log('langs = ', $scope.myLang1,$scope.myLang2);
+                //console.log('obj = ', obj);
+                //console.log('entry = ', entry);
+                //console.log('langs = ', $scope.myLang1,$scope.myLang2);
             });
             $scope.isShown = true;
             console.log('FINAL = ', $scope.myWordsInJSON);

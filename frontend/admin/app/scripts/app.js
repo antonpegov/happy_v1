@@ -20,6 +20,7 @@ var app = angular.module('happyTurtlesAppAdmin',[
   ,'ui.select'
   ,'angular-loading-bar'
   ,'underscore'
+  //,'underscore.string'
 ]);
 
 /**
