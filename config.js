@@ -6,9 +6,9 @@ module.exports = {
     userSecret : 'some words...',
     adminSecret: 'Putin - Huilo, la-la-la-la-la-la-la-la!',
     // Рабочая база:
-    db: 'mongodb://anton:123123@ds031671.mongolab.com:31671/happy-turtles',
+    //db: 'mongodb://anton:123123@ds031671.mongolab.com:31671/happy-turtles',
     // Тестовая база:
-    //db: 'mongodb://test:test@ds047955.mongolab.com:47955/happy-test',
+    db: 'mongodb://test:test@ds047955.mongolab.com:47955/happy-test',
     demothemes: [
         '553e9d954248ab20110c3408',
         '553e7b8fdbb11540045ca7ef',

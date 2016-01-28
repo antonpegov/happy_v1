@@ -12,8 +12,9 @@ angular.module('happyTurtlesAppAdmin')
         var urlLangs = API_URL + 'langs';
         var urlThemes = API_URL + 'themes';
         var urlCodes = API_URL + 'codes';
-        var urlNotions = API_URL + 'words';
-        var urlAdm = API_URL_ADM + 'themes';
+        var urlWords = API_URL + 'words';
+        var urlThemeAdm = API_URL_ADM + 'themes';
+        var urlWordsAdm = API_URL_ADM + 'words';
         $scope.SYS_LANG = SYS_LANG;
         $scope.notins = []; // массив загруженных с сервера слов
         $scope.langs = [];  // массив из всех имеющихся в базе языков
@@ -22,6 +23,8 @@ angular.module('happyTurtlesAppAdmin')
         $scope.newTheme = {};  // новая тема
         $scope.btn = [];  // массив для хранения состояния кнопочек, инициализируется в get(темы)
         $scope.states = ['On', 'Off'];// массив возможных состояний кнопки
+        $scope.theme_clean_alert_msg = 'Вы собираетесь удалить все слова темы из Базы данных  !';
+        $scope.theme_delete_alert_msg = 'Вы собираетесь удалить тему и все привязанные к ней слова !';
         $scope.click = function(item_index){
             //item_index - индекс выбранной темы в массиве themes
             resetButtons(function(){
@@ -43,21 +46,16 @@ angular.module('happyTurtlesAppAdmin')
         }  // функция сброса кнопок в состояние Off
 
         /*-----------------------------------------------------------
-              Функция загрузки слов по теме
+                    Функция загрузки слов по теме
          ------------------------------------------------------------*/
 
-        $scope.getWords = function(theme_id){
-            var request = urlNotions+'?theme='+theme_id;
-            $http.get(request)
+        $scope.getWords = function(){
+            $http.get(urlWords+'?theme_id='+ $scope.modTheme._id)
                 .success(function (notions) {
                     $scope.notions = notions.words;
                     console.log('notions: ', notions.words);
                     if(notions[0] === undefined)
                         console.log("--- didn't got themes array!!! ---");
-                    // цикл инициализации массива кнопочек
-                    //for (var i = 0; i < themes.length; i++) {
-                    //    $scope.btn[i] = {state: $scope.states[0]};
-                    //}
                 })
                 .error(function (err) {
                     console.log(err);
@@ -65,12 +63,33 @@ angular.module('happyTurtlesAppAdmin')
 
         };  // обработчик нажатия кнопки загрузки и показа слов по теме
 
+        /*-----------------------------------------------------------
+                Функция полной очистки темы
+         ------------------------------------------------------------*/
+
+        $scope.cleanTheme = function(){
+            console.log('cleanTheme RUN!');
+            $http.delete(urlWordsAdm + '?theme_id=' + $scope.modTheme._id)
+                    .success(function(err) {
+                        if(err) console.log(err);
+                        console.log('Sending delete request with id= '
+                            , $scope.modTheme._id);
+                    })
+                    .error(function(err){
+                        console.log(err);
+                    });
+                $timeout(reload, 2000);
+                ///console.log('=removeTheme= is Done');
+
+
+        };
+
         /*--------------------------------------------------------------
-                    Функция удаления Темы
+                Функция удаления Темы
         --------------------------------------------------------------*/
 
         $scope.removeTheme = function(){
-            $http.delete(urlAdm + '?_id=' + $scope.modTheme._id)
+            $http.delete(urlThemeAdm + '?theme_id=' + $scope.modTheme._id)
                 .success(function(err) {
                     if(err) console.log(err);
                     console.log('Sending delete request with id= '
@@ -79,7 +98,6 @@ angular.module('happyTurtlesAppAdmin')
                 .error(function(err){
                     console.log(err);
                 });
-        
             $timeout(reload, 2000);
             ///console.log('=removeTheme= is Done');
 
@@ -94,7 +112,7 @@ angular.module('happyTurtlesAppAdmin')
             var theme = {
                 names: $scope.newTheme.names
             };
-            $http.post(urlAdm, theme)
+            $http.post(urlThemeAdm, theme)
                 .success(function (err) {
                     if(err) console.log(err);
                     console.log('Saving new Theme: ', theme);
@@ -106,7 +124,7 @@ angular.module('happyTurtlesAppAdmin')
         };
 
         /*-----------------------------------------------------------
-         Функция отправки изменённого объекта Theme
+                Функция изменения объекта Theme
          ------------------------------------------------------------*/
 
         $scope.editTheme = function(){
@@ -114,7 +132,7 @@ angular.module('happyTurtlesAppAdmin')
                 _id: $scope.modTheme._id,
                 names: $scope.modTheme.names
             };
-            $http.put(urlAdm, theme)
+            $http.put(urlThemeAdm, theme)
               .success(function (err) {
                   if(err) console.log(err);
                   console.log('Sending PUT request with ', theme);
@@ -127,7 +145,7 @@ angular.module('happyTurtlesAppAdmin')
         };
 
         /*------------------------------------------------------------
-         Получаем массивы Тем и Языков
+                Получаем массивы Тем и Языков
          -------------------------------------------------------------*/
 
         $http.get(urlThemes)

@@ -143,6 +143,10 @@ var addNotions = function(words, theme_id, lang1, lang2, callback){
     });
 };
 
+/*--------------------------------------------------------------------------------------
+
+ --------------------------------------------------------------------------------------*/
+
 var getWordsByThemeAndLangs = function(theme, lang1, lang2, callback){
 
     // если заданы языки, задаём темплейт из пары языков
@@ -168,9 +172,34 @@ var getWordsByThemeAndLangs = function(theme, lang1, lang2, callback){
     }
 };
 
+/*--------------------------------------------------------------------------------------
+        Функуия удаления слов из БД
+ --------------------------------------------------------------------------------------*/
+
+var cleanTheme = function(theme_id, lang_code, callback){
+    var result = '';
+    if (!lang_code){ // если язык пустой
+        // удаляем все слова темы
+        Notion.remove({theme:theme_id},function(err){
+            if(!err) {
+                var msg = 'Words with theme_id "'+theme_id+'" removed.';
+                callback(msg);
+            } else {
+                callback('Error: '+JSON.stringify(err));
+            }
+        });
+    } else {
+        // в цикле удаляем слова указанных языков
+        result = 'Under construction';
+        console.log('Under construction');
+        callback(result);
+    }
+
+};
+
 module.exports = {
     getWordsByThemeAndLangs: getWordsByThemeAndLangs,
     addNotions: addNotions,
-    getLangCodesAll: getLangCodesAll
-
+    getLangCodesAll: getLangCodesAll,
+    cleanTheme: cleanTheme
 };

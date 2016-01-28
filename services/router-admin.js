@@ -151,13 +151,13 @@ router.post('/login', passport.authenticate('admin-login'),function(req,res){
 });
 
 /*-------------------------------------------------------------------
-            Обработка запросов в раздел "понятия"
+            Обработка запросов в раздел "слова"
  -------------------------------------------------------------------*/
+
 // используются функции из сервиса notion-data.js
 router.post('/words', function(req,res){
-    console.log('got POST request to "/words", body! '.blue);
+    console.log('got POST request to "/words"... '.blue);
     notionService.addNotions(req.body.words,req.body.theme_id,req.body.lang1,req.body.lang2, function(result){
-
         res.status(200).send(result);
         console.log(('CALLBACK! Rejected: ').yellow, result.rejected.length,
             ('New words: ').green, result.added,
@@ -166,13 +166,30 @@ router.post('/words', function(req,res){
 
     })
 });
+router.delete('/words',function(req,res){
+    // Функция получает id темы и массив с кодами языков
+    // Если массив языков отсутствует, заменяем его пустым массивом
+    console.log('got DELETE request to "/words"...! '.blue);
+    var lang = '';
+    if (req.query.lang) lang = req.query.lang;
+    if (req.query.theme_id) {
+        notionService.cleanTheme(req.query.theme_id, lang, function (result) {
+            res.status(200).send(result);
+            console.log(result);
+        })
+    } else {
+        console.log('Bad request!');
+        res.status(404).end();
+    }
+});
 
 /*-------------------------------------------------------------------
             Обработка запросов в раздел "темы"
 -------------------------------------------------------------------*/
+
 // НЕОБХОДИМО ДОБАВИТЬ ПРОВЕРКУ НА ОТСУТСТВИЕ ДУБЛИРОВАНИЯ!!!
 router.post('/themes', function(req,res){
-    console.log('got POST request, body: '.blue,req.body);
+    console.log('POST request to /themes...'.blue);
     var newTheme = new Theme({
         names: req.body.names
     });
@@ -181,15 +198,13 @@ router.post('/themes', function(req,res){
             res.status(412).send('Error');
             console.log(err);
         } else {
-            console.log(('ADDING...  Theme: "'
-                + req.body.names.eng + '"').green);
+            console.log('New theme created'.green);
             res.status(200).send(newTheme);
         }
     });
 });
 router.put('/themes', function(req,res){
-
-    //console.log(('got PUT request, themeId: ' + req.body._id).grey);
+    console.log('POST request to /themes...'.blue);
 
     //var newTheme = new Theme({
     //    names: req.body.names
@@ -205,29 +220,40 @@ router.put('/themes', function(req,res){
 
     var _id = req.body._id;
     delete req.body._id;
-
+    //console.log(req.body);
     Theme.update({_id: _id}, req.body, {upsert: true}, function (err) {
         if (err) {
             console.log(err.red);
             res.status(401).send('Error');
             return;
         }
-        console.log(('UPDATING...  Theme: "'+ req.body.names.eng +'"').green);
+        console.log('Theme updated.'.green);
         res.status(200).send('Done');
-        console.log('docId: ' +_id);
+        //console.log('docId: ' +_id);
     });
 });
 router.delete('/themes', function(req,res){
     // в запросе на удаление приходит только ID темы
-    console.log('got request for DELETE, themeId: '.blue,req.query._id);
-    console.log(('DELETING...').green);
-    Theme.find({ _id:req.query._id}).remove().exec();
-    res.status(200).send(req.query._id + ' is deleted');
+    console.log('DELETE request to "/themes"'.blue,req.query.theme_id);
+    notionService.cleanTheme(req.query.theme_id, '', function (result) {
+        console.log(result);
+        Theme.remove({_id:req.query.theme_id},function(err){
+            if(!err) {
+                res.status(200).send(req.query.theme_id + ' is deleted');
+                console.log('Theme with id "'+req.query.theme_id+'" removed.'.green);
+            } else {
+                console.log('Error: '+JSON.stringify(err));
+                res.status(400).send('Error');
+            }
+        });
+    });
+
 });
 
 /*-------------------------------------------------------------------
             Обработка запросов в раздел "языки"
 -------------------------------------------------------------------*/
+
 // НЕОБХОДИМО ДОБАВИТЬ ПРОВЕРКУ НА ОТСУТСТВИЕ ДУБЛИРОВАНИЯ!!!
 router.post('/langs', function(req,res){
     //console.log('got request, body: ',req.body);

@@ -44,7 +44,7 @@ angular.module('happyTurtlesApp')
           ,getWordsByThemeId: function(_id,lang1,lang2){
             
               console.log(_id,lang1,lang2);
-              var query = wordsUrl+"?theme="+_id+"&lang1="+lang1+"&lang2="+lang2;
+              var query = wordsUrl+"?theme_id="+_id+"&lang1="+lang1+"&lang2="+lang2;
               var promise = $http.get(query).then(function(response){
               
                 //response.data - тело ответа, в него положил массив 'words' и идентификатор 'theme'

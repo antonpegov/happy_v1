@@ -1,71 +1,44 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-md-6">
-      <h2>Добавить: </h2>
-      <span class="help-block"></span>
-
-
-      <form name="language_add" ng-submit="addTheme()" novalidate>
-
-        <div ng-repeat="code in codes" class="input-group">
-
-          <div class="">
-            {{code}}:
-          </div>
-          <div class="">
-              <input type="text" ng-model="newTheme.names[code]"
-                   name="{{code}}">
-              <span class="help-block"></span>
-          </div>
-
-        </div>
-        <span class="help-block"></span>
-        <div class="col-md-6 col-sm-6">
-          <button class="btn btn-lg btn-success btn-block" type="submit">
-            Отправить
-          </button>
-        </div>
-
-      </form>
-
-    </div><!--Панель добавления темы-->
-    <div class="col-sm-6 col-md-6">
-      <h2>Изменить:</h2>
-      <span class="help-block"></span>
-      <span class="help-block"></span>
-      <form name="language_edit" ng-submit="" novalidate>
-        <div ng-repeat="item in langs" class="input-group">
-              <div class="">{{item.code}}:</div>
-              <div class="">
-                    <input type="text" ng-model="modTheme.names[item.code]" name="{{item.code}}">
-                    <span class="help-block"></span>
-              </div>
-         </div><!--поля ввода-->
-        <span class="help-block"></span>
-        <div class="row">
-        <div class="col-md-6 col-sm-6">
-          <button ng-disabled=""
-                  class="btn btn-lg btn-warning btn-block"
-                  ng-click="editTheme()" type="submit">
-                      Сохранить
-          </button>
-        </div>
-        </div><!--кнопка сохранения-->
-        <span class="help-block"></span>
-        <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <button ng-disabled=""
-                      class="btn btn-lg btn-danger btn-block"
-                      ng-click="removeTheme()" type="submit">
-                          Удалить
-              </button>
+    <div class="row">
+        <div class="col-sm-6 col-md-6 ">
+            <div class="panel panel-success">
+                <div class="panel-heading">Добавление новой темы </div>
+                <div class="panel-body">
+                    <form name="language_add" ng-submit="addTheme()" novalidate>
+                            <div ng-repeat="code in codes" class="input-group input-group-sm">
+                                <span class="input-group-addon" id="sizing-addon1">{{code}}</span>
+                                <input type="text" class="form-control"  aria-describedby="sizing-addon1"
+                                    ng-model="newTheme.names[code]" name="{{code}}">
+                            </div>
+                            <button ng-disabled="" class="btn btn-success btn-block" type="submit">
+                                    создать
+                                </button>
+                        </form>
+                </div>
             </div>
-        </div><!--кнопка удаления-->
-      </form>
-    </div><!--Панель изменения темы-->
-  </div><!--области редактирования-->
-  <div class="row">
-        <ul class="ds-btn" >
+        </div><!--Панель добавления темы-->
+        <div class="col-sm-6 col-md-6">
+            <div class="panel panel-warning">
+                <div class="panel-heading">Изменение темы</div>
+                <div class="panel-body">
+                    <form name="language_edit" ng-submit="" novalidate>
+                        <div ng-repeat="lang in langs" class="input-group input-group-sm">
+                            <span class="input-group-addon">{{lang.code}}:</span>
+                            <input type="text" class="form-control"
+                               ng-model="modTheme.names[lang.code]" name="{{lang.code}}">
+                        </div><!--поля ввода-->
+                        <button ng-disabled="(modTheme._id == undefined)"
+                                class="btn btn-warning btn-block"
+                                ng-click="editTheme()" type="submit">
+                            сохранить
+                        </button><!--кнопка сохранения-->
+                    </form>
+                </div>
+            </div>
+        </div><!--Панель изменения темы-->
+    </div><!--области редактирования-->
+    <div class="row">
+        <ul class="ds-btn">
             <li ng-repeat="item in themes">
                 <a class="btn btn-lg" ng-model="btn[themes.indexOf(item)]"
                    ng-click="click(themes.indexOf(item))" href=""
@@ -77,34 +50,41 @@
             </li>
         </ul>
     </div><!--кнопочки с темами-->
-  <div class="row">
-    <div class="panel panel-success" >
-        <div class="panel-heading text-center">
-            <h2 class="panel-title" ng-show="(modTheme._id !== undefined)">
-                <b>{{s.capitalize(modTheme.names[SYS_LANG])}} {{' (ID: '+modTheme._id+ ') '}}</b>
-                <button copy-to-clipboard text-to-copy="modTheme._id">Copy ID</button>
-                <button ng-click="getWords(modTheme._id)">Load
-                </button>
-            </h2>
-        </div><!--кнопки копирования theme_id и загрузки из БД слов по выбранной теме -->
-        <div class="panel-body table-responsive">
-            <table class="table table-striped table-hover ">
-                <thead>
+    <div class="row">
+        <div class="panel panel-success">
+            <div class="panel-heading text-center">
+                <h2 class="panel-title" ng-show="(modTheme._id !== undefined)">
+                    <b>{{s.capitalize(modTheme.names[SYS_LANG])}} {{' (ID: '+modTheme._id+ ') '}}</b>
+                    <button copy-to-clipboard text-to-copy="modTheme._id">Copy ID</button>
+                    <button ng-click="getWords()">Load</button>
+                    <button ng-click="cleanTheme()"
+                            ng-confirm-click="{{theme_clean_alert_msg.toUpperCase()}}">
+                        Clean
+                    </button>
+                    <!--кнопка полной очистки темы в БД-->
+                    <button ng-click="removeTheme()"
+                            ng-confirm-click="{{theme_delete_alert_msg.toUpperCase()}}">Delete
+                    </button>
+                </h2>
+            </div><!--кнопки копирования theme_id и загрузки из БД слов по выбранной теме -->
+            <div class="panel-body table-responsive">
+                <table class="table table-striped table-hover ">
+                    <thead>
                     <tr>
                         <th>#</th>
                         <th ng-repeat="code in codes">{{code}}</th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     <tr ng-repeat="notion in notions">
                         <td ng-model="myIndex">{{$index + 1}}</td>
                         <td ng-repeat="code in codes">
                             {{notion[code]}}
                         </td>
                     </tr>
-                </tbody>
-            </table>
-        </div><!--Тело таблицы -->
-    </div><!--таблица с подготовленным массивом-->
-</div><!--таблица со словами-->
+                    </tbody>
+                </table>
+            </div><!--Тело таблицы -->
+        </div><!--таблица с подготовленным массивом-->
+    </div><!--таблица со словами-->
 </div>

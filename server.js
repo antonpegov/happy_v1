@@ -155,9 +155,11 @@ app.get('/reception',function(req,res){
 //-------------------------------------------------------------------
 //            Блок выдачи печенек
 //------------------------------------------------------------------
+
 // === Выдача массива тем ===
+
 app.get('/themes', function(req,res){
-    console.log("Got request: ".blue + req.method +' '+ req.url);
+    //console.log("Got request: ".blue + req.method +' '+ req.url);
     Theme.find(function(err,themes){
         if(err){  //  ошибка
             console.log(err.red, req.method, req.url);
@@ -171,14 +173,16 @@ app.get('/themes', function(req,res){
             console.log('Sending empty array');
         } else {
             res.status(200).send(themes);
-            console.log('Sending themes');
+            //console.log('Sending themes');
             //console.log('Themes: ', themes);
         }
     });
 });
+
 //=== Выдача массива языков ===
+
 app.get('/langs', function(req, res){
-    console.log("Got request: ".blue + req.method +' '+ req.url);
+    //console.log("Got request: ".blue + req.method +' '+ req.url);
     Lang.find(function(err,langs){
         if(err){ // ошибка
             console.log(err.red, req.method, req.url);
@@ -192,14 +196,16 @@ app.get('/langs', function(req, res){
             console.log('Sending empty array');
         } else {
             res.status(200).send(langs);
-            console.log('Sending languages');
+            //console.log('Sending languages');
             //console.log('Langs: ', langs);
         }
     });
 });
+
 //=== Выдача массива кодов ===
+
 app.get('/codes', function(req, res){
-    console.log("Got request: ".blue + req.method +' '+ req.url);
+    //console.log("Got request: ".blue + req.method +' '+ req.url);
     notionService.getLangCodesAll(function(err,codes){
         if(err){ // ошибка
             console.log(err.red, req.method, req.url);
@@ -213,40 +219,19 @@ app.get('/codes', function(req, res){
             console.log('Sending empty array');
         } else {
             res.status(200).send(codes);
-            console.log('Sending language codes');
+            //console.log('Sending language codes');
             //console.log('Langs: ', langs);
         }
     });
 });
 
-/*=== Выдача массива кодов ===
-app.get('/codes', function(req, res){
-    console.log("Got request: ".blue + req.method +' '+ req.url);
-    LangCode.find(function(err,codes){
-        if(err){ // если ошибка
-            console.log(err.red, req.method, req.url);
-            res.status(500).end();
-            return err;
-        } else if (!codes) {  // undefined
-                res.status(404).end();
-                console.log('Got undefined!'.red);
-        } else if (codes.length === 0){  // пустой массив
-            res.status(200).send(codes);
-            console.log('Sending empty array');
-        } else { // всё в порядке
-            res.status(200).send(codes);
-            console.log('Sending codes');
-            //console.log('Codes: ', codes);
-        }
-    });
-});
-*/
 //=== Выдача массива слов по запросу 'Тема:Язык1:Язык2' ===
+
 app.get('/words', function(req, res) {
     console.log("Got request: ".blue + req.method +' '+ req.url);
-    if(req.query.theme) {
+    if(req.query.theme_id) {
         // Если в запросе есть тема перенаправляем запрос сервису и отдаём его результат
-        notionService.getWordsByThemeAndLangs(req.query.theme, req.query.lang1, req.query.lang2, function (err, words) {
+        notionService.getWordsByThemeAndLangs(req.query.theme_id, req.query.lang1, req.query.lang2, function (err, words) {
             if (err) {
                 console.log(err.red, req.method, req.url);
                 res.status(500).end();
@@ -255,21 +240,23 @@ app.get('/words', function(req, res) {
                 res.status(404).end();
                 console.log('Got undefined!'.red);
             } else if (words.length === 0) {  // пустой массив
-                res.status(200).send({words:words,theme:req.query.theme});
-                console.log('Sending empty array');
+                res.status(200).send({words:words,theme:req.query.theme_id});
+                //console.log('Sending empty array');
             } else {
-                res.status(200).send({words:words,theme:req.query.theme});
-                console.log('Sending words');
+                res.status(200).send({words:words,theme:req.query.theme_id});
+                //console.log('Sending words');
                 //console.log('Words: ', words);
             }
         });
     } else {
         res.status(400).end();
         console.log('Got bad request '.red, req.method, req.url);
-        console.log('No theme in request: ',req.query);
+        console.log('No theme in request: ',req.query.theme_id);
     }
 });
+
 // === Получение списка тем для демо из файла конфигурации ===
+
 app.get('/demothemes',function(req,res){
     console.log("Got request: ".blue + req.method +' '+ req.url);
     if (config.demothemes === undefined) {
@@ -284,7 +271,7 @@ app.get('/demothemes',function(req,res){
             res.status(500).end();
             return err;
         } else {
-            console.log("Sending Themes... ");
+            //console.log("Sending Themes... ");
             res.status(200).send(themes);
         }        
     })    
