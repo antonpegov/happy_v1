@@ -30,6 +30,7 @@ angular.module('happyTurtlesAppAdmin')
                 //console.log('item_index = %s', item_index);
             });
         };  // обработчик нажатия на кнопку выбранной темы
+        $scope.s = s; // выводим в Скоп доступ к функциям underscore.string
         //--------------------------------------
         function reload(){
             $state.reload();
@@ -165,6 +166,8 @@ angular.module('happyTurtlesAppAdmin')
             .error(function (err) {
                 console.log(err);
             });
+        // Директива для копирования чего-то в clipboard, должна работать как-то так:
+        // <button copy-to-clipboard text-to-copy="vm.someText">Copy to Clipboard</button>
 
     });
 

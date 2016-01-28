@@ -80,11 +80,13 @@
   <div class="row">
     <div class="panel panel-success" >
         <div class="panel-heading text-center">
-            <h2 class="panel-title"><b>{{modTheme.names[SYS_LANG]}}</b>
-                <input type="button" value="Load" ng-click="getWords(modTheme._id)"
-                        ng-show="modTheme" class="btn">
+            <h2 class="panel-title" ng-show="(modTheme._id !== undefined)">
+                <b>{{s.capitalize(modTheme.names[SYS_LANG])}} {{' (ID: '+modTheme._id+ ') '}}</b>
+                <button copy-to-clipboard text-to-copy="modTheme._id">Copy ID</button>
+                <button ng-click="getWords(modTheme._id)">Load
+                </button>
             </h2>
-        </div>
+        </div><!--кнопки копирования theme_id и загрузки из БД слов по выбранной теме -->
         <div class="panel-body table-responsive">
             <table class="table table-striped table-hover ">
                 <thead>
@@ -102,7 +104,7 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div><!--Тело таблицы -->
     </div><!--таблица с подготовленным массивом-->
 </div><!--таблица со словами-->
 </div>
