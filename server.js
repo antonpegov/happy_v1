@@ -4,7 +4,7 @@ var Lang = require('./models/Lang.js');
 var Theme = require('./models/Theme.js');
 var Notion = require('./models/Notion.js');
 // Сервисы
-var Notions = require('./services/notion-data.js');
+var notionService = require('./services/notion-data.js');
 // Необходимые модули
 var express = require('express');
 var mongoose = require('mongoose');
@@ -197,6 +197,27 @@ app.get('/langs', function(req, res){
         }
     });
 });
+//=== Выдача массива кодов ===
+app.get('/codes', function(req, res){
+    console.log("Got request: ".blue + req.method +' '+ req.url);
+    notionService.getLangCodesAll(function(err,codes){
+        if(err){ // ошибка
+            console.log(err.red, req.method, req.url);
+            res.status(500).end();
+            return err;
+        } else if (!codes) {  // undefined
+            res.status(404).end();
+            console.log('Got undefined!'.red);
+        } else if (codes.length === 0){  // пустой массив
+            res.status(200).send(codes);
+            console.log('Sending empty array');
+        } else {
+            res.status(200).send(codes);
+            console.log('Sending language codes');
+            //console.log('Langs: ', langs);
+        }
+    });
+});
 
 /*=== Выдача массива кодов ===
 app.get('/codes', function(req, res){
@@ -225,7 +246,7 @@ app.get('/words', function(req, res) {
     console.log("Got request: ".blue + req.method +' '+ req.url);
     if(req.query.theme) {
         // Если в запросе есть тема перенаправляем запрос сервису и отдаём его результат
-        Notions.getWordsByThemeAndLangs(req.query.theme, req.query.lang1, req.query.lang2, function (err, words) {
+        notionService.getWordsByThemeAndLangs(req.query.theme, req.query.lang1, req.query.lang2, function (err, words) {
             if (err) {
                 console.log(err.red, req.method, req.url);
                 res.status(500).end();

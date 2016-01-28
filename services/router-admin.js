@@ -6,7 +6,7 @@ var Theme = require('../models/Theme.js');
 var Lang = require('../models/Lang.js');
 //var Notion = require('../models/Notion.js');
 var LangCode = require('../models/LangCode.js');
-var Notions = require('./notion-data.js'); // серфис для работы с понятиями
+var notionService = require('./notion-data.js'); // серфис для работы с понятиями
 var Admin = require('../models/Admin.js');
 var passport = require ('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -158,8 +158,7 @@ router.post('/words', function(req,res){
     console.log('got POST request to "/words", body! '.blue);
     var rejected = []; // Массив для отбракованных слов
     var updCount = 0, newCount = 0; // Счётчики для notions - сколько создано новых и сколько обновлено
-
-    Notions.addNotions(req.body.words,req.body.theme_id,req.body.lang1,req.body.lang2, function(){
+    notionService.addNotions(req.body.words,req.body.theme_id,req.body.lang1,req.body.lang2, function(){
 
         var answer = {
             rejected: rejected,

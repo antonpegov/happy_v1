@@ -29,12 +29,12 @@ angular.module('happyTurtlesAppAdmin')
             lang2:''
         };
         $scope.isShown = false; // выключатель показа панели с подготовленными словами
-        // вырезает из массива myWordsInJSON один символ, начиная с указанного индекса
+        // вырезает из массива myWordsInJSON объект с указанным индексом
         $scope.cut = function(index){
           $scope.myWordsInJSON.splice(index,1);
           if ($scope.myWordsInJSON.length == 1)
             $scope.myWordsInJSON = [];
-          console.log('cutted, index =', index,$scope.myWordsInJSON);
+          //console.log('cutted, index =', index,$scope.myWordsInJSON);
         };
         // возвращает объект-тему, используя переданный идентификатор
         function getThemeById(id){

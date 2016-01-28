@@ -72,7 +72,7 @@ var getLangCodesAll = function(callback){
                 words - массив объектовтипа {"eng":"muscles","rus":"мускулы"}
                 theme_id - идентификатор темы, в которую их нужно загрузить
  --------------------------------------------------------------------------------------*/
-exports.addNotions = function(words, theme_id, lang1, lang2, callback){
+var addNotions = function(words, theme_id, lang1, lang2, callback){
     var rejected = []; // Массив для отбракованных слов
     var updCount = 0, newCount = 0; // Счётчики для notions - сколько создано новых и сколько обновлено
 
@@ -134,7 +134,7 @@ exports.addNotions = function(words, theme_id, lang1, lang2, callback){
     setTimeout(callback, 1000);
 };
 
-exports.getWordsByThemeAndLangs = function(theme, lang1, lang2, callback){
+var getWordsByThemeAndLangs = function(theme, lang1, lang2, callback){
 
     // если заданы языки, задаём темплейт из пары языков
     var template = '';
@@ -170,3 +170,9 @@ exports.getWordsByThemeAndLangs = function(theme, lang1, lang2, callback){
 //        callback(err,docs);
 //    });
 //};
+module.exports = {
+    getWordsByThemeAndLangs: getWordsByThemeAndLangs,
+    addNotions: addNotions,
+    getLangCodesAll: getLangCodesAll
+
+};
