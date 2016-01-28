@@ -2,20 +2,19 @@ var Notion = require('../models/Notion.js');
 var Lang = require('../models/Lang.js');
 var _ = require('underscore');
 
-var langRequest = function(lang, notion, callback){
+var langCheck = function(lang, notion, callback){
     
-    var searchReq = {};
-    searchReq.lang = notion.lang;
-    console.log('searchReq = ', searchReq);
+    var query = {};
+    query[lang] = notion[lang];
+    //console.log('searchReq = ', query);
     // запрос к БД,
-    Notion.findOne(searchReq).exec(function(err,notionFound){
+    Notion.findOne(query).exec(function(err,notionFound){
         if (err) return err;
         if (!notionFound) {
-            console.log('searchReq = ', searchReq);
-            console.log(('(langRequest) Notion not found : '+ notion[lang]).green);
+            //console.log(('(langCheck) Notion not found : '+ notion[lang]).green);
             callback(undefined);
         } else {
-            console.log(('(langRequest) Found notion : ' + notion[lang]).yellow);
+            //console.log(('(langCheck) Found notion : ' + notion[lang]).yellow);
             callback(notionFound);
         }
     });
@@ -33,7 +32,7 @@ var addNewNotion = function(theme,lang1,value1,lang2,value2){
             return false;
         }
         else {
-            console.log('(addNewNotion) Item saved: ', JSON.stringify(newNotion));
+            //console.log('(addNewNotion) Item saved: ', JSON.stringify(newNotion));
             return true;
         }
     });
@@ -72,66 +71,76 @@ var getLangCodesAll = function(callback){
                 words - массив объектовтипа {"eng":"muscles","rus":"мускулы"}
                 theme_id - идентификатор темы, в которую их нужно загрузить
  --------------------------------------------------------------------------------------*/
+
 var addNotions = function(words, theme_id, lang1, lang2, callback){
-    var rejected = []; // Массив для отбракованных слов
-    var updCount = 0, newCount = 0; // Счётчики для notions - сколько создано новых и сколько обновлено
 
     // Функция получает массив words, состоящий из объектов вида {"eng":"clothes","rus":"одежда"}, после чего
-    // используя forEach и сервис-функцию langRequest, проверяет наличие в базе первого слова. Если его нет, то
-    // сразу проверяется наличие второго сло
+    // используя forEach и сервис-функцию langCheck, проверяет наличие слов в БД и при необходимости вызывает
+    // функции addNotion  и updateNotion. По окончанию передаёт в колбэк результат своей работы
 
-    console.log('Слова:', JSON.stringify(words));
-    console.log('Тема: ', JSON.stringify(theme_id));
-    console.log(('(addingNotes)------------------------------------------------------------------------').yellow);
-    words.forEach(function(word){
-        // ???????? ?? ??????? ?????? ? ????????? lang1 ? lang2
-        if (typeof(word[lang1]) == 'undefined' || typeof(word[lang2]) == 'undefined'){
-            console.log('Type of lang1:', word[lang1],'Type of lang2:', word[lang2] );
-            return;
+    var result = {
+        rejected: [],
+        added: 0,
+        updated: 0,
+        err: false
+    };
+    //console.log('Слова:', JSON.stringify(words));
+    console.log('(addNotion) Пришло %s слов по теме %s, языки "%s" и "%s":', words.length, theme_id, lang1, lang2);
+    var items_processed = 0; // счетчик для цикла forEach
+    words.forEach(function(word) {
+        // Сначала проверим наличие lang1 и lang2
+        if (typeof(word[lang1]) == 'undefined' || typeof(word[lang2]) == 'undefined') {
+            console.log('Type of lang1:', word[lang1], 'Type of lang2:'.red, word[lang2]);
+            result.err = true;
+            callback(result);
         }
-        langRequest(lang1,word, function(isLang1){
-            if (!isLang1){  // ???? lang1 ??????????? ? ????:
-                langRequest(lang2, word, function(isLang2){
-                    if (!isLang2){  // lang1 and lang2 NOT FOUND, ????? ????? ??????? ????
-                        console.log(('lang1 and lang2 NOT FOUND, creating new element').blue);
-                        if (!(addNewNotion(theme_id,lang1,word[lang1],lang2,word[lang2]))) {
-                            newCount++;
-                            console.log('newCount = ', newCount);
+        langCheck(lang1, word, function (isLang1) { // Проверим, есть ли слово с кодом lang1 в БД
+            if (!isLang1) {  // Слово с кодом lang1 не найден в базе, тепрь проверяем слово с lang2
+                langCheck(lang2, word, function (isLang2) {
+                    if (!isLang2) {  // lang1 and lang2 NOT FOUND, создаём новый документ
+                        console.log('"%s" and "%s" not found, creating new record...'.green,word[lang1],word[lang2]);
+                        if (!(addNewNotion(theme_id, lang1, word[lang1], lang2, word[lang2]))) {
+                            result.added++;
                         } else {
                             console.log(('create Error!').red);
                         }
-                    } else {        // ???? lang2 ????, ? lang1 ???????????
-                        console.log(('Only lang2 FOUND').yellow);
-                        if (!updateNotion(isLang2, lang1, word[lang1])){
-                            updCount++;
-                            console.log('updCount = ', updCount);
+                    } else {        // Есть lang2 но нет lang1 - добавляем слово к lang2
+                        console.log('%s found, adding %s to existing record...'.blue,word[lang2],word[lang1]);
+                        if (!updateNotion(isLang2, lang1, word[lang1])) {
+                            result.updated++;
                         } else {
                             console.log(('update Error!').red);
                         }
                     }
+                    // Цикл перебора закончен, увеличиваем счетчик и если
+                    // он достиг величины нашего массива, выходим по колбэку
+                    items_processed++;
+                    //console.log('items_processed = ', items_processed);
+                    if (items_processed === words.length) callback(result);
                 });
-            } else {            // ???? lang1 ???? ? ????
-                langRequest(lang2,word, function(isLang2){
-
-                    if (!isLang2){  // ???? lang1 ????, ? lang2 ???????????
-                        console.log(('Only lang1 FOUND').yellow);
-                        if (!updateNotion(isLang1, lang2, word[lang2])){
-                            updCount++;
-                            console.log('updCount = ', updCount);
+            } else {  // Слово с кодом lang1 присутствует в БД, теперь проверяем на наличие lang2
+                langCheck(lang2, word, function (isLang2) {
+                    if (!isLang2) {  // Слова с lang2 в базе нет, добавляем его к lang1
+                        console.log('"%s" found, adding "%s" to existing record...'.blue,word[lang1],word[lang2]);
+                        if (!updateNotion(isLang1, lang2, word[lang2])) {
+                            result.updated++;
                         } else {
                             console.log(('update Error!').red);
                         }
-                    } else {        // ???? ??? ????? ??? ???? ? ????, ?? ?????
-
-                        rejected.push(word);
-                        console.log(('lang1 and lang2 BOTH FOUND').red);
-
+                    } else {  // Оба слова найдены в базе, добавляем их в массив "отказников"
+                        result.rejected.push(word);
+                        console.log('"%s" and "%s" already in database'.yellow, word[lang1],word[lang2]);
                     }
+                    // Цикл перебора закончен, увеличиваем счетчик и если
+                    // он достиг величины нашего массива, выходим по колбэку
+                    items_processed++;
+                    //console.log('items_processed = ', items_processed);
+                    if (items_processed === words.length) callback(result);
                 });
             }
         });
+
     });
-    setTimeout(callback, 1000);
 };
 
 var getWordsByThemeAndLangs = function(theme, lang1, lang2, callback){
@@ -142,10 +151,6 @@ var getWordsByThemeAndLangs = function(theme, lang1, lang2, callback){
         template = lang1 +' '+lang2;
         // Запрашиваем слова, сооветствующие заданной теме
         Notion.find({theme: theme},template, function(err, notions){
-            //console.log('Message from *getWordsByThemeAndLangs*:'
-            //+'sending db request with lang1 = ' + lang1
-            //+',lang2 = ' + lang2 + ', theme = ' + theme);
-            //console.log(notions);
             callback(err,notions);
         });
     } else {
@@ -162,14 +167,7 @@ var getWordsByThemeAndLangs = function(theme, lang1, lang2, callback){
         })
     }
 };
-//exports.getWordsByTheme = function(theme, callback){
-//    var searhReq = {theme: theme};
-//    Notion.find(searchReq, function(err, docs){
-//        console.log('Message from *getWordsByTheme*:'
-//        +'sending db request with theme = ' + theme);
-//        callback(err,docs);
-//    });
-//};
+
 module.exports = {
     getWordsByThemeAndLangs: getWordsByThemeAndLangs,
     addNotions: addNotions,

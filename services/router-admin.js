@@ -156,19 +156,13 @@ router.post('/login', passport.authenticate('admin-login'),function(req,res){
 // используются функции из сервиса notion-data.js
 router.post('/words', function(req,res){
     console.log('got POST request to "/words", body! '.blue);
-    var rejected = []; // Массив для отбракованных слов
-    var updCount = 0, newCount = 0; // Счётчики для notions - сколько создано новых и сколько обновлено
-    notionService.addNotions(req.body.words,req.body.theme_id,req.body.lang1,req.body.lang2, function(){
+    notionService.addNotions(req.body.words,req.body.theme_id,req.body.lang1,req.body.lang2, function(result){
 
-        var answer = {
-            rejected: rejected,
-            added: newCount,
-            updated: updCount
-        };
-        res.status(200).send(answer);
-        console.log(('CALLBACK! Rejected: ').yellow, rejected.length
-            ,('New words: ').green, newCount
-            ,('Updated: ').blue,updCount);
+        res.status(200).send(result);
+        console.log(('CALLBACK! Rejected: ').yellow, result.rejected.length,
+            ('New words: ').green, result.added,
+            ('Updated: ').blue,result.updated
+        );
 
     })
 });
