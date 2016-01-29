@@ -236,15 +236,10 @@ article {
     height: 0
 }
 .grid-fluid .c8 {
-    width: 95%;
-    margin-right: 1.04167%;
-    margin-left: 1.04167%;
-    float: left;
-        /*margin-left: 20px;
-        margin-right: 20px;
-        float: none;
-        display: block;
-        width: auto*/
+    width: 85%;
+    margin-left: 10%;
+    margin-right: 10%;
+    /*display: block;*/
 }
 .hover-card {
     position: relative;

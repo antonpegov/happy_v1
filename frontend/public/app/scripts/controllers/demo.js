@@ -22,7 +22,7 @@ angular.module('happyTurtlesApp')
     $scope.target_lang_name = '';
     $scope.langs = [];
     $scope.themes = [];
-    var setup = function() {
+    $scope.setup = function(){
         $scope.Progress = {
                 value: 0,
                 plus: function () {
@@ -55,13 +55,44 @@ angular.module('happyTurtlesApp')
         $scope.words_missed = []; // ошибки
         $scope.versions = []; // массив вариантор ответа
     };
+    function init(req){
+        /*--------------------------------------------------------------
+         Функция инициализации - запускается первый раз из $scope.run
+         и продолжает вызываться при каждом пересчёте
+         -----------------------------------------------------------------*/
+        console.log('----------------- Init() starting... req =',req);
+        console.log('WORDS_ARRAY: ',$scope.words);
+        console.log('WORDS_USED_ARRAY: ',$scope.words_used);
+        console.log('WORDS_MISSED_ARRAY: ',$scope.words_missed);
+        if(req === true) Finish.win();
+        if(req === false) Finish.loose();
 
+        var deferred = $q.defer();
+        cutRandomWord() // вынимаем из массива случайное слово
+            .then(getRandomVersions) // формируем массив ответов
+            .then(seedAnswer) // внедряем слово в массив с ответами
+            .then(
+            function(res){
+                console.log('Chain finished with ', res.array);
+                $scope.versions = res.array;
+                $scope.show_main = true;
+            }
+            ,function(err){
+                if(err) console.log(err);
+            }
+        );
+        console.log('Конец функции INIT() -----------------');
+        return deferred.promise;
+    }
     /* ----------------------------------------------------
                       Инициализация
     ---------------------------------------------------------*/
-    setup();
-    // Запросить и сформировать массив языков 
+    $scope.setup();
+    /* ----------------------------------------------------
+                        Сервисы
+    ---------------------------------------------------------*/
     langsSrv.getLangsAsync($scope.user_lang).then(function(data) {
+        // Запросить и сформировать массив языков
         $scope.langs = data;
         for (var i = 0; i < $scope.langs.length; i++) {
             $scope.btn[i] = {state: $scope.states[0]};
@@ -69,16 +100,15 @@ angular.module('happyTurtlesApp')
         // включаем первую кнопку после закрузки языков
         $scope.btn[$scope.target_lang_index].state=$scope.states[1];
     });
-    // Запросить и сформировать массив демо-тем
     langsSrv.getDemoThemesAsinc().then(function(data){
+        // Запросить и сформировать массив демо-тем
         $scope.themes = data;
         //console.log('Themes: ', $scope.themes);
     });
-    // Вызывается нажатием на кнопку выбора языка, меняет язык в соответствии с полученным индексом,
-    // далее самозапускается функция сброса кнопок в Off и в колбэке включает выбранную кнопку
     $scope.changeTargetLang = function (lang_index){
-        // Прописываем новый язык в переменных
-        $scope.target_lang = $scope.langs[lang_index].code;
+        // Вызывается нажатием на кнопку выбора языка, меняет язык в соответствии с полученным индексом,
+        // далее самозапускается функция сброса кнопок в Off и в колбэке включает выбранную кнопку
+        $scope.target_lang = $scope.langs[lang_index].code;  // Прописываем новый язык в переменных
         $scope.target_lang_index = lang_index;
         (function resetButtons(callback){
             _.map($scope.btn,function(button){
@@ -91,11 +121,10 @@ angular.module('happyTurtlesApp')
         });  // функция сброса кнопок в состояние Off
 
     };
-    /*-----------------------------------------------------------------------------
-    Вызвыается нажатием на кнопку выбранной темы,
-    ------------------------------------------------------------------------------*/
-
     $scope.run = function(theme_id){
+        /*-----------------------------------------------------------------------------
+         Вызвыается нажатием на кнопку выбранной темы,
+         ------------------------------------------------------------------------------*/
         if (typeof theme_id === 'undefined') {
 
             theme_id = $scope.target_theme;
@@ -190,11 +219,9 @@ angular.module('happyTurtlesApp')
     
     var Check = {
         word: function(word,id){   // проверка угадывания слова
-            
             console.log('Check.word() startig... word =',word,' id = ', id);
             var isTrue = false;
             var deferred = $q.defer();
-            
             if (word._id == id){
                 isTrue = true;
                 $scope.words_used.push(word); // добавляем в хранилище ответов
@@ -213,7 +240,6 @@ angular.module('happyTurtlesApp')
                     alert('warning','Ошибка, жизнь уменьшается на '+ERR_PRICE+'%');
                 deferred.resolve(isTrue);
             }
-            
             return deferred.promise;
             
         },
@@ -229,34 +255,8 @@ angular.module('happyTurtlesApp')
         }
     };
 
-    /*--------------------------------------------------------------
-        Функция инициализации - запускается первый раз из $scope.run
-        и продолжает вызываться при каждом пересчёте
-    -----------------------------------------------------------------*/
-    function  init(req){
-        console.log('----------------- Init() starting... req =',req);
-        console.log('WORDS_ARRAY: ',$scope.words);
-        console.log('WORDS_USED_ARRAY: ',$scope.words_used);
-        if(req === true) Finish.win();
-        if(req === false) Finish.loose();
-        
-        var deferred = $q.defer();
-        cutRandomWord() // вынимаем из массива случайное слово
-        .then(getRandomVersions) // формируем массив ответов 
-        .then(seedAnswer) // внедряем слово в массив с ответами
-        .then(
-            function(res){
-                console.log('Chain finished with ', res.array);
-                $scope.versions = res.array;
-                $scope.show_main = true;
-            }
-            ,function(err){
-                if(err) console.log(err);
-            }
-        );
-        console.log('Конец функции INIT() -----------------');
-        return deferred.promise;
-    }
+
+
     $scope.shot = function(answerId){
         console.log('answerId = ', answerId);
         Check.word($scope.word,answerId)
@@ -273,13 +273,13 @@ angular.module('happyTurtlesApp')
 
         win: function() {
             console.log('Win() starting...');
-            setup();
+            $scope.setup();
             $scope.show_themes = false;
             $scope.show_winner = true;
         },
         loose: function() {
             console.log('Loose() starting...');
-            setup();
+            $scope.setup();
             $scope.show_themes = false;
             showConfirmLooser("Ти не гофорить по "
                 + $scope.langs[$scope.target_lang_index].names[$scope.user_lang]);
@@ -293,7 +293,7 @@ angular.module('happyTurtlesApp')
             .content(content)
             .ariaLabel('Lucky day')
             .ok('На главную')
-            .cancel('Заново!')
+            .cancel('Заново!');
             //.targetEvent(ev);
         $mdDialog.show(confirm).then(function() {
             $state.go('main'); // go to login
