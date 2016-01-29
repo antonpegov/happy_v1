@@ -14,69 +14,78 @@ angular.module('happyTurtlesApp')
     var VERSIONS_NUM = 5; // кол-во неправильных вариантов
     var PROGR = 5; // прогресса за каждый правильный ответ
     var ERR_PRICE = 20;
-
-    function setup() {
+    $scope.btn = [];  // массив для хранения состояния кнопочек, инициализируется в get(темы)
+    $scope.states = ['On', 'Off'];// массив возможных состояний кнопки
+    $scope.user_lang = "rus";
+    $scope.target_lang = "eng";
+    $scope.langs = [];
+    $scope.themes = [];
+    (function setup() {
         $scope.Progress = {
-            value: 0,
-            plus: function() {
-                this.value += PROGR;
-                return this.value;
-            },
-            reset: function() {
-                this.value = 0;
-            }
-        };
+                value: 0,
+                plus: function () {
+                    this.value += PROGR;
+                    return this.value;
+                },
+                reset: function () {
+                    this.value = 0;
+                }
+            };
         $scope.Life = {
-            value: LIFES_NUM,
-            minus: function() {
-                this.value-=ERR_PRICE;
-                return this.value;
-            },
-            reset: function() {
-                this.value = LIFES_NUM;
-            }
-        };
+                value: LIFES_NUM,
+                minus: function () {
+                    this.value -= ERR_PRICE;
+                    return this.value;
+                },
+                reset: function () {
+                    this.value = LIFES_NUM;
+                }
+            };
         $scope.word = ''; // Загадываемое слово
-        $scope.hide_themes = true;
-        $scope.hide_header = false;
+        $scope.show_themes = true;
         $scope.show_main = false;
         $scope.show_winner = false;
         $scope.chechout = true;
-        $scope.user_lang = "rus";
-        $scope.target_lang;
-        $scope.target_lang_name;
-        $scope.target_theme;
-        $scope.langs = [];
-        $scope.themes = [];
+        //$scope.target_lang;
+        //$scope.target_lang_name;
+        //$scope.target_theme;
         $scope.words = []; // исходный массив слов
         $scope.words_used = []; // массив отгаданных слов
         $scope.versions = []; // массив вариантор ответа
-    }
-    setup();
+    })();
+
     /* ----------------------------------------------------
-    
                       Инициализация
-    
     ---------------------------------------------------------*/
     
     // Запросить и сформировать массив языков 
     langsSrv.getLangsAsync($scope.user_lang).then(function(data) {
         $scope.langs = data;
-        //console.log('Langs: ', $scope.langs);
-        
+        for (var i = 0; i < $scope.langs.length; i++) {
+            $scope.btn[i] = {state: $scope.states[0]};
+        }
+        // включаем первую кнопку после закрузки языков
+        $scope.btn[0].state=$scope.states[1];
     });
     // Запросить и сформировать массив демо-тем
     langsSrv.getDemoThemesAsinc().then(function(data){
         $scope.themes = data;
         //console.log('Themes: ', $scope.themes);
     });
-    // При изменении языка выводим список тем
-    $scope.changeTargetLang = function (code,lang){
-        $scope.hide_themes = false;
-        $scope.target_lang = code;
-        $scope.target_lang_name = lang;
-        console.log('target_lang_ = ', $scope.target_lang);
-        console.log('target_lang_name = ', $scope.target_lang_name);
+    // Вызывается нажатием на кнопку выбора языка, меняет язык в соответствии с полученным индексом,
+    // далее самозапускается функция сброса кнопок в Off и в колбэке включает выбранную кнопку
+    $scope.changeTargetLang = function (lang_index){
+        $scope.target_lang = $scope.langs[lang_index].code;
+        (function resetButtons(callback){
+            _.map($scope.btn,function(button){
+                button.state = $scope.states[0];
+            });
+            callback();
+        })(function(){
+            // переводим кнопку в состояние On
+            $scope.btn[lang_index].state = $scope.states[1];
+        });  // функция сброса кнопок в состояние Off
+
     };
     $scope.run = function(_id){
         if (typeof _id === 'undefined') {
@@ -94,15 +103,11 @@ angular.module('happyTurtlesApp')
               }
               init(null); // запуск главного модуля после получения массива слов
         });
-        $scope.hide_themes = true;
-        $scope.hide_header = true;
-        //$scope.show_main = true;
+        $scope.show_themes = false;
     };
     
     /*-----------------------------------------------------------   
-    
-                    Главный модуль
-    
+                        Главный модуль
     -----------------------------------------------------------*/
      
     // функция выбора случайного слова, которое вырезается из

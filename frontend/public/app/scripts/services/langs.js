@@ -9,8 +9,8 @@
  */
 angular.module('happyTurtlesApp')
   .service('langsSrv', function($http, API_URL) {
-      // AngularJS will instantiate a singleton by calling "new" on this function
-      
+
+
       var langsUrl = API_URL + 'langs';
       var themeDemoUrl = API_URL + 'demothemes';
       var wordsUrl = API_URL + 'words';

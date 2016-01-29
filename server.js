@@ -258,7 +258,7 @@ app.get('/words', function(req, res) {
 // === Получение списка тем для демо из файла конфигурации ===
 
 app.get('/demothemes',function(req,res){
-    console.log("Got request: ".blue + req.method +' '+ req.url);
+    //console.log("Got request: ".blue + req.method +' '+ req.url);
     if (config.demothemes === undefined) {
         console.log('Демо-темы не заданы!'.red);
         res.status(400).end();

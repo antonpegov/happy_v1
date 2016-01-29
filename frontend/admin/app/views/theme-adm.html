@@ -40,10 +40,10 @@
     <div class="row">
         <ul class="ds-btn">
             <li ng-repeat="item in themes">
-                <a class="btn btn-lg" ng-model="btn[themes.indexOf(item)]"
-                   ng-click="click(themes.indexOf(item))" href=""
-                   ng-class="{'btn-primary':btn[themes.indexOf(item)].state=='On',
-                   'btn-info':btn[themes.indexOf(item)].state=='Off'}">
+                <a class="btn btn-lg" ng-model="btn[$index]"
+                   ng-click="click($index)" href=""
+                   ng-class="{'btn-primary':btn[$index].state=='On',
+                   'btn-info':btn[$index].state=='Off'}">
                     <!--Нужно поправить на SYS_LANG-->
                     <span>{{item.names[SYS_LANG]}}</span>
                 </a>
