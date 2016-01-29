@@ -12,15 +12,17 @@ angular.module('happyTurtlesApp')
     
     var LIFES_NUM = 100;
     var VERSIONS_NUM = 5; // кол-во неправильных вариантов
-    var PROGR = 5; // прогресса за каждый правильный ответ
+    var PROGR = 50; // прогресса за каждый правильный ответ
     var ERR_PRICE = 20;
     $scope.btn = [];  // массив для хранения состояния кнопочек, инициализируется в get(темы)
     $scope.states = ['On', 'Off'];// массив возможных состояний кнопки
     $scope.user_lang = "rus";
     $scope.target_lang = "eng";
+    $scope.target_lang_index = 0;
+    $scope.target_lang_name = '';
     $scope.langs = [];
     $scope.themes = [];
-    (function setup() {
+    var setup = function() {
         $scope.Progress = {
                 value: 0,
                 plus: function () {
@@ -47,17 +49,17 @@ angular.module('happyTurtlesApp')
         $scope.show_winner = false;
         $scope.chechout = true;
         //$scope.target_lang;
-        //$scope.target_lang_name;
         //$scope.target_theme;
         $scope.words = []; // исходный массив слов
         $scope.words_used = []; // массив отгаданных слов
+        $scope.words_missed = []; // ошибки
         $scope.versions = []; // массив вариантор ответа
-    })();
+    };
 
     /* ----------------------------------------------------
                       Инициализация
     ---------------------------------------------------------*/
-    
+    setup();
     // Запросить и сформировать массив языков 
     langsSrv.getLangsAsync($scope.user_lang).then(function(data) {
         $scope.langs = data;
@@ -65,7 +67,7 @@ angular.module('happyTurtlesApp')
             $scope.btn[i] = {state: $scope.states[0]};
         }
         // включаем первую кнопку после закрузки языков
-        $scope.btn[0].state=$scope.states[1];
+        $scope.btn[$scope.target_lang_index].state=$scope.states[1];
     });
     // Запросить и сформировать массив демо-тем
     langsSrv.getDemoThemesAsinc().then(function(data){
@@ -75,7 +77,9 @@ angular.module('happyTurtlesApp')
     // Вызывается нажатием на кнопку выбора языка, меняет язык в соответствии с полученным индексом,
     // далее самозапускается функция сброса кнопок в Off и в колбэке включает выбранную кнопку
     $scope.changeTargetLang = function (lang_index){
+        // Прописываем новый язык в переменных
         $scope.target_lang = $scope.langs[lang_index].code;
+        $scope.target_lang_index = lang_index;
         (function resetButtons(callback){
             _.map($scope.btn,function(button){
                 button.state = $scope.states[0];
@@ -87,15 +91,21 @@ angular.module('happyTurtlesApp')
         });  // функция сброса кнопок в состояние Off
 
     };
-    $scope.run = function(_id){
-        if (typeof _id === 'undefined') {
-            _id = $scope.target_theme; 
-        }
-        $scope.target_theme = _id;
-        langsSrv.getWordsByThemeId(_id,$scope.user_lang,$scope.target_lang)
+    /*-----------------------------------------------------------------------------
+    Вызвыается нажатием на кнопку выбранной темы,
+    ------------------------------------------------------------------------------*/
+
+    $scope.run = function(theme_id){
+        if (typeof theme_id === 'undefined') {
+
+            theme_id = $scope.target_theme;
+        }// не понял
+        $scope.target_theme = theme_id;
+        // прописали выбранную тему и получаем массив слов по ней:
+        langsSrv.getWordsByThemeId(theme_id,$scope.user_lang,$scope.target_lang)
           .then(function(data){
               $scope.words = data;
-              console.log('(Run) data: ',data);
+              //console.log('(Run) data: ',data);
               if($scope.words.length < 1) {
                   alert("warning","Этот язык ещё не загружен, попробуйте другой!");
                   setTimeout(function(){$state.go('main')}, 2000);
@@ -115,11 +125,10 @@ angular.module('happyTurtlesApp')
     function cutRandomWord(){
         
         var deferred = $q.defer();
-        var promise = deferred.promise;
         var rand = Math.floor(Math.random() * $scope.words.length);
         var word = $scope.words[rand];
         if (rand == 0 || rand == null || rand == undefined) {
-            console.log('Не смогли выбрать случайный элемент');
+            console.log('Не смогли выбрать случайный элемент БЯДА!');
             deferred.reject('invalid value');
         }
         else {
@@ -180,7 +189,6 @@ angular.module('happyTurtlesApp')
     }
     
     var Check = {
-        
         word: function(word,id){   // проверка угадывания слова
             
             console.log('Check.word() startig... word =',word,' id = ', id);
@@ -192,11 +200,17 @@ angular.module('happyTurtlesApp')
                 $scope.words_used.push(word); // добавляем в хранилище ответов
                 $scope.words = _.without($scope.words,word); // удаляем из основного массива
                 $scope.Progress.plus(); // увеличиваем прогресс
-                alert('success','Верно!');
+                // если игра ещё не закончена, выводим Алерт:
+                console.log('Life:%s Progress:%s',$scope.Life.value,$scope.Progress.value);
+                if ($scope.Life.value > 0 && $scope.Progress.value <100 )
+                    alert('success','Верно!');
                 deferred.resolve(isTrue);
             } else {
                 $scope.Life.minus(); // уменьшаем жизнь
-                alert('warning','Ошибка, жизнь уменьшается на '+ERR_PRICE+'%');
+                // если игра ещё не закончена, выводим Алерт:
+                console.log('Life:%s Progress:%s',$scope.Life.value,$scope.Progress.value);
+                if ($scope.Life.value > 0 && $scope.Progress.value <100)
+                    alert('warning','Ошибка, жизнь уменьшается на '+ERR_PRICE+'%');
                 deferred.resolve(isTrue);
             }
             
@@ -213,11 +227,12 @@ angular.module('happyTurtlesApp')
                 return null;
             }
         }
-        
     };
-    
-    // функция инициализации - запускается первый раз из $scope.run
-    // и продолжает вызываться при каждом пересчёте
+
+    /*--------------------------------------------------------------
+        Функция инициализации - запускается первый раз из $scope.run
+        и продолжает вызываться при каждом пересчёте
+    -----------------------------------------------------------------*/
     function  init(req){
         console.log('----------------- Init() starting... req =',req);
         console.log('WORDS_ARRAY: ',$scope.words);
@@ -239,11 +254,9 @@ angular.module('happyTurtlesApp')
                 if(err) console.log(err);
             }
         );
-        
         console.log('Конец функции INIT() -----------------');
         return deferred.promise;
     }
-    
     $scope.shot = function(answerId){
         console.log('answerId = ', answerId);
         Check.word($scope.word,answerId)
@@ -251,32 +264,27 @@ angular.module('happyTurtlesApp')
         .then(init);
         
     };
-    
-    
-     /*-----------------------------------------------------------   
-    
+
+     /*-----------------------------------------------------------
                     Вывод результата
-    
-    -----------------------------------------------------------*/ 
+     -----------------------------------------------------------*/
     
     var Finish = {
 
         win: function() {
             console.log('Win() starting...');
             setup();
-            $scope.hide_header = true;
+            $scope.show_themes = false;
             $scope.show_winner = true;
         },
         loose: function() {
             console.log('Loose() starting...');
             setup();
-            $scope.hide_header = true;
+            $scope.show_themes = false;
             showConfirmLooser("Ти не гофорить по "
-                + $scope.target_lang_name);
-            
+                + $scope.langs[$scope.target_lang_index].names[$scope.user_lang]);
         }
     };
-
     var showConfirmLooser = function(content) {
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.confirm()

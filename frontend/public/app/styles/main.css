@@ -8,72 +8,56 @@
 body {
   padding-top: 70px ;
 }
-
 article {
   padding-top:30px;
 }
-
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
 .text-justify,
 .footer {
-  padding-left: 15px;
-  padding-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
-
-/* Custom page header */
 .header {
   /*border-bottom: 1px solid #e5e5e5;*/
   margin-bottom: 10px;
-}
-/* Make the masthead heading the same height as the navigation */
+}/* Custom page header */
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 30px;
   padding-bottom: 25px;
   color: #666666;
-}
-
-/* Custom page footer */
+}/* Make the masthead heading the same height as the navigation */
 .footer {
   padding-top: 19px;
   color: #777;
   /*border-top: 1px solid #e5e5e5;*/
-}
-
+}/* Custom page footer */
 .container-narrow > hr {
   margin: 30px 0;
 }
-
-/* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
-}
+}/* Main marketing message and sign up button */
 .jumbotron .btn {
   font-size: 19px;
   padding: 12px 18px;
   margin-top:10px;
 }
-
-/* Supporting marketing content */
 .marketing {
   margin: 40px 0;
-}
+}/* Supporting marketing content */
 .marketing p + h4 {
   margin-top: 28px;
 }
-
-
-
-/* Responsive: Portrait tablets and up */
+/* ----------------------------- Responsive: Portrait tablets and up ----------- MEDIA ----------*/
 @media screen and (min-width: 768px) {
   .container {
     max-width: 930px;
   }
-
   /* Remove the padding we set earlier */
   .header,
   .marketing,
@@ -85,18 +69,7 @@ article {
   .header {
     margin-bottom: 30px;
   }
-  /* Remove the bottom border on the jumbotron for visual effect
-  .jumbotron {
-    border-bottom: 0;
-  } */
 }
-
-/*
-    Note: It is best to use a less version of this file ( see http://css2less.cc
-    For the media queries use @screen-sm-min instead of 768px.
-    For .omb_spanOr use @body-bg instead of white.
-*/
-
 @media (min-width: 768px) {
   .omb_row-sm-offset-3 div:first-child[class*="col-"] {
     margin-left: 25%;
@@ -108,12 +81,11 @@ article {
   }
   
 }
-
+/* -----------------------------------------------------------------------------/MEDIA ----------*/
 .omb_login .omb_authTitle {
   text-align: center;
   line-height: 300%;
 }
-
 .omb_login .omb_socialButtons a {
   color: white; /* In yourUse @body-bg */
   opacity:0.9;
@@ -121,12 +93,10 @@ article {
 .omb_login .omb_socialButtons a:hover {
   color: white;
   opacity:1;
-
 }
 .omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;font-size: 14px;}
 .omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced; font-size: 14px;}
 .omb_login .omb_socialButtons .omb_btn-google {background: #c32f10; font-size: 14px;}
-
 .omb_login .omb_loginOr {
   position: relative;
   font-size: 1.5em;
@@ -152,7 +122,6 @@ article {
   width: 3em;
   text-align: center;
 }
-
 .omb_login .omb_loginForm .input-group.i {
   width: 2em;
 }
@@ -160,10 +129,10 @@ article {
   color: red;
 }
 
-
-/*
+/*------------------------
     Самодельный Alert
-*/
+--------------------------*/
+
 .main-alert {
   position:absolute;
   top:130px;
@@ -182,9 +151,10 @@ article {
   border-color:#78fa89;
 }
 
-/*
+/*------------------------------------------------
     Анимация с использованием angular-animate
-*/
+------------------------------------------------*/
+
 .ui-view-container {
     position:relative;
 }
@@ -223,6 +193,7 @@ article {
 /* -------------------------------------
       Стили для формы загрузки слов
 ---------------------------------------*/
+
 .contact-form{ margin-top:15px;}
 .contact-form .textarea{ min-height:220px; resize:none;}
 .form-control{ box-shadow:none; border-color:#eee; height:49px;}
@@ -245,14 +216,13 @@ article {
 .ds-btn li a span{padding-left:15px;padding-right:5px;width:100%;display:inline-block; text-align:left;}
 .ds-btn li a span small{width:100%; display:inline-block; text-align:left;}
 
+/* ------------------------------------------
+      Стили для демки
+--------------------------------------------*/
 
-/* ------------------------------------------------------------
-      Стили для демки, крутые кнопки - взято с angular.io
----------------------------------------------------------------*/
 .grid-fluid {
     *zoom: 1
 }
-
 .grid-fluid:after,
 .grid-fluid:before {
     content: '.';
@@ -265,8 +235,6 @@ article {
     width: 0;
     height: 0
 }
-
-
 .grid-fluid .c8 {
     width: 95%;
     margin-right: 1.04167%;
@@ -278,7 +246,6 @@ article {
         display: block;
         width: auto*/
 }
-
 .hover-card {
     position: relative;
     display: block;
@@ -293,7 +260,6 @@ article {
     border: #FFF solid 1px;
     text-decoration: none
 }
-
 .hover-card:hover {
     -webkit-transform: translate3d(0, -2px, 0);
     transform: translate3d(0, -2px, 0);
@@ -308,12 +274,12 @@ article {
 .hover-card:hover h3 {
     color: #36474F
 }
-.hover-card:hover .icon-ruby {
-    background: url('/resources/images/icons/languages/ruby-icon-large-hover.png') 0 0 no-repeat
-}
-.hover-card:hover .icon-go {
-    background: url('/resources/images/icons/languages/go-icon-large-hover.png') 0 0 no-repeat
-}
+/*.hover-card:hover .icon-ruby {*/
+    /*background: url('images/icons/ruby-icon-large-hover.png') 0 0 no-repeat*/
+/*}*/
+/*.hover-card:hover .icon-go {*/
+    /*background: url('images/icons/go-icon-large-hover.png') 0 0 no-repeat*/
+/*}*/
 .hover-card.has-icon {
     padding-left: 71px
 }
@@ -364,13 +330,10 @@ article {
 .hover-card .md-ripple-container {
     opacity: .48
 }
- 
-
 .hover-card.md-button.md-default-theme:not([disabled]):hover,
 .hover-card.md-button.md-default-theme:not([disabled]):focus {
     background-color: #FFF
 }
-
 #main_word {
   text-align: center;
   line-height: 900%;
@@ -386,11 +349,16 @@ article {
 .progress .my-reverse-class {
     display: block;
     float: right;
+}/*насройки для панелек с результатом демки*/
+.panel.result{
+    margin:10%;
+    padding:0px;
 }
 
-/* ------------------------------------------------------------
-      Переопределение стилей для смартфонов
----------------------------------------------------------------*/
+/* ---------------------------------------------------------------
+      Переопределение стилей для смартфонов      ----- MEDIA -----
+-----------------------------------------------------------------*/
+
 @media screen and (max-width:480px){
   body {
     padding-top: 50px;

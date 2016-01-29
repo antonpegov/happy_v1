@@ -63,26 +63,22 @@
 
 <!-----------------------Main----------------------------------->
 
-<div> </div>
+
 <div ng-show="show_main" class="container">
-    <!--Жизнь и прогресс-->
+    <div class = "panel">
     <div class="row">
-    
         <div class="col-sm-6 col-md-6">
             <div class="progress progress-striped active">
                 <div class="progress-bar" style="width: {{Progress.value}}%"></div>
             </div>
         </div>
-        
         <div class="col-sm-6 col-md-6">
             <!--<span class="pull-right" > количество жизней: {{Life.value}}</span>-->
             <div class="progress my-reverse-class">
                 <div class="progress-bar progress-bar-success my-reverse-class" style="width: {{Life.value}}%"></div>
             </div>
         </div>
-    
-    </div>
-    <!--Вопрос-->
+    </div><!--Жизнь и прогресс-->
     <div class="row">
         <div class="col-lg-4 col-sm-3 col-xs-1"></div>
         <div id="main_word" class="col-lg-4 col-sm-6 col-xs-10 text-center">
@@ -92,32 +88,29 @@
             </a>
         </div>
         <div class="col-lg-4 col-sm-3 col-xs-1"></div>
-    </div>
-    <!--Варианты ответа-->
+    </div><!--Вопрос-->
     <div class="row">
         <div ng-repeat="item in versions" class="col-xs-6 col-sm-6 col-md-6">
             <a href="#" ng-click="shot(item._id)" md-button="md-button" class="hover-card is-button">
                 <h3>{{versions[$index][user_lang]}}</h3>
             </a>
         </div>
-    </div>
+    </div><!--Варианты ответа-->
+</div>
 </div>
 
 <!------------------Results------------->
 
 <div ng-show="show_winner">
-    <div class="text-justify">
-        <p>
-            Поздравляем, вы неплохо разбираетесь в этой теме!
-        </p>
-        <p>
-            Проверьте себя в другой теме или возвращайтесь на главную страницу.
-        </p>
-        <p>&nbsp;</p>
+    <div class="panel panel-success result">
+        <div class="panel-heading">Поздравляем!</div>
+        <div class="panel-body">
+            <p>Вы неплохо разбираетесь в этой теме.</p>
         <div class="row col-sm-12">
             <p class="">
-                <a class="btn btn- btn-primary" ui-sref="main">На главную</a>
+                <a class="btn btn- btn-success " ui-sref="main">На главную</a>
             </p>
         </div>
     </div>
+</div>
 </div>
