@@ -12,7 +12,7 @@ angular.module('happyTurtlesApp')
     
     var LIFES_NUM = 100;
     var VERSIONS_NUM = 5; // кол-во неправильных вариантов
-    var PROGR = 50; // прогресса за каждый правильный ответ
+    var PROGR = 5; // прогресса за каждый правильный ответ
     var ERR_PRICE = 20;
     $scope.btn = [];  // массив для хранения состояния кнопочек, инициализируется в get(темы)
     $scope.states = ['On', 'Off'];// массив возможных состояний кнопки
@@ -48,8 +48,6 @@ angular.module('happyTurtlesApp')
         $scope.show_main = false;
         $scope.show_winner = false;
         $scope.chechout = true;
-        //$scope.target_lang;
-        //$scope.target_theme;
         $scope.words = []; // исходный массив слов
         $scope.words_used = []; // массив отгаданных слов
         $scope.words_missed = []; // ошибки
