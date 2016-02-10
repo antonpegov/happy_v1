@@ -34,6 +34,7 @@
     "express": "^4.12.3",
     "express-session": "^1.13.0",
     "jwt-simple": "^0.3.0",
+    "membership": "git+ssh://git@bitbucket.org:antonpegov/membership-module.git",
     "mongoose": "^4.0.1",
     "morgan": "^1.6.1",
     "nodemon": "^1.3.7",
@@ -46,12 +47,8 @@
     "serve-favicon": "^2.3.0",
     "underscore": "^1.8.3"
   },
-  "devDependencies": {
-    "membership": "git+ssh://git@bitbucket.org:antonpegov/membership-module.git"
-  },
-  "bundleDependencies": [
-
-  ],
+  "devDependencies": {},
+  "bundleDependencies": [],
   "private": true,
   "main": "server.js"
 }
