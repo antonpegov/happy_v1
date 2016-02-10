@@ -1,7 +1,7 @@
 
 //var Theme = require('./models/Theme.js');
 
-var express         = require('express');// Необходимые модули
+var express         = require('express');// РќРµРѕР±С…РѕРґРёРјС‹Рµ РјРѕРґСѓР»Рё
 var mongoose        = require('mongoose');
 var bodyParser      = require('body-parser');
 var jwt             = require('jwt-simple');
@@ -59,7 +59,7 @@ require('./routes/profile.js')(passport);
 require('./routes/api.js')(app, passport);
 
 
-//------------ Блок воспитания Мангуста и запуск сервера ---------------------
+//------------ Р‘Р»РѕРє РІРѕСЃРїРёС‚Р°РЅРёСЏ РњР°РЅРіСѓСЃС‚Р° Рё Р·Р°РїСѓСЃРє СЃРµСЂРІРµСЂР° ---------------------
 mongoose.connection
     .on('open', function() {console.log("Connected to mongo server!".green);})
     .on('error', function(){console.log("ERROR".red)})
@@ -107,8 +107,8 @@ app.listen(config.port, config.ipaddress ,function(){
 //    });
 //});
 //var LocalStrategy = require('passport-local').Strategy;
-//var userCodeWord = 'some words...';// Секретное слово для шифрования
-//var User = require('./models/User.js');// Модели
+//var userCodeWord = 'some words...';// РЎРµРєСЂРµС‚РЅРѕРµ СЃР»РѕРІРѕ РґР»СЏ С€РёС„СЂРѕРІР°РЅРёСЏ
+//var User = require('./models/User.js');// РњРѕРґРµР»Рё
 //var Lang = require('./models/Lang.js');
 //function createSendToken(user, res){
 //    var payload = {
@@ -121,7 +121,7 @@ app.listen(config.port, config.ipaddress ,function(){
 //    });
 //}
 //function validateUserMiddleware(req, res, next) {
-//    // Для временного отключения - поменять "validateAdminMiddleware" на "validateAdminMiddlewareTmp"
+//    // Р”Р»СЏ РІСЂРµРјРµРЅРЅРѕРіРѕ РѕС‚РєР»СЋС‡РµРЅРёСЏ - РїРѕРјРµРЅСЏС‚СЊ "validateAdminMiddleware" РЅР° "validateAdminMiddlewareTmp"
 //    if(req.headers.authorization){
 //        var token = req.headers.authorization.split(' ')[1];
 //        var payload = jwt.decode(token,'some words...');
@@ -151,9 +151,9 @@ app.listen(config.port, config.ipaddress ,function(){
 
 //passport.serializeUser(function(user,done){
 //    done(null,user.id);
-//});//=== Паспорт
-//passport.use('local-login', loginStrategy);//=== Стратегия логина
-//passport.use('local-register', registerStrategy);//=== Стратегия регистрация
+//});//=== РџР°СЃРїРѕСЂС‚
+//passport.use('local-login', loginStrategy);//=== РЎС‚СЂР°С‚РµРіРёСЏ Р»РѕРіРёРЅР°
+//passport.use('local-register', registerStrategy);//=== РЎС‚СЂР°С‚РµРіРёСЏ СЂРµРіРёСЃС‚СЂР°С†РёСЏ
 //app.post('/register', passport.authenticate('local-register'),function(req,res){
 //    console.log('Register req: ',req.body);
 //    createSendToken(req.user, res);
