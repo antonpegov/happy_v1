@@ -1,6 +1,6 @@
-var Theme           = require('../models/theme.js');
-var Notion          = require('../models/notion.js');
-var Lang            = require('../models/lang.js');
+var Theme           = require('../models/Theme');
+var Notion          = require('../models/Notion');
+var Lang            = require('../models/Lang');
 var notionService   = require('../services/notion-data.js');// Сервисы
 var express         = require("express");
 var config          = require("../config/config.js");
