@@ -47,7 +47,6 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "membership": "git+ssh://git@bitbucket.org:antonpegov/membership-module.git"
   },
   "bundleDependencies": [
 
