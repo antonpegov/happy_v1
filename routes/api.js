@@ -1,9 +1,9 @@
-var Theme           = require('../models/theme');
+var Theme           = require('../models/theme.js');
 var Notion          = require('../models/notion.js');
 var Lang            = require('../models/lang.js');
 var notionService   = require('../services/notion-data.js');// Сервисы
 var express         = require("express");
-var config          = require("../config/config");
+var config          = require("../config/config.js");
 //var router = express.Router;
 
 module.exports = function(app,passport) {
