@@ -1,73 +1,91 @@
+
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<div id="wrapper" class="frame" >
+    <div   ng-show="login_form">
+        <section class="login_content">
+            <form method="post" name="login" action="/login" novalidate>
+                <h1>Login Form</h1>
+                <div>
+                    <input ng-model="email" name="email" type="email" class="form-control" placeholder="Username" required="" />
+                </div>
+                <div>
+                    <input name="password" type="password" class="form-control" placeholder="Password" required="" />
+                </div>
+                <div>
 
-
-
-    <div class="omb_login">
-        <h4 class="omb_authTitle"><!--Войти или --><a ui-sref="register">Зарегистрироваться</a></h4>
-        <div class="row omb_row-sm-offset-3 omb_socialButtons">
-            <div class="col-xs-4 col-sm-2">
-                <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
-                    <i class="fa fa-facebook visible-xs"></i>
-                    <span class="hidden-xs">Facebook</span>
-                </a>
-            </div>
-            <div class="col-xs-4 col-sm-2">
-                <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
-                    <i class="fa fa-twitter visible-xs"></i>
-                    <span class="hidden-xs">Twitter</span>
-                </a>
-            </div>
-            <div class="col-xs-4 col-sm-2">
-                <a href="#" class="btn btn-lg btn-block omb_btn-google">
-                    <i class="fa fa-google-plus visible-xs"></i>
-                    <span class="hidden-xs">Google+</span>
-                </a>
-            </div>
-        </div>
-
-        <div class="row omb_row-sm-offset-3 omb_loginOr">
-            <div class="col-xs-12 col-sm-6">
-                <hr class="omb_hrOr">
-                <span class="omb_spanOr">или</span>
-            </div>
-        </div>
-
-        <div class="row omb_row-sm-offset-3">
-            <div class="col-xs-12 col-sm-6">
-
-                <form name="login" ng-submit="submit()" class="omb_loginForm" autocomplete="on" method="POST" novalidate>
-
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input name="email" ng-model="email" type="email" class="form-control" placeholder="email address">
+                    <button class="btn btn-default submit" ng-disabled="login.$pristine || login.email.$pristine
+                                    || login.$invalid|| login.password.$pristine" href="#" type="submit">Log in</button>
+                    <span>or use </span>
+                    <a href="/connect/facebook" class="btn btn-default submit">
+                        <i class="fa fa-facebook visible-xs"></i>
+                        <i class="fa fa-facebook fa-lg hidden-xs"></i>
+                    </a>
+                    <a href="/connect/twitter" class="btn btn-default submit">
+                        <i class="fa fa-twitter visible-xs"></i>
+                        <i class="fa fa-twitter fa-lg hidden-xs"></i>
+                    </a>
+                    <a href="/connect/google" class="btn btn-default submit">
+                        <i class="fa fa-google-plus visible-xs"></i>
+                        <i class="fa fa-google-plus fa-lg hidden-xs"></i>
+                    </a>
+                    <a href="/connect/vkontakte" class="btn btn-default submit">
+                        <i class="fa fa-vk visible-xs"></i>
+                        <i class="fa fa-vk fa-lg hidden-xs"></i>
+                    </a>
+                    <p class="help-block" ng-show="login.email.$invalid && !login.$pristine">
+                        <em class="warning">Please enter correct email</em>
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="separator">
+                    <p class="change_link">New to site?
+                        <a ng-click="login_form=false" href="#" class="to_register"> Create Account </a>
+                    </p>
+                    <div>
+                        <p><a  href="">Lost your password?</a></p>
                     </div>
 
-                    <span class="help-block"></span>
-                    <p class="help-block" ng-show="login.email.$invalid"><em>введите правильный адрес</em></p>
-
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input  type="password" class="form-control" ng-model="password" name="password" placeholder="Password">
-                    </div>
-                    <!--span class="help-block">Неправильный пароль</span-->
-                    <span class="help-block"></span>
-
-                    <button ng-disabled="login.$pristine || login.$invalid || login.password.$pristine" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-                </form>
-
-            </div>
-        </div>
-
-        <div class="row omb_row-sm-offset-3">
-            <div class="col-xs-12 col-sm-3">
-                <label class="omb_forgotPwd">
-                  <a ui-sref="register"></a>
-                </label>
-            </div>
-            <div class="col-xs-12 col-sm-3">
-                <p class="omb_forgotPwd">
-                    <a href="#">Забыли пароль?</a>
-                </p>
-            </div>
-        </div>
+                </div>
+            </form>
+            <!-- form -->
+        </section>
+        <!-- content -->
     </div>
+    <div   ng-hide="login_form">
+        <section class="login_content" >
+            <form method="post" name="register" action="/signup">
+                <h1>Create Account</h1>
+                <div>
+                    <input ng-model="email" type="email" name="email" class="form-control" placeholder="Email" required="" />
+                </div>
+                <div>
+                    <input ng-model="password" type="password" name="password" class="form-control" placeholder="Password" />
+                </div>
+                <div>
+                    <input ng-model="confirmation" type="password" name="confirmation" class="form-control"
+                           placeholder="Confirm Password" ui-validate="'$value==password'" ui-validate-watch="'password'" />
+                </div>
+                <div>
+                    <button class="btn btn-default submit" ng-disabled="register.$pristine || register.$invalid || register.email.$pristine
+                                    || register.password.$pristine" type="submit">Submit</button>
+                    <p class="help-block" ng-show="register.email.$invalid && register.email.$dirty">
+                        <em class="warning">Please enter correct email</em>
+                    </p>
+                    <p class="help-block" ng-show="register.confirmation.$invalid && register.confirmation.$dirty">
+                        <em class="warning">Entered passwords not match</em>
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="separator">
+                    <p class="change_link">Already a member ?
+                        <a ng-click="login_form=true"  href="#" class="to_register"> Log in </a>
+                    </p>
+
+                </div>
+            </form>
+            <!-- form -->
+        </section>
+        <!-- content -->
+    </div>
+</div>
+

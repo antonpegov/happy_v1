@@ -1,0 +1,96 @@
+<header ng-show="show_themes" >
+    <div class="btn-group btn-group-justified hidden-xs">
+        <a href="#" ng-repeat="lang in langs" ng-click="changeTargetLang($index)" class="btn"
+           ng-class="{'btn-primary':btn[$index].state=='On','btn-info':btn[$index].state=='Off'}">
+            {{lang.names[user_lang]}}
+        </a>
+    </div><!--для большого экрана-->
+    <div class="btn-group btn-group-justified visible-xs-block">
+        <a href="#" ng-repeat="lang in langs" ng-click="changeTargetLang($index)" class="btn"
+           ng-class="{'btn-primary':btn[$index].state=='On','btn-info':btn[$index].state=='Off'}">
+            {{lang.code}}
+        </a>
+    </div><!--для маленького экрана-->
+</header><!--кнопочки-->
+<article ng-show="show_themes" class="l-content-small grid-fluid docs-content">
+    <div class="row">
+        <div class="page-body">
+            <div ng-repeat="theme in themes" class="col-sm-6 col-xs-12">
+                <div class="c8">
+                    <a  href="#" ng-click="run(theme._id)" md-button="md-button" class="hover-card is-button has-icon">
+                        <span class="hover-card-icon icon-number">{{$index+1}}</span>
+                        <h3>{{theme.names[target_lang]}}</h3>
+                        <p>{{theme.names[user_lang]}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div><!--для маленького экрана-->
+
+</article><!--темы-->
+
+<!-----------------------Main----------------------------------->
+
+
+<div ng-show="show_main" class="container">
+
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <div class="progress progress-striped active">
+                <div class="progress-bar" style="width: {{Progress.value}}%"></div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <!--<span class="pull-right" > количество жизней: {{Life.value}}</span>-->
+            <div class="progress my-reverse-class">
+                <div class="progress-bar progress-bar-success my-reverse-class" style="width: {{Life.value}}%"></div>
+            </div>
+        </div>
+    </div><!--Жизнь и прогресс-->
+    <div class="row">
+        <div class="col-lg-4 col-sm-3 col-xs-1"></div>
+        <div id="main_word" class="col-lg-4 col-sm-6 col-xs-10 text-center">
+            <a href="#" ng-click="" md-button="md-button" class="hover-card is-button">
+                <p class="help-block"></p>
+                <h2 class="">{{word[target_lang]}}</h2>
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-3 col-xs-1"></div>
+    </div><!--Вопрос-->
+    <div class="row">
+        <div ng-repeat="item in versions" class="col-xs-6 col-sm-6 col-md-6">
+            <a href="#" ng-click="shot(item._id)" md-button="md-button" class="hover-card is-button">
+                <h3>{{versions[$index][user_lang]}}</h3>
+            </a>
+        </div>
+    </div><!--Варианты ответа-->
+</div>
+
+<!------------------Results------------->
+
+<div ng-show="show_winner">
+    <div class="panel panel-success result">
+        <div class="panel-heading">Поздравляем!</div>
+            <div class="panel-body">
+                <div class="row marketing">
+                    <p>Вы неплохо разбираетесь в этой теме.</p>
+                </div>
+            <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <div class="grid-fluid c8">
+                    <a class="btn btn-md btn-success btn-block" ui-sref="main">
+                        На главную
+                    </a><p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <div class="grid-fluid c8">
+                    <a class="btn btn-md btn-success btn-block" ng-click="setup()" ui-sref="free">
+                        К темам
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

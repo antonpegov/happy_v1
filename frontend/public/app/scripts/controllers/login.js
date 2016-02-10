@@ -9,16 +9,16 @@
  */
 angular.module('happyTurtlesApp')
   .controller('LoginCtrl', function ($scope,auth,alert) {
+      $scope.login_form = true;
+      $scope.submit = function() {
 
-    $scope.submit = function() {
-
-      auth.login($scope.email,$scope.password)
-        .success(function(res){
-          alert('success','Welcome back!',' Добро пожаловать '
-          + res.user.email +'!');
-        })
-        .error(function(){
-          alert('warning','Opps!','Wrong login/password');
-        });
-    };
+        auth.login($scope.email,$scope.password)
+          .success(function(res){
+            alert('success','Welcome back!',' Добро пожаловать '
+            + res.user.email +'!');
+          })
+          .error(function(){
+            alert('warning','Opps!','Wrong login/password');
+          });
+      };
   });

@@ -35,12 +35,12 @@
 <div ng-show="show_main" class="container">
 
     <div class="row">
-        <div class="col-sm-6 col-md-6">
+        <div class="col-sm-6 col-md-6 col-xs-12">
             <div class="progress progress-striped active">
                 <div class="progress-bar" style="width: {{Progress.value}}%"></div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-6">
+        <div class="col-sm-6 col-md-6 col-xs-12">
             <!--<span class="pull-right" > количество жизней: {{Life.value}}</span>-->
             <div class="progress my-reverse-class">
                 <div class="progress-bar progress-bar-success my-reverse-class" style="width: {{Life.value}}%"></div>
@@ -58,10 +58,12 @@
         <div class="col-lg-4 col-sm-3 col-xs-1"></div>
     </div><!--Вопрос-->
     <div class="row">
-        <div ng-repeat="item in versions" class="col-xs-6 col-sm-6 col-md-6">
-            <a href="#" ng-click="shot(item._id)" md-button="md-button" class="hover-card is-button">
-                <h3>{{versions[$index][user_lang]}}</h3>
-            </a>
+        <div class="frame">
+            <div ng-repeat="item in versions" class="col-xs-6 col-sm-6 col-md-6">
+                <a href="#" ng-click="shot(item._id)" md-button="md-button" class="hover-card is-button">
+                    <h3>{{versions[$index][user_lang]}}</h3>
+                </a>
+            </div>
         </div>
     </div><!--Варианты ответа-->
 </div>
@@ -71,26 +73,26 @@
 <div ng-show="show_winner">
     <div class="panel panel-success result">
         <div class="panel-heading">Поздравляем!</div>
-            <div class="panel-body">
-                <div class="row marketing">
-                    <p>Вы неплохо разбираетесь в этой теме.</p>
-                </div>
+        <div class="panel-body">
+            <div class="row marketing">
+                <p>Вы неплохо разбираетесь в этой теме.</p>
+            </div>
             <div class="row">
-            <div class="col-sm-6 col-xs-12">
-                <div class="grid-fluid c8">
-                    <a class="btn btn-md btn-success btn-block" ui-sref="main">
-                        На главную
-                    </a><p>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="grid-fluid c8">
+                        <a class="btn btn-md btn-success btn-block" ui-sref="main">
+                            На главную
+                        </a><p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="grid-fluid c8">
+                        <a class="btn btn-md btn-success btn-block" ng-click="setup()" ui-sref="free">
+                            К темам
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-xs-12">
-                <div class="grid-fluid c8">
-                    <a class="btn btn-md btn-success btn-block" ng-click="setup()" ui-sref="free">
-                        К темам
-                    </a>
-                </div>
-            </div>
-        </div>
         </div>
     </div>
 </div>
