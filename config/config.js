@@ -1,7 +1,7 @@
 module.exports = {
 
-	ipaddress : process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
-	port      : process.env.OPENSHIFT_NODEJS_PORT || 1000,
+	ipaddress : process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
+	port      : process.env.OPENSHIFT_NODEJS_PORT || 8080,
 
     userSecret : 'some words...',
     adminSecret: 'Putin - Huilo, la-la-la-la-la-la-la-la!',
